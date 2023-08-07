@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "问诊记录",
-  "usingComponents": {
-    "custom-tabs": "../../components/custom-tabs/custom-tabs",
-    "uni-list-item": "../../uni_modules/uni-list/components/uni-list-item/uni-list-item",
-    "uni-list": "../../uni_modules/uni-list/components/uni-list/uni-list",
-    "uni-load-more": "../../uni_modules/uni-load-more/components/uni-load-more/uni-load-more"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "药品订单",
-  "usingComponents": {
-    "uni-countdown": "../../uni_modules/uni-countdown/components/uni-countdown/uni-countdown",
-    "uni-icons": "../../uni_modules/uni-icons/components/uni-icons/uni-icons",
-    "uni-rate": "../../uni_modules/uni-rate/components/uni-rate/uni-rate",
-    "scroll-page": "../../components/scroll-page/scroll-page"
-  }
-}

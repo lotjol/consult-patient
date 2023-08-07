@@ -1,1 +1,0 @@
-<view class="custom-tabs data-v-80524daf"><view wx:for="{{a}}" wx:for-item="tab" wx:key="b" bindtap="{{tab.c}}" class="{{[tab.d && 'active', 'custom-tabs-bar', 'data-v-80524daf']}}"><text class="tabs-bar-text data-v-80524daf">{{tab.a}}</text></view><view style="{{'left:' + b}}" class="custom-tabs-cursor data-v-80524daf"></view></view>

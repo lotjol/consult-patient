@@ -1,1 +1,0 @@
-<view class="custom-section data-v-d0088301" style="{{d}}"><view class="custom-section-header data-v-d0088301"><view class="section-header-title data-v-d0088301">{{a}}</view><view class="section-header-right data-v-d0088301"><slot name="right"/><uni-icons wx:if="{{b}}" class="data-v-d0088301" u-i="d0088301-0" bind:__l="__l" u-p="{{c}}"></uni-icons></view></view><slot/></view>

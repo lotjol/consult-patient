@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "极速问诊",
-  "usingComponents": {
-    "uni-list-item": "../../uni_modules/uni-list/components/uni-list-item/uni-list-item",
-    "uni-list": "../../uni_modules/uni-list/components/uni-list/uni-list",
-    "scroll-page": "../../components/scroll-page/scroll-page"
-  }
-}
