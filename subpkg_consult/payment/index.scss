@@ -36,8 +36,8 @@
 }
 
 :deep(.uni-icon-wrapper) {
-  padding: 0;
-  margin-right: -10rpx;
+  padding: 0 !important;
+  margin-right: -10rpx !important;
   font-size: 36rpx !important;
 }
 
@@ -66,13 +66,17 @@
   align-items: center;
   font-size: 28rpx;
 
-  :deep(.uni-radio-input),
-  radio {
-    transform: scale(0.75);
-    /* #ifndef MP */
-    margin-right: 4rpx;
-    /* #endif */
+  :deep(.uni-radio-input) {
+    transform: scale(0.9);
+    margin-right: 0 !important;
   }
+
+  /* #ifndef MP */
+  radio {
+    transform: scale(0.7);
+    margin-right: -5rpx !important;
+  }
+  /* #endif */
 }
 
 .next-step {

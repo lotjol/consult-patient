@@ -83,8 +83,18 @@
     padding: 10rpx 0 !important;
   }
 
+  :deep(.uni-list-item__content-title) {
+    font-size: 28rpx !important;
+    color: #c3c3c5 !important;
+  }
+
+  :deep(.uni-list-item__extra-text) {
+    font-size: 28rpx !important;
+    color: #333 !important;
+  }
+
   :deep(.uni-list-item__extra) {
-    width: 480rpx;
+    width: 480rpx !important;
     justify-content: flex-start !important;
   }
 
@@ -97,7 +107,7 @@
     .uni-button {
       height: 60rpx;
       line-height: 60rpx;
-      /* #ifdef */
+      /* #ifdef MP */
       line-height: 59rpx;
       /* #endif */
       margin: 0 0 0 30rpx;

@@ -143,19 +143,19 @@
 }
 
 :deep(.uni-list-item__content-title) {
-  font-size: 28rpx;
-  color: #3c3e42;
+  font-size: 30rpx !important;
+  color: #3c3e42 !important;
 }
 
 :deep(.uni-list-item__container) {
-  padding: 20rpx 0;
+  padding: 20rpx 0 !important;
 }
 
 :deep(.uni-icon-wrapper) {
-  padding-right: 0;
+  padding-right: 0 !important;
   color: #c3c3c5 !important;
 }
 
 :deep(.uni-icons) {
-  display: block;
+  display: block !important;
 }

@@ -202,6 +202,7 @@
             :border="false"
             title="设置"
             show-arrow
+            to="/pages/login/index"
             show-extra-icon
             :extra-icon="{
               customPrefix: 'icon-symbol',

@@ -61,10 +61,11 @@
           <uni-list-item border title="病情描述" note="头痛,头晕,恶心" />
         </uni-list>
       </uni-section>
-      <view class="payment-agreement">
+
+      <!-- <view class="payment-agreement">
         <radio color="#20c6b2" value="1" />
         我已同意<text style="color: #20c6b2">支付协议</text>
-      </view>
+      </view> -->
     </view>
     <!-- 下一步操作 -->
     <view class="next-step">

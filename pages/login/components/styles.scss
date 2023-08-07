@@ -17,10 +17,15 @@
     color: #16c2a3;
   }
 
-  :deep(.uni-radio-wrapper),
+  :deep(.uni-radio-wrapper) {
+    transform: scale(0.6);
+  }
+
+  /* #ifdef MP */
   radio {
     transform: scale(0.6);
   }
+  /* #endif */
 
   :deep(.uni-radio-input) {
     margin-right: 0 !important;
