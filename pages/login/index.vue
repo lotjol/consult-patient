@@ -4,7 +4,7 @@
   import customMobile from './components/mobile'
 
   // 登录类型索引值
-  const tabIndex = ref(1)
+  const tabIndex = ref(0)
   // 表单相关数据
   const tabMetas = reactive([
     {

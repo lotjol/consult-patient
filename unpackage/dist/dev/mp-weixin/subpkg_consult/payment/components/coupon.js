@@ -30,7 +30,7 @@ const _sfc_main = /* @__PURE__ */ Object.assign(__default__, {
           color: "#333",
           type: "closeempty"
         }),
-        b: common_vendor.sr(couponPopup, "f372b01b-0", {
+        b: common_vendor.sr(couponPopup, "e75071a8-0", {
           "k": "couponPopup"
         }),
         c: common_vendor.p({
@@ -40,5 +40,5 @@ const _sfc_main = /* @__PURE__ */ Object.assign(__default__, {
     };
   }
 });
-const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-f372b01b"], ["__file", "/Users/lotjol/www/consult-patient/优医问诊/subpkg_consult/payment/components/coupon.vue"]]);
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "/Users/lotjol/www/consult-patient/优医问诊/subpkg_consult/payment/components/coupon.vue"]]);
 wx.createComponent(Component);

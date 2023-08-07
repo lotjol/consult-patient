@@ -23,39 +23,39 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.feed-list-item.data-v-07a78e43 {
+.feed-list-item {
   padding: 40rpx 0;
   border-bottom: 1rpx solid #ededed;
 }
-.feed-list-item.data-v-07a78e43:last-child {
+.feed-list-item:last-child {
   border-bottom: none;
 }
-.feed-meta.data-v-07a78e43 {
+.feed-meta {
   display: flex;
   height: 80rpx;
   position: relative;
 }
-.doctor-avatar.data-v-07a78e43 {
+.doctor-avatar {
   width: 80rpx;
   height: 80rpx;
   border-radius: 50%;
 }
-.doctor-info.data-v-07a78e43 {
+.doctor-info {
   flex: 1;
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
   padding-left: 20rpx;
 }
-.doctor-info .name.data-v-07a78e43 {
+.doctor-info .name {
   font-size: 28rpx;
   color: #3c3e42;
 }
-.doctor-info .desc.data-v-07a78e43 {
+.doctor-info .desc {
   font-size: 24rpx;
   color: #c3c3c5;
 }
-.doctor-button.data-v-07a78e43 {
+.doctor-button {
   display: flex;
   width: 140rpx;
   height: 60rpx;
@@ -65,34 +65,34 @@
   border: 2rpx solid #2cb5a5;
   border-radius: 60rpx;
 }
-.feed-topic.data-v-07a78e43 {
+.feed-topic {
   line-height: 1;
   margin: 30rpx 0 24rpx;
   font-size: 32rpx;
   font-weight: 500;
   color: #121826;
 }
-.feed-relation.data-v-07a78e43 {
+.feed-relation {
   line-height: 1;
   margin: 24rpx 0 20rpx;
   font-size: 24rpx;
   color: #2cb5a5;
 }
-.feed-content.data-v-07a78e43 {
+.feed-content {
   font-size: 28rpx;
   color: #6f6f6f;
 }
-.feed-content .picture.data-v-07a78e43 {
+.feed-content .picture {
   display: flex;
   justify-content: space-between;
   padding: 20rpx 0;
 }
-.feed-content .uni-image.data-v-07a78e43 {
+.feed-content .uni-image {
   width: 212rpx;
   height: 212rpx;
   border-radius: 20rpx;
 }
-.feed-extra.data-v-07a78e43 {
+.feed-extra {
   font-size: 24rpx;
   color: #c3c3c5;
 }

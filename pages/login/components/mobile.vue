@@ -1,3 +1,5 @@
+<script setup></script>
+
 <template>
   <uni-forms class="login-form" ref="form">
     <uni-forms-item name="name">
@@ -30,8 +32,14 @@
   </uni-forms>
 </template>
 
-<script></script>
+<script>
+  export default {
+    options: {
+      styleIsolation: 'shared',
+    },
+  }
+</script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import './styles.scss';
 </style>

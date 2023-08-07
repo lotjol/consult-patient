@@ -105,6 +105,9 @@
 .consult-list-item .consult-footer .uni-button.data-v-c14d5a54 {
   height: 60rpx;
   line-height: 60rpx;
+
+  line-height: 59rpx;
+
   margin: 0 0 0 30rpx;
   font-size: 26rpx;
   color: #16c2a3;

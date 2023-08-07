@@ -8,7 +8,12 @@ const _easycom_uni_icons = () => "../../../uni_modules/uni-icons/components/uni-
 if (!Math) {
   _easycom_uni_icons();
 }
-const _sfc_main = {
+const __default__ = {
+  options: {
+    styleIsolation: "shared"
+  }
+};
+const _sfc_main = /* @__PURE__ */ Object.assign(__default__, {
   __name: "feed",
   setup(__props) {
     return (_ctx, _cache) => {
@@ -36,6 +41,6 @@ const _sfc_main = {
       };
     };
   }
-};
-const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-07a78e43"], ["__file", "/Users/lotjol/www/consult-patient/优医问诊/pages/index/components/feed.vue"]]);
+});
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "/Users/lotjol/www/consult-patient/优医问诊/pages/index/components/feed.vue"]]);
 wx.createComponent(Component);

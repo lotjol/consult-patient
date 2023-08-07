@@ -171,7 +171,15 @@
   </view>
 </template>
 
-<style lang="scss" scoped>
+<script>
+  export default {
+    options: {
+      styleIsolation: 'shared',
+    },
+  }
+</script>
+
+<style lang="scss">
   .feed-list-item {
     padding: 40rpx 0;
     border-bottom: 1rpx solid #ededed;

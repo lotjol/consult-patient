@@ -48,48 +48,5 @@
 </template>
 
 <style lang="scss" scoped>
-  .archive-page {
-    padding: 30rpx;
-
-    :deep(.uni-forms-item__label) {
-      font-size: 32rpx;
-      color: #3c3e42;
-    }
-
-    :deep(.uni-forms-item--border) {
-      border-top: none;
-      border-bottom: 1rpx solid #ededed;
-    }
-
-    :deep(.uni-easyinput__content-input) {
-      height: 36px;
-    }
-
-    :deep(.uni-forms-item__content) {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-    }
-
-    :deep(.checklist-text) {
-      font-size: 32rpx !important;
-      margin-left: 20rpx !important;
-    }
-
-    :deep(.uni-data-checklist) {
-      padding-left: 10px;
-    }
-
-    :deep(.radio__inner) {
-      transform: scale(1.25);
-    }
-
-    :deep(.checkbox__inner) {
-      transform: scale(1.25);
-    }
-  }
-
-  .uni-button {
-    margin-top: 60rpx;
-  }
+  @import './index.scss';
 </style>

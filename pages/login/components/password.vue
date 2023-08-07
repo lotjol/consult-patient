@@ -35,6 +35,14 @@
   </uni-forms>
 </template>
 
-<style lang="scss" scoped>
+<script>
+  export default {
+    options: {
+      styleIsolation: 'shared',
+    },
+  }
+</script>
+
+<style lang="scss">
   @import './styles.scss';
 </style>

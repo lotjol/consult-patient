@@ -23,13 +23,13 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.payment-container.data-v-093f1cef {
+.payment-container {
   min-height: 400rpx;
   border-radius: 30rpx 30rpx 0 0;
   background-color: #fff;
   padding: 10rpx 30rpx 40rpx;
 }
-.payment-container .payment-header.data-v-093f1cef {
+.payment-container .payment-header {
   height: 88rpx;
   line-height: 88rpx;
   text-align: center;
@@ -38,28 +38,28 @@
   color: #333;
   position: relative;
 }
-.payment-container .uni-icons-close.data-v-093f1cef {
+.payment-container .uni-icons-close {
   position: absolute;
   top: 2rpx;
   right: 0;
 }
-.payment-container .order-amount.data-v-093f1cef {
+.payment-container .order-amount {
   padding: 10rpx 0 10rpx;
   text-align: center;
   font-size: 40rpx;
   color: #333;
 }
-.payment-container.data-v-093f1cef .uni-list-item__container {
+.payment-container .uni-list-item__container {
   padding: 40rpx 0 !important;
 }
-.payment-container.data-v-093f1cef .uni-list-item__icon {
+.payment-container .uni-list-item__icon {
   margin-right: 0;
 }
-.payment-container .uni-button.data-v-093f1cef {
+.payment-container .uni-button {
   margin-top: 40rpx;
 }
-.payment-container.data-v-093f1cef .uni-radio-input,
-.payment-container radio.data-v-093f1cef {
+.payment-container .uni-radio-input,
+.payment-container radio {
   transform: scale(0.9);
   margin-top: 1rpx;
 }

@@ -62,7 +62,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .coupon-container {
     min-height: 400rpx;
     border-radius: 30rpx 30rpx 0 0;

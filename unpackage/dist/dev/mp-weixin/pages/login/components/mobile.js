@@ -1,6 +1,10 @@
 "use strict";
 const common_vendor = require("../../../common/vendor.js");
-const _sfc_main = {};
+const _sfc_main = {
+  options: {
+    styleIsolation: "shared"
+  }
+};
 if (!Array) {
   const _easycom_uni_forms_item2 = common_vendor.resolveComponent("uni-forms-item");
   const _easycom_uni_forms2 = common_vendor.resolveComponent("uni-forms");
@@ -11,7 +15,7 @@ const _easycom_uni_forms = () => "../../../uni_modules/uni-forms/components/uni-
 if (!Math) {
   (_easycom_uni_forms_item + _easycom_uni_forms)();
 }
-function _sfc_render(_ctx, _cache) {
+function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
     a: common_vendor.p({
       name: "name"
@@ -19,8 +23,8 @@ function _sfc_render(_ctx, _cache) {
     b: common_vendor.p({
       name: "name"
     }),
-    c: common_vendor.sr("form", "173d236c-0")
+    c: common_vendor.sr("form", "6cf0c424-0")
   };
 }
-const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-173d236c"], ["__file", "/Users/lotjol/www/consult-patient/优医问诊/pages/login/components/mobile.vue"]]);
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "/Users/lotjol/www/consult-patient/优医问诊/pages/login/components/mobile.vue"]]);
 wx.createComponent(Component);

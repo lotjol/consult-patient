@@ -97,6 +97,9 @@
     .uni-button {
       height: 60rpx;
       line-height: 60rpx;
+      /* #ifdef */
+      line-height: 59rpx;
+      /* #endif */
       margin: 0 0 0 30rpx;
       font-size: 26rpx;
       color: #16c2a3;

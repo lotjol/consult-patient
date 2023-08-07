@@ -13,7 +13,7 @@ const customMobile = () => "./components/mobile.js";
 const _sfc_main = {
   __name: "index",
   setup(__props) {
-    const tabIndex = common_vendor.ref(1);
+    const tabIndex = common_vendor.ref(0);
     const tabMetas = common_vendor.reactive([
       {
         title: "密码登录",

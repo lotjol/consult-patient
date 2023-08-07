@@ -17,7 +17,8 @@
     color: #16c2a3;
   }
 
-  :deep(.uni-radio-wrapper) {
+  :deep(.uni-radio-wrapper),
+  radio {
     transform: scale(0.6);
   }
 

@@ -23,13 +23,13 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.coupon-container.data-v-f372b01b {
+.coupon-container {
   min-height: 400rpx;
   border-radius: 30rpx 30rpx 0 0;
   background-color: #fff;
   padding: 10rpx 30rpx 40rpx;
 }
-.coupon-container .coupon-header.data-v-f372b01b {
+.coupon-container .coupon-header {
   height: 88rpx;
   line-height: 88rpx;
   text-align: center;
@@ -37,35 +37,35 @@
   color: #333;
   position: relative;
 }
-.coupon-container .uni-icons-close.data-v-f372b01b {
+.coupon-container .uni-icons-close {
   position: absolute;
   top: 2rpx;
   right: 0;
 }
-.coupon-container .coupon-list.data-v-f372b01b {
+.coupon-container .coupon-list {
   margin-bottom: 40rpx;
 }
-.coupon-container .coupon-list-item.data-v-f372b01b {
+.coupon-container .coupon-list-item {
   position: relative;
   padding: 30rpx 0;
   font-size: 32rpx;
   color: #6f6f6f;
 }
-.coupon-container .uni-radio.data-v-f372b01b {
+.coupon-container .uni-radio {
   position: absolute;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
 }
-.coupon-container.data-v-f372b01b .uni-radio-input,
-.coupon-container radio.data-v-f372b01b {
+.coupon-container .uni-radio-input,
+.coupon-container radio {
   transform: scale(0.9);
   margin-top: -1rpx;
 }
-.coupon-container .coupon-content.data-v-f372b01b {
+.coupon-container .coupon-content {
   display: flex;
 }
-.coupon-container .coupon.data-v-f372b01b {
+.coupon-container .coupon {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -76,7 +76,7 @@
   background-image: linear-gradient(135deg, #76d6bf 0%, #3cc3a3 100%);
   position: relative;
 }
-.coupon-container .coupon.data-v-f372b01b::after {
+.coupon-container .coupon::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -87,17 +87,17 @@
   background-color: #fff;
   transform: translateY(-50%);
 }
-.coupon-container .value.data-v-f372b01b {
+.coupon-container .value {
   font-size: 50rpx;
 }
-.coupon-container .symbol.data-v-f372b01b {
+.coupon-container .symbol {
   font-size: 80%;
   margin-right: 6rpx;
 }
-.coupon-container .condition.data-v-f372b01b {
+.coupon-container .condition {
   font-size: 30rpx;
 }
-.coupon-container .description.data-v-f372b01b {
+.coupon-container .description {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -106,7 +106,7 @@
   font-size: 26rpx;
   color: #c3c3c5;
 }
-.coupon-container .description .title.data-v-f372b01b {
+.coupon-container .description .title {
   display: block;
   font-size: 32rpx;
   color: #121826;

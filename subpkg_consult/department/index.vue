@@ -85,40 +85,5 @@
 </template>
 
 <style lang="scss" scoped>
-  .department-page {
-    display: flex;
-    height: 100vh;
-    /* #ifdef H5 */
-    height: calc(100vh - 45px);
-    /* #endif */
-    border-top: 1rpx solid #eee;
-  }
-
-  .department-primary {
-    width: 220rpx;
-    background-color: #f6f6f6;
-
-    .department-item {
-      line-height: 1.5;
-      padding: 20rpx 40rpx;
-      font-size: 28rpx;
-      color: #6f6f6f;
-
-      &.active {
-        color: #16c2a3;
-        background-color: #fff;
-      }
-    }
-  }
-
-  .department-secondary {
-    flex: 1;
-
-    .department-item {
-      line-height: 1.5;
-      padding: 20rpx 40rpx;
-      font-size: 28rpx;
-      color: #3c3e42;
-    }
-  }
+  @import './index.scss';
 </style>

@@ -26,6 +26,9 @@
 .department-page.data-v-bbef9934 {
   display: flex;
   height: 100vh;
+
+
+
   border-top: 1rpx solid #eee;
 }
 .department-primary.data-v-bbef9934 {

@@ -74,7 +74,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .payment-container {
     min-height: 400rpx;
     border-radius: 30rpx 30rpx 0 0;
