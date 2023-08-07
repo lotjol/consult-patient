@@ -35,6 +35,14 @@
   </uni-forms>
 </template>
 
+<script>
+  export default {
+    options: {
+      styleIsolation: 'shared',
+    },
+  }
+</script>
+
 <style lang="scss">
   @import './styles.scss';
 </style>
