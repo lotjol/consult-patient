@@ -25,7 +25,7 @@
   </view>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .custom-sticky {
     position: sticky;
     z-index: 100;

@@ -33,7 +33,7 @@
   </view>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .custom-section {
     padding: 40rpx 30rpx 30rpx;
     margin-bottom: 20rpx;

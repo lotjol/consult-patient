@@ -119,7 +119,7 @@
   </scroll-view>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
   :deep(.uni-scroll-view-content) {
     display: flex;
     flex-direction: column;
