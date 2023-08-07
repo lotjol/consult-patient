@@ -54,14 +54,6 @@
   </uni-popup>
 </template>
 
-<script>
-  export default {
-    options: {
-      styleIsolation: 'shared',
-    },
-  }
-</script>
-
 <style lang="scss">
   .coupon-container {
     min-height: 400rpx;

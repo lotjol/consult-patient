@@ -171,14 +171,6 @@
   </view>
 </template>
 
-<script>
-  export default {
-    options: {
-      styleIsolation: 'shared',
-    },
-  }
-</script>
-
 <style lang="scss">
   .feed-list-item {
     padding: 40rpx 0;
