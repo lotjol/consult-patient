@@ -1,0 +1,78 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/wiki/index",
+    "pages/notify/index",
+    "pages/my/index",
+    "pages/login/index"
+  ],
+  "subPackages": [
+    {
+      "root": "subpkg_consult",
+      "pages": [
+        "quickly/index",
+        "department/index",
+        "description/index",
+        "patient/index",
+        "payment/index",
+        "im/index",
+        "list/index",
+        "detail/index"
+      ]
+    },
+    {
+      "root": "subpkg_archive",
+      "pages": [
+        "list/index",
+        "add/index"
+      ]
+    },
+    {
+      "root": "subpkg_medicine",
+      "pages": [
+        "detail/index",
+        "list/index"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "优医问诊",
+    "navigationBarBackgroundColor": "#fff",
+    "backgroundColor": "#F8F8F8",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "color": "#6f6f6f",
+    "selectedColor": "#16c2a3",
+    "borderStyle": "white",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/index/index",
+        "iconPath": "static/tabbar/home-default.png",
+        "selectedIconPath": "static/tabbar/home-active.png"
+      },
+      {
+        "text": "健康百科",
+        "pagePath": "pages/wiki/index",
+        "iconPath": "static/tabbar/wiki-default.png",
+        "selectedIconPath": "static/tabbar/wiki-active.png"
+      },
+      {
+        "text": "消息通知",
+        "pagePath": "pages/notify/index",
+        "iconPath": "static/tabbar/notify-default.png",
+        "selectedIconPath": "static/tabbar/notify-active.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/my/index",
+        "iconPath": "static/tabbar/my-default.png",
+        "selectedIconPath": "static/tabbar/my-active.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

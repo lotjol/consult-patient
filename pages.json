@@ -1,0 +1,150 @@
+{
+  "pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "优医问诊",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/wiki/index",
+      "style": {
+        "navigationBarTitleText": "健康百科"
+      }
+    },
+    {
+      "path": "pages/notify/index",
+      "style": {
+        "navigationBarTitleText": "消息通知"
+      }
+    },
+    {
+      "path": "pages/my/index",
+      "style": {
+        "navigationBarTitleText": "我的",
+        "navigationStyle": "custom"
+      }
+    }, {
+      "path": "pages/login/index",
+      "style": {
+        "navigationBarTitleText": "登录"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "优医问诊",
+    "navigationBarBackgroundColor": "#fff",
+    "backgroundColor": "#F8F8F8",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "color": "#6f6f6f",
+    "selectedColor": "#16c2a3",
+    "borderStyle": "white",
+    "list": [{
+        "text": "首页",
+        "pagePath": "pages/index/index",
+        "iconPath": "static/tabbar/home-default.png",
+        "selectedIconPath": "static/tabbar/home-active.png"
+      },
+      {
+        "text": "健康百科",
+        "pagePath": "pages/wiki/index",
+        "iconPath": "static/tabbar/wiki-default.png",
+        "selectedIconPath": "static/tabbar/wiki-active.png"
+      },
+      {
+        "text": "消息通知",
+        "pagePath": "pages/notify/index",
+        "iconPath": "static/tabbar/notify-default.png",
+        "selectedIconPath": "static/tabbar/notify-active.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/my/index",
+        "iconPath": "static/tabbar/my-default.png",
+        "selectedIconPath": "static/tabbar/my-active.png"
+      }
+    ]
+  },
+  "subPackages": [{
+      "root": "subpkg_consult",
+      "pages": [{
+          "path": "quickly/index",
+          "style": {
+            "navigationBarTitleText": "极速问诊"
+          }
+        },
+        {
+          "path": "department/index",
+          "style": {
+            "navigationBarTitleText": "选择科室"
+          }
+        }, {
+          "path": "description/index",
+          "style": {
+            "navigationBarTitleText": "图文问诊"
+          }
+        }, {
+          "path": "patient/index",
+          "style": {
+            "navigationBarTitleText": "选择患者"
+          }
+        }, {
+          "path": "payment/index",
+          "style": {
+            "navigationBarTitleText": "支付"
+          }
+        }, {
+          "path": "im/index",
+          "style": {
+            "navigationBarTitleText": "药品订单"
+          }
+        }, {
+          "path": "list/index",
+          "style": {
+            "navigationBarTitleText": "问诊记录"
+          }
+        },
+        {
+          "path": "detail/index",
+          "style": {
+            "navigationBarTitleText": "问诊详情"
+          }
+        }
+      ]
+    },
+    {
+      "root": "subpkg_archive",
+      "pages": [{
+        "path": "list/index",
+        "style": {
+          "navigationBarTitleText": "家庭档案"
+        }
+      }, {
+        "path": "add/index",
+        "style": {
+          "navigationBarTitleText": "添加患者"
+        }
+      }]
+    },
+    {
+      "root": "subpkg_medicine",
+      "pages": [{
+        "path": "detail/index",
+        "style": {
+          "navigationBarTitleText": "等待付款"
+        }
+      }, {
+        "path": "list/index",
+        "style": {
+          "navigationBarTitleText": "订单列表"
+        }
+      }]
+    }
+  ],
+  "uniIdRouter": {}
+}

@@ -1,0 +1,225 @@
+.consult-page {
+  padding-bottom: 155rpx;
+
+  .list-title {
+    margin: 30rpx 0 10rpx;
+    font-weight: 500;
+    color: #121826;
+  }
+
+  :deep(.uni-list-item__container) {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  :deep(.uni-list-item__content-title) {
+    font-size: 32rpx !important;
+    color: #3c3e42 !important;
+  }
+
+  :deep(.uni-list-item__extra-text) {
+    font-size: 32rpx !important;
+    color: #848484 !important;
+  }
+
+  :deep(.uni-list-item__content-note) {
+    font-size: 30rpx !important;
+    color: #848484 !important;
+  }
+
+  :deep(.uni-icon-wrapper) {
+    padding: 0 !important;
+    font-size: 36rpx !important;
+    margin-top: 2rpx;
+  }
+}
+
+.page-header {
+  padding: 0 30rpx;
+  // 需要一个高为300的背景图
+  background-color: #eaf8f6;
+
+  .order-status {
+    line-height: 1;
+    padding: 30rpx 0 0 6rpx;
+    font-size: 32rpx;
+    position: relative;
+
+    .title {
+      display: block;
+      margin-bottom: 20rpx;
+      color: #121826;
+      font-weight: 500;
+    }
+
+    .tips {
+      line-height: 1.5;
+      font-size: 24rpx;
+      color: #6f6f6f;
+    }
+
+    .status {
+      position: absolute;
+      top: 30rpx;
+      right: 0;
+      color: #16c2a3;
+    }
+
+    .color-1 {
+    }
+    .color-2 {
+    }
+    .color-2 {
+    }
+  }
+
+  .consult-doctor {
+    position: relative;
+    bottom: -30rpx;
+
+    .title {
+      font-size: 28rpx;
+      color: #3c3e42;
+    }
+
+    .doctor {
+      display: flex;
+      align-items: center;
+      height: 160rpx;
+      padding: 0 20rpx;
+      margin-top: 20rpx;
+      border-radius: 20rpx;
+      background-color: #fff;
+      box-shadow: 0px 0px 22px 0px rgba(210, 210, 210, 0.5);
+      position: relative;
+
+      .doctor-avatar {
+        width: 100rpx;
+        height: 100rpx;
+        border-radius: 50%;
+      }
+
+      .doctor-info {
+        height: 100rpx;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: 12rpx;
+        flex: 1;
+      }
+
+      .meta {
+        display: flex;
+        align-items: center;
+      }
+
+      .name {
+        font-size: 36rpx;
+        color: #3c3e42;
+        margin-right: 10rpx;
+      }
+
+      .title {
+        font-size: 24rpx;
+        color: #6f6f6f;
+      }
+
+      .tag {
+        line-height: 1;
+        padding: 8rpx 16rpx 6rpx;
+        font-size: 22rpx;
+        color: #fff;
+        border-radius: 6rpx;
+        background-color: #677fff;
+      }
+
+      .hospital {
+        font-size: 26rpx;
+        color: #3c3e42;
+        margin-left: 10rpx;
+      }
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      right: 16rpx;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.consult-patient {
+  padding: 30rpx 30rpx 0;
+  background-color: #fff;
+}
+
+.order-info {
+  padding: 0 30rpx;
+  margin-top: 30rpx;
+  background-color: #fff;
+  overflow: hidden;
+
+  .uni-list-text-red {
+    color: #eb5757;
+  }
+}
+
+.notice-bar {
+  text-align: center;
+  margin-top: 30rpx;
+  position: sticky;
+  bottom: 145rpx;
+}
+
+.toolbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  align-items: center;
+  height: 88rpx;
+  padding: 30rpx 40rpx;
+  background-color: #fff;
+
+  .buttons {
+    flex: 1;
+    display: flex;
+  }
+
+  .delete-botton {
+    display: flex;
+    flex-direction: column;
+    color: #848484;
+    font-size: 24rpx;
+    margin: 0 60rpx 0 30rpx;
+  }
+
+  .uni-button {
+    flex: 1;
+    padding: 0 30rpx;
+
+    &.minor {
+      color: #16c2a3;
+      margin-right: 20rpx;
+      border: 1rpx solid #ededed;
+      background-color: #fafafa;
+    }
+  }
+
+  .total-amount {
+    display: flex;
+    align-items: center;
+    width: 270rpx;
+    font-size: 28rpx;
+    color: #3c3e42;
+  }
+
+  .number {
+    font-size: 40rpx;
+    color: #eb5757;
+    margin-left: 10rpx;
+  }
+}

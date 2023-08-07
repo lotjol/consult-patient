@@ -1,0 +1,315 @@
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.im-page.data-v-776eef57 {
+  padding-bottom: 200rpx;
+}
+.im-status.data-v-776eef57 {
+  font-size: 26rpx;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+.im-status .status.data-v-776eef57 {
+  display: flex;
+  justify-content: space-between;
+  padding: 30rpx;
+  background-color: #fff;
+}
+.im-status .waiting.data-v-776eef57 {
+  justify-content: center;
+  color: #16c2a3;
+  background-color: #eaf8f6;
+}
+.im-status .label.data-v-776eef57 {
+  color: #16c2a3;
+}
+.im-status .wrap.data-v-776eef57 {
+  display: flex;
+  align-items: center;
+}
+.im-status .time.data-v-776eef57 {
+  display: flex;
+  color: #3c3e42;
+}
+.im-status.data-v-776eef57 .uni-countdown {
+  margin-left: 6rpx;
+}
+.patient-info.data-v-776eef57 {
+  padding: 30rpx;
+  margin: 30rpx 30rpx 0;
+  border-radius: 20rpx;
+  background-color: #fff;
+}
+.patient-info .header.data-v-776eef57 {
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #ededed;
+}
+.patient-info .header .title.data-v-776eef57 {
+  font-size: 32rpx;
+  color: #121826;
+  margin-bottom: 10rpx;
+}
+.patient-info .header .note.data-v-776eef57 {
+  font-size: 26rpx;
+  color: #848484;
+}
+.patient-info .content.data-v-776eef57 {
+  margin-top: 20rpx;
+  font-size: 26rpx;
+}
+.patient-info .content .list-item.data-v-776eef57 {
+  display: flex;
+  margin-top: 10rpx;
+}
+.patient-info .content .label.data-v-776eef57 {
+  width: 130rpx;
+  color: #3c3e42;
+}
+.patient-info .content .note.data-v-776eef57 {
+  flex: 1;
+  line-height: 1.4;
+  color: #848484;
+}
+.message-container.data-v-776eef57 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 30rpx;
+}
+.message-container .message-tips.data-v-776eef57 {
+  line-height: 1;
+  padding: 20rpx 30rpx;
+  margin-top: 40rpx;
+  font-size: 24rpx;
+  border-radius: 70rpx;
+  color: #848484;
+  background-color: #fff;
+}
+.message-container .message-tips .label.data-v-776eef57 {
+  color: #16c2a3;
+}
+.message-container .message-item.data-v-776eef57 {
+  display: flex;
+  align-self: flex-start;
+  margin-top: 40rpx;
+}
+.message-container .message-item .im-avatar.data-v-776eef57 {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+.message-container .message-item .im-message.data-v-776eef57 {
+  flex: 1;
+  margin-left: 20rpx;
+}
+.message-container .message-item .time.data-v-776eef57 {
+  font-size: 26rpx;
+  color: #979797;
+}
+.message-container .message-item .text.data-v-776eef57 {
+  max-width: 420rpx;
+  line-height: 1.75;
+  padding: 30rpx 40rpx;
+  margin-top: 16rpx;
+  border-radius: 20rpx;
+  font-size: 30rpx;
+  color: #3c3e42;
+  background-color: #fff;
+  position: relative;
+}
+.message-container .message-item .text.data-v-776eef57::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -25rpx;
+  width: 26rpx;
+  height: 52rpx;
+  background-image: url(https://consult-patient.oss-cn-hangzhou.aliyuncs.com/static/images/im-arrow-1.png);
+  background-size: contain;
+}
+.message-container .message-item.reverse.data-v-776eef57 {
+  flex-direction: row-reverse;
+  align-self: flex-end;
+}
+.message-container .message-item.reverse .im-message.data-v-776eef57 {
+  margin-left: 0;
+  margin-right: 20rpx;
+}
+.message-container .message-item.reverse .time.data-v-776eef57 {
+  text-align: right;
+}
+.message-container .message-item.reverse .text.data-v-776eef57 {
+  background-color: #16c2a3;
+  color: #fff;
+}
+.message-container .message-item.reverse .text.data-v-776eef57::after {
+  left: auto;
+  right: -25rpx;
+  background-image: url(https://consult-patient.oss-cn-hangzhou.aliyuncs.com/static/images/im-arrow-2.png);
+}
+.message-container .e-prescription.data-v-776eef57 {
+  width: 100%;
+  margin-top: 40rpx;
+  border-radius: 20rpx;
+  background-color: #eaf8f6;
+}
+.message-container .e-prescription .prescription-content.data-v-776eef57 {
+  padding: 30rpx;
+  border-radius: 20rpx;
+  background-color: #fff;
+}
+.message-container .e-prescription .list-title.data-v-776eef57 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+}
+.message-container .e-prescription .list-item.data-v-776eef57 {
+  margin-bottom: 10rpx;
+  font-size: 26rpx;
+  color: #848484;
+}
+.message-container .e-prescription .label.data-v-776eef57 {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  font-size: 32rpx;
+  color: #121826;
+}
+.message-container .e-prescription .unit.data-v-776eef57 {
+  width: 200rpx;
+}
+.message-container .e-prescription .extra.data-v-776eef57 {
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  color: #848484;
+}
+.message-container .e-prescription.data-v-776eef57 .uniui-right {
+  margin-top: 4rpx;
+}
+.message-container .e-prescription .dividing-line.data-v-776eef57 {
+  padding-bottom: 20rpx;
+  margin-bottom: 20rpx;
+  border-bottom: 1rpx solid #ededed;
+}
+.message-container .e-prescription .uni-link.data-v-776eef57 {
+  text-align: center;
+  line-height: 1;
+  padding: 30rpx 0;
+  color: #16c2a3;
+  font-size: 32rpx;
+}
+.message-container .doctor-rating.data-v-776eef57 {
+  align-self: stretch;
+  padding: 30rpx 30rpx 40rpx;
+  border-radius: 20rpx;
+  background-color: #fff;
+  margin-top: 30rpx;
+}
+.message-container .doctor-rating .title.data-v-776eef57 {
+  text-align: center;
+  font-size: 30rpx;
+  color: #121826;
+}
+.message-container .doctor-rating .subtitle.data-v-776eef57 {
+  text-align: center;
+  font-size: 24rpx;
+  color: #6f6f6f;
+  margin: 10rpx 0 20rpx;
+}
+.message-container .doctor-rating .rating.data-v-776eef57 {
+  display: flex;
+  justify-content: center;
+}
+.message-container .doctor-rating .text.data-v-776eef57 {
+  margin-top: 20rpx;
+  position: relative;
+}
+.message-container .doctor-rating .word-count.data-v-776eef57 {
+  position: absolute;
+  bottom: 20rpx;
+  right: 30rpx;
+  line-height: 1;
+  font-size: 24rpx;
+  color: #6f6f6f;
+}
+.message-container .doctor-rating .uni-textarea.data-v-776eef57 {
+  width: 100%;
+  padding: 30rpx;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+  background-color: #f6f6f6;
+}
+.message-container .doctor-rating .anonymous.data-v-776eef57 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20rpx 0;
+  color: #6f6f6f;
+  font-size: 24rpx;
+}
+.message-container .doctor-rating .uni-radio.data-v-776eef57 {
+  transform: scale(0.6);
+  margin-right: 0;
+}
+.message-container .doctor-rating.data-v-776eef57 .uni-radio-input {
+  margin-right: 0 !important;
+}
+.message-container .doctor-rating .uni-button[disabled].data-v-776eef57 {
+  color: #a6dbd5;
+  background-color: #eaf8f6;
+}
+.message-bar.data-v-776eef57 {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  padding: 30rpx 30rpx 40rpx;
+  background-color: #fff;
+}
+.message-bar .uni-input.data-v-776eef57 {
+  flex: 1;
+  height: 88rpx;
+  padding: 0 44rpx;
+  border-radius: 88rpx;
+  font-size: 32rpx;
+  color: #3c3e42;
+  background-color: #f6f6f6;
+}
+.message-bar .image-button.data-v-776eef57 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 88rpx;
+  width: 88rpx;
+  margin-left: 30rpx;
+}
+.message-bar .uni-button.data-v-776eef57 {
+  flex: 1;
+}

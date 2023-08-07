@@ -1,0 +1,23 @@
+.user-login {
+  padding: 60rpx;
+}
+
+.login-type {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  line-height: 1;
+  margin: 40rpx 0 80rpx;
+
+  .title {
+    font-size: 48rpx;
+    color: #121826;
+  }
+
+  .type {
+    color: #3c3e42;
+    font-size: 30rpx;
+    display: flex;
+    align-items: center;
+  }
+}

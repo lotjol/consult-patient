@@ -1,0 +1,118 @@
+.index-page {
+  min-height: 260rpx;
+  background-image: url(https://consult-patient.oss-cn-hangzhou.aliyuncs.com/static/images/index-page-header-bg.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  // padding-top: 50rpx;
+  /* #ifdef H5 */
+  padding-top: 10rpx;
+  /* #endif */
+}
+
+.page-navbar {
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 34rpx;
+  color: #fff;
+}
+
+.search-bar {
+  height: 80rpx;
+  margin-top: 10rpx;
+  /* #ifdef H5 */
+  margin-top: 0rpx;
+  /* #endif */
+  position: relative;
+
+  .input {
+    height: 100%;
+    padding-left: 80rpx;
+    padding-right: 40rpx;
+    border-radius: 80rpx;
+    background-color: #fff;
+    font-size: 26rpx;
+    color: #3c3e42;
+    box-shadow: 0px 10rpx 22rpx rgba(0, 0, 0, 0.1);
+  }
+
+  .input-placeholder {
+    color: #979797;
+  }
+}
+
+.quick-entry {
+  display: flex;
+  justify-content: space-around;
+  line-height: 1;
+  padding: 50rpx 0 40rpx;
+
+  &-item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .text {
+    margin: 20rpx 0 10rpx;
+    font-size: 28rpx;
+    color: #121826;
+  }
+
+  .small {
+    font-size: 22rpx;
+    color: #848484;
+    -webkit-text-size-adjust: none;
+  }
+
+  &-icon {
+    width: 92rpx;
+    height: 92rpx;
+  }
+}
+
+.quick-view {
+  display: flex;
+  justify-content: space-around;
+  line-height: 1;
+  padding: 10rpx 0;
+
+  &-item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .text {
+    margin: 20rpx 0 10rpx;
+    font-size: 28rpx;
+    color: #121826;
+  }
+
+  &-icon {
+    width: 62rpx;
+    height: 62rpx;
+  }
+}
+
+.banner-placeholder {
+  height: 200rpx;
+  margin: 20rpx 0;
+  position: relative;
+  z-index: 101;
+
+  .uni-swiper {
+    height: 200rpx;
+  }
+
+  .banner-image {
+    width: 100%;
+    height: 200rpx;
+    // border-radius: 30rpx;
+  }
+}
+
+.doctor-feeds {
+  // position: relative;
+}

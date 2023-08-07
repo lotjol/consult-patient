@@ -1,0 +1,271 @@
+.medicine-page {
+  padding-bottom: 155rpx;
+}
+
+.page-header {
+  padding: 0 30rpx 30rpx;
+  // 需要一个高为300的背景图
+  background-color: #eaf8f6;
+  overflow: hidden;
+
+  .order-status {
+    display: flex;
+    justify-content: space-between;
+    line-height: 1;
+    padding: 30rpx 0 0 6rpx;
+    font-size: 32rpx;
+
+    .label {
+      color: #121826;
+    }
+
+    .status {
+      color: #16c2a3;
+    }
+  }
+
+  .order-shippment {
+    line-height: 1;
+    padding: 30rpx;
+    background-color: #fff;
+    border-radius: 20rpx;
+    margin-top: 30rpx;
+    position: relative;
+
+    .region {
+      display: flex;
+      align-items: center;
+      font-size: 26rpx;
+      color: #6f6f6f;
+    }
+
+    .detail {
+      margin: 24rpx 0;
+      font-size: 34rpx;
+      color: #121826;
+    }
+
+    .receiver {
+      font-size: 26rpx;
+      color: #121826;
+    }
+
+    .marker {
+      font-size: 28rpx;
+      color: #16c2a3;
+    }
+
+    .datetime {
+      // margin-left: 10rpx;
+      margin-top: 20rpx;
+      font-size: 24rpx;
+      color: #c3c3c5;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      right: 16rpx;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.order-shop {
+  padding: 20rpx 30rpx;
+  margin: 10rpx 0;
+  line-height: 1;
+  font-size: 32rpx;
+  color: #121826;
+  font-weight: 500;
+
+  .alt {
+    font-size: 24rpx;
+    color: #979797;
+    margin-left: 10rpx;
+  }
+}
+
+.medicine-list {
+  padding: 0 30rpx;
+  background-color: #fff;
+}
+
+.medicine-list-item {
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #ededed;
+  position: relative;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .medicine-cover {
+    width: 180rpx;
+    height: 160rpx;
+    float: left;
+  }
+
+  .medicine-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 160rpx;
+    padding-left: 20rpx;
+
+    .name {
+      font-size: 30rpx;
+      font-weight: 500;
+      color: #121826;
+    }
+
+    .unit {
+      color: #979797;
+      font-size: 28rpx;
+      display: flex;
+      align-items: center;
+
+      &.symbol::before {
+        content: '处方药';
+        line-height: 1;
+        padding: 8rpx 10rpx;
+        margin-right: 10rpx;
+        border-radius: 4rpx;
+        font-size: 24rpx;
+        color: #fff;
+        background-color: #16c2a3;
+      }
+    }
+
+    .price {
+      color: #eb5757;
+      font-size: 32rpx;
+    }
+  }
+
+  .quantity {
+    top: 30rpx;
+    right: 0;
+    position: absolute;
+
+    font-size: 30rpx;
+    color: #121826;
+  }
+
+  .guide {
+    clear: both;
+    padding: 20rpx;
+    margin-top: 30rpx;
+    font-size: 28rpx;
+    color: #848484;
+    border-radius: 10rpx;
+    background-color: #f6f6f6;
+  }
+}
+
+.order-info {
+  padding: 0 30rpx;
+  margin-top: 30rpx;
+  background-color: #fff;
+
+  .right-text {
+    display: flex;
+    align-items: center;
+  }
+
+  .copy {
+    line-height: 1;
+    padding: 6rpx 20rpx 4rpx;
+    margin-right: 20rpx;
+    font-size: 24rpx;
+    color: #16c2a3;
+    background-color: #fafafa;
+    border-radius: 40rpx;
+    border: 1rpx solid #16c2a3;
+  }
+
+  .number {
+    font-size: 32rpx;
+    color: #848484;
+  }
+
+  :deep(.uni-list-item__container) {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  :deep(.uni-list-item__content-title) {
+    font-size: 32rpx !important;
+    color: #3c3e42 !important;
+  }
+
+  :deep(.uni-list-item__extra-text) {
+    font-size: 32rpx !important;
+    color: #848484 !important;
+  }
+
+  :deep(.uni-icon-wrapper) {
+    padding: 0 !important;
+    font-size: 36rpx !important;
+    margin-top: 2rpx;
+  }
+}
+
+.notice-bar {
+  text-align: center;
+  margin-top: 30rpx;
+  position: sticky;
+  bottom: 145rpx;
+}
+
+.toolbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  align-items: center;
+  height: 88rpx;
+  padding: 30rpx 40rpx;
+  background-color: #fff;
+
+  .buttons {
+    flex: 1;
+    display: flex;
+  }
+
+  .delete-botton {
+    display: flex;
+    flex-direction: column;
+    color: #848484;
+    font-size: 24rpx;
+    margin: 0 60rpx 0 30rpx;
+  }
+
+  .uni-button {
+    flex: 1;
+    padding: 0 30rpx;
+
+    &.minor {
+      color: #16c2a3;
+      margin-right: 20rpx;
+      border: 1rpx solid #ededed;
+      background-color: #fafafa;
+    }
+  }
+
+  .total-amount {
+    display: flex;
+    align-items: center;
+    width: 270rpx;
+    font-size: 28rpx;
+    color: #3c3e42;
+  }
+
+  .number {
+    font-size: 40rpx;
+    color: #eb5757;
+    margin-left: 10rpx;
+  }
+}

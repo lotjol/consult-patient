@@ -1,0 +1,344 @@
+.im-page {
+  padding-bottom: 200rpx;
+}
+
+.im-status {
+  font-size: 26rpx;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+
+  .status {
+    display: flex;
+    justify-content: space-between;
+    padding: 30rpx;
+    background-color: #fff;
+  }
+
+  .waiting {
+    justify-content: center;
+    color: #16c2a3;
+    background-color: #eaf8f6;
+  }
+
+  .label {
+    color: #16c2a3;
+  }
+
+  .wrap {
+    display: flex;
+    align-items: center;
+  }
+
+  .time {
+    display: flex;
+    color: #3c3e42;
+  }
+
+  :deep(.uni-countdown) {
+    margin-left: 6rpx;
+  }
+}
+
+.patient-info {
+  padding: 30rpx;
+  margin: 30rpx 30rpx 0;
+  border-radius: 20rpx;
+  background-color: #fff;
+
+  .header {
+    padding-bottom: 20rpx;
+    border-bottom: 1rpx solid #ededed;
+
+    .title {
+      font-size: 32rpx;
+      color: #121826;
+      margin-bottom: 10rpx;
+    }
+
+    .note {
+      font-size: 26rpx;
+      color: #848484;
+    }
+  }
+
+  .content {
+    margin-top: 20rpx;
+    font-size: 26rpx;
+
+    .list-item {
+      display: flex;
+      margin-top: 10rpx;
+    }
+
+    .label {
+      width: 130rpx;
+      color: #3c3e42;
+    }
+
+    .note {
+      flex: 1;
+      line-height: 1.4;
+      color: #848484;
+    }
+  }
+}
+
+.message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 30rpx;
+
+  .message-tips {
+    line-height: 1;
+    padding: 20rpx 30rpx;
+    margin-top: 40rpx;
+    font-size: 24rpx;
+    border-radius: 70rpx;
+    color: #848484;
+    background-color: #fff;
+
+    .label {
+      color: #16c2a3;
+    }
+  }
+
+  .message-item {
+    display: flex;
+    align-self: flex-start;
+    margin-top: 40rpx;
+
+    .im-avatar {
+      width: 80rpx;
+      height: 80rpx;
+      border-radius: 50%;
+    }
+
+    .im-message {
+      flex: 1;
+      margin-left: 20rpx;
+    }
+
+    .time {
+      font-size: 26rpx;
+      color: #979797;
+    }
+
+    .text {
+      max-width: 420rpx;
+      line-height: 1.75;
+      padding: 30rpx 40rpx;
+      margin-top: 16rpx;
+      border-radius: 20rpx;
+      font-size: 30rpx;
+      color: #3c3e42;
+      background-color: #fff;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -25rpx;
+        width: 26rpx;
+        height: 52rpx;
+        background-image: url(https://consult-patient.oss-cn-hangzhou.aliyuncs.com/static/images/im-arrow-1.png);
+        background-size: contain;
+      }
+    }
+
+    &.reverse {
+      flex-direction: row-reverse;
+      align-self: flex-end;
+
+      .im-message {
+        margin-left: 0;
+        margin-right: 20rpx;
+      }
+
+      .time {
+        text-align: right;
+      }
+
+      .text {
+        background-color: #16c2a3;
+        color: #fff;
+
+        &::after {
+          left: auto;
+          right: -25rpx;
+          background-image: url(https://consult-patient.oss-cn-hangzhou.aliyuncs.com/static/images/im-arrow-2.png);
+        }
+      }
+    }
+  }
+
+  .e-prescription {
+    width: 100%;
+    margin-top: 40rpx;
+    border-radius: 20rpx;
+    background-color: #eaf8f6;
+
+    .prescription-content {
+      padding: 30rpx;
+      border-radius: 20rpx;
+      background-color: #fff;
+    }
+
+    .list-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10rpx;
+    }
+
+    .list-item {
+      margin-bottom: 10rpx;
+      font-size: 26rpx;
+      color: #848484;
+    }
+
+    .label {
+      display: flex;
+      justify-content: space-between;
+      flex: 1;
+      font-size: 32rpx;
+      color: #121826;
+    }
+
+    .unit {
+      width: 200rpx;
+    }
+
+    .extra {
+      display: flex;
+      align-items: center;
+      font-size: 26rpx;
+      color: #848484;
+    }
+
+    :deep(.uniui-right) {
+      margin-top: 4rpx;
+    }
+
+    .dividing-line {
+      padding-bottom: 20rpx;
+      margin-bottom: 20rpx;
+      border-bottom: 1rpx solid #ededed;
+    }
+
+    .uni-link {
+      text-align: center;
+      line-height: 1;
+      padding: 30rpx 0;
+      color: #16c2a3;
+      font-size: 32rpx;
+    }
+  }
+
+  .doctor-rating {
+    align-self: stretch;
+    padding: 30rpx 30rpx 40rpx;
+    border-radius: 20rpx;
+    background-color: #fff;
+    margin-top: 30rpx;
+
+    .title {
+      text-align: center;
+      font-size: 30rpx;
+      color: #121826;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 24rpx;
+      color: #6f6f6f;
+      margin: 10rpx 0 20rpx;
+    }
+
+    .rating {
+      display: flex;
+      justify-content: center;
+    }
+
+    .text {
+      margin-top: 20rpx;
+      position: relative;
+    }
+
+    .word-count {
+      position: absolute;
+      bottom: 20rpx;
+      right: 30rpx;
+      line-height: 1;
+      font-size: 24rpx;
+      color: #6f6f6f;
+    }
+
+    .uni-textarea {
+      width: 100%;
+      padding: 30rpx;
+      box-sizing: border-box;
+      border-radius: 20rpx;
+      background-color: #f6f6f6;
+    }
+
+    .anonymous {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20rpx 0;
+      color: #6f6f6f;
+      font-size: 24rpx;
+    }
+
+    .uni-radio {
+      transform: scale(0.6);
+      margin-right: 0;
+    }
+
+    :deep(.uni-radio-input) {
+      margin-right: 0 !important;
+    }
+
+    .uni-button[disabled] {
+      color: #a6dbd5;
+      background-color: #eaf8f6;
+    }
+  }
+}
+
+.message-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  padding: 30rpx 30rpx 40rpx;
+  background-color: #fff;
+
+  .uni-input {
+    flex: 1;
+    height: 88rpx;
+    padding: 0 44rpx;
+    border-radius: 88rpx;
+    font-size: 32rpx;
+    color: #3c3e42;
+    background-color: #f6f6f6;
+  }
+
+  .image-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88rpx;
+    width: 88rpx;
+    margin-left: 30rpx;
+  }
+
+  .uni-button {
+    flex: 1;
+  }
+}

@@ -1,0 +1,161 @@
+.my-page {
+  min-height: 500rpx;
+  padding: 150rpx 30rpx 10rpx;
+  background-image: linear-gradient(
+    180deg,
+    rgba(44, 181, 165, 0.46) 0,
+    rgba(44, 181, 165, 0) 500rpx
+  );
+}
+
+.user-profile {
+  display: flex;
+  height: 140rpx;
+}
+
+.user-avatar {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  line-height: 1;
+  padding: 30rpx 0;
+  margin-left: 24rpx;
+
+  .nickname {
+    font-size: 36rpx;
+    font-weight: 500;
+    color: #333;
+  }
+
+  .icon-edit {
+    color: #16c2a3;
+    font-size: 24rpx;
+  }
+}
+
+.user-data {
+  display: flex;
+  justify-content: space-around;
+
+  height: 100rpx;
+  text-align: center;
+  line-height: 1;
+  margin: 50rpx 0 30rpx;
+
+  .data-number {
+    display: block;
+    margin-bottom: 10rpx;
+    font-size: 48rpx;
+    color: #333;
+  }
+
+  .data-label {
+    display: block;
+    font-size: 24rpx;
+    color: #979797;
+  }
+}
+
+.doctor-brief {
+  display: flex;
+  align-items: center;
+  height: 160rpx;
+
+  .doctor-avatar {
+    width: 100rpx;
+    height: 100rpx;
+    margin-left: 10rpx;
+    border-radius: 50%;
+  }
+
+  .doctor-info {
+    height: 100rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 12rpx;
+    flex: 1;
+  }
+
+  .name {
+    font-size: 36rpx;
+    color: #3c3e42;
+    margin-right: 10rpx;
+  }
+
+  .title {
+    font-size: 24rpx;
+    color: #6f6f6f;
+  }
+
+  .tag {
+    line-height: 1;
+    padding: 2rpx 16rpx;
+    font-size: 22rpx;
+    color: #fff;
+    border-radius: 6rpx;
+    background-color: #677fff;
+  }
+
+  .hospital {
+    font-size: 26rpx;
+    color: #3c3e42;
+    margin-left: 10rpx;
+  }
+
+  .doctor-contcat {
+    line-height: 1;
+    padding: 16rpx 24rpx;
+    border-radius: 100rpx;
+    font-size: 24rpx;
+    color: #2cb5a5;
+    background-color: rgba(44, 181, 165, 0.1);
+  }
+}
+
+.uni-swiper {
+  height: 200rpx;
+}
+
+.drug-order {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  padding: 30rpx 20rpx 10rpx;
+
+  .status-icon {
+    width: 54rpx;
+    height: 54rpx;
+  }
+
+  .status-label {
+    display: block;
+    font-size: 24rpx;
+    margin-top: 10rpx;
+    color: #3c3e42;
+  }
+}
+
+:deep(.uni-list-item__content-title) {
+  font-size: 28rpx;
+  color: #3c3e42;
+}
+
+:deep(.uni-list-item__container) {
+  padding: 20rpx 0;
+}
+
+:deep(.uni-icon-wrapper) {
+  padding-right: 0;
+  color: #c3c3c5 !important;
+}
+
+:deep(.uni-icons) {
+  display: block;
+}

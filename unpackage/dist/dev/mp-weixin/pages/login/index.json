@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "登录",
+  "usingComponents": {
+    "uni-icons": "../../uni_modules/uni-icons/components/uni-icons/uni-icons",
+    "custom-password": "./components/password",
+    "custom-mobile": "./components/mobile"
+  }
+}

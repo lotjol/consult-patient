@@ -1,0 +1,113 @@
+.consult-page {
+  height: 100vh;
+  /* #ifdef H5 */
+  height: calc(100vh - 44px);
+  /* #endif */
+  background-color: #f6f6f6;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.consult-status-tabs {
+  padding: 20rpx 30rpx 0;
+  background-color: #fff;
+
+  :deep(.custom-tabs) {
+    justify-content: space-evenly;
+  }
+}
+
+.uni-scroll-view {
+  flex: 1;
+  overflow: hidden;
+}
+
+.consult-list {
+  padding: 30rpx;
+}
+
+.consult-list-item {
+  // height: 715rpx;
+  padding: 0 30rpx;
+  margin-bottom: 30rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+
+  .consult-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100rpx;
+    padding: 0 30rpx;
+    margin: 0 -30rpx;
+    font-size: 30rpx;
+    border-bottom: 1rpx solid #f5f5f5;
+
+    .label {
+      display: flex;
+      align-items: center;
+      color: #000;
+      font-weight: 500;
+    }
+
+    .doctor-avatar {
+      width: 40rpx;
+      height: 40rpx;
+      margin-right: 10rpx;
+      border-radius: 50%;
+    }
+
+    .status {
+      color: #121826;
+    }
+
+    .color-1 {
+      color: #16c2a3;
+    }
+
+    .color-2 {
+      color: #979797;
+    }
+
+    .color-3 {
+      color: #f2994a;
+    }
+  }
+
+  .consult-body {
+    padding: 20rpx 0;
+  }
+
+  :deep(.uni-list-item__container) {
+    padding: 10rpx 0 !important;
+  }
+
+  :deep(.uni-list-item__extra) {
+    width: 480rpx;
+    justify-content: flex-start !important;
+  }
+
+  .consult-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 30rpx 0;
+    border-top: 1rpx solid #f5f5f5;
+
+    .uni-button {
+      height: 60rpx;
+      line-height: 60rpx;
+      margin: 0 0 0 30rpx;
+      font-size: 26rpx;
+      color: #16c2a3;
+      border: 1rpx solid #16c2a3;
+      background-color: #fff;
+
+      &.minor {
+        color: #3c3e42;
+        border-color: #ededed;
+        background-color: #fafafa;
+      }
+    }
+  }
+}

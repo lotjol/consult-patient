@@ -1,0 +1,72 @@
+.uni-forms-item {
+  height: 100rpx;
+  margin-bottom: 20rpx !important;
+  border-bottom: 1rpx solid #ededed;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.agreement {
+  font-size: 26rpx;
+  color: #3c3e42;
+  display: flex;
+  align-items: center;
+  margin-left: -10rpx;
+
+  .link {
+    color: #16c2a3;
+  }
+
+  :deep(.uni-radio-wrapper) {
+    transform: scale(0.6);
+  }
+
+  :deep(.uni-radio-input) {
+    margin-right: 0 !important;
+  }
+}
+
+:deep(.uni-forms-item__content) {
+  display: flex;
+  align-items: center;
+}
+
+:deep(input) {
+  width: 100%;
+  font-size: 28rpx;
+  color: #121826;
+}
+
+:deep(.uni-forms-item__error) {
+  width: 100%;
+  padding-top: 10rpx;
+  border-top: 2rpx solid #eb5757;
+  color: #eb5757;
+  font-size: 24rpx;
+  transition: none;
+}
+
+.text-button {
+  width: 300rpx;
+  padding-left: 10rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #16c2a3;
+  border-left: 2rpx solid #eee;
+}
+
+.uni-button {
+  margin-top: 40rpx;
+
+  &[disabled] {
+    background-color: #fafafa;
+    color: #d9dbde;
+  }
+}
+
+.uni-navigator {
+  margin-top: 30rpx;
+  text-align: center;
+  color: #848484;
+  font-size: 28rpx;
+}

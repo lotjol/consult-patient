@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "优医问诊",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "custom-tabs": "../../components/custom-tabs/custom-tabs",
+    "custom-sticky": "../../components/custom-sticky/custom-sticky",
+    "scroll-page": "../../components/scroll-page/scroll-page",
+    "cp-focus": "./components/focus",
+    "cp-recommend": "./components/recommend",
+    "cp-fat-loss": "./components/fat-loss",
+    "cp-diet": "./components/diet"
+  }
+}

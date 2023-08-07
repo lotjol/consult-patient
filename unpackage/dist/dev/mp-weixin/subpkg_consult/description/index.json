@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "图文问诊",
+  "usingComponents": {
+    "uni-icons": "../../uni_modules/uni-icons/components/uni-icons/uni-icons",
+    "uni-file-picker": "../../uni_modules/uni-file-picker/components/uni-file-picker/uni-file-picker",
+    "scroll-page": "../../components/scroll-page/scroll-page"
+  }
+}
