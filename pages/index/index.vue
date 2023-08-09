@@ -1,10 +1,14 @@
 <script setup>
   import { ref, computed } from 'vue'
 
+  import { feedApi } from '@/apis/home'
+
   import cpFocus from './components/focus.vue'
   import cpRecommend from './components/recommend.vue'
   import cpFatLoss from './components/fat-loss.vue'
   import cpDiet from './components/diet.vue'
+
+  feedApi({ type: 'recommend', current: 1, pageSize: 10 })
 
   const { safeAreaInsets } = uni.getSystemInfoSync()
 
