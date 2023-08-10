@@ -66,7 +66,6 @@
 
   // 倒计时结束
   function onCountdownTimeup() {
-    console.log(11111)
     buttonText.value = '重新获取验证码'
     showCountdown.value = false
   }
