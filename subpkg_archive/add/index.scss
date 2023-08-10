@@ -25,18 +25,18 @@
     margin-left: 20rpx !important;
   }
 
-  // :deep(.uni-forms-item__error) {
-  //   position: absolute !important;
-  //   left: -220rpx !important;
-  //   right: 0 !important;
-  //   top: auto !important;
-  //   padding-top: 10rpx !important;
-  //   margin-top: 20rpx;
-  //   border-top: 2rpx solid #eb5757;
-  //   color: #eb5757;
-  //   font-size: 24rpx;
-  //   transition: none;
-  // }
+  :deep(.uni-forms-item__error) {
+    position: absolute !important;
+    left: -220rpx !important;
+    right: 0 !important;
+    top: auto !important;
+    padding-top: 10rpx !important;
+    margin-top: 20rpx;
+    border-top: 2rpx solid #eb5757;
+    color: #eb5757;
+    font-size: 24rpx;
+    transition: none;
+  }
 
   :deep(.uni-data-checklist) {
     display: flex;
