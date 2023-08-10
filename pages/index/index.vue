@@ -1,7 +1,7 @@
 <script setup>
   import { ref, computed } from 'vue'
 
-  import { feedApi } from '@/apis/home'
+  import { feedApi } from '@/services/home'
 
   import cpFocus from './components/focus.vue'
   import cpRecommend from './components/recommend.vue'

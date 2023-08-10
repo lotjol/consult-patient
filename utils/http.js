@@ -3,7 +3,7 @@ import { useUserStore } from '@/stores/user'
 import clone from 'luch-request/src/lib/utils/clone'
 
 // 登录检测白名单
-const whiteList = ['/login/password']
+const whiteList = ['/login/password', '/login', '/code']
 // tabBar页面路径
 const tabBarList = [
   'pages/index/index',

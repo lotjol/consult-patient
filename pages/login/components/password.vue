@@ -1,7 +1,7 @@
 <script setup>
   import { ref, computed } from 'vue'
   import { onLoad } from '@dcloudio/uni-app'
-  import { loginApi } from '@/apis/user'
+  import { loginByPassword } from '@/services/user'
 
   import { useUserStore } from '@/stores/user'
   import { utils } from '@/utils/utils'
@@ -55,7 +55,7 @@
       if (!agreementChecked.value) return uni.utils.toast('请勾选协议', 'error')
 
       // 提交数据
-      const { code, data, message } = await loginApi(formData)
+      const { code, data, message } = await loginByPassword(formData)
       // 检测接口是否调用成功
       if (code !== 10000) return uni.utils.toast(message)
 
