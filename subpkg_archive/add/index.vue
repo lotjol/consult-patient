@@ -35,11 +35,9 @@
           />
         </uni-forms-item>
         <uni-forms-item label="默认就诊人" name="name">
-          <uni-data-checkbox
-            selectedColor="#16C2A3"
-            multiple
-            :localdata="[{ value: 0 }]"
-          />
+          <view class="uni-switch">
+            <switch checked color="#20c6b2" style="transform: scale(0.7)" />
+          </view>
         </uni-forms-item>
         <button class="uni-button">保存</button>
       </uni-forms>
