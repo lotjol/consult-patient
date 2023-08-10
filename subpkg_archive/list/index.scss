@@ -28,6 +28,10 @@
   &.active {
     background-color: rgba(44, 181, 165, 0.1);
     // border: 1rpx solid #16c2a3;
+
+    .default {
+      display: block;
+    }
   }
 
   .archive-info {
@@ -54,6 +58,7 @@
   }
 
   .default {
+    display: none;
     height: 36rpx;
     line-height: 36rpx;
     text-align: center;
