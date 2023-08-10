@@ -1,6 +1,11 @@
 .archive-page {
   padding: 30rpx;
 
+  :deep(.uni-forms-item) {
+    padding-top: 30rpx !important;
+    padding-bottom: 20rpx !important;
+  }
+
   :deep(.uni-forms-item__label) {
     font-size: 32rpx;
     color: #3c3e42;
@@ -15,18 +20,27 @@
     height: 36px;
   }
 
-  :deep(.uni-forms-item__content) {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-
   :deep(.checklist-text) {
     font-size: 32rpx !important;
     margin-left: 20rpx !important;
   }
 
+  // :deep(.uni-forms-item__error) {
+  //   position: absolute !important;
+  //   left: -220rpx !important;
+  //   right: 0 !important;
+  //   top: auto !important;
+  //   padding-top: 10rpx !important;
+  //   margin-top: 20rpx;
+  //   border-top: 2rpx solid #eb5757;
+  //   color: #eb5757;
+  //   font-size: 24rpx;
+  //   transition: none;
+  // }
+
   :deep(.uni-data-checklist) {
+    display: flex;
+    height: 100%;
     padding-left: 10px;
   }
 
