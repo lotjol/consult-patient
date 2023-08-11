@@ -81,7 +81,7 @@
 
 <style lang="scss">
   .doctor-list {
-    height: 490rpx;
+    height: 480rpx;
     padding-top: 20rpx;
     background-color: #f6f7f9;
   }
@@ -91,7 +91,7 @@
     align-items: center;
     height: 60rpx;
     padding: 0 15rpx 0 30rpx;
-    margin-bottom: 20rpx;
+    margin-bottom: 10rpx;
     font-size: 28rpx;
 
     .title {
