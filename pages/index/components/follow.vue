@@ -1,9 +1,13 @@
 <script setup>
   import customFeed from './feed.vue'
+  import customDoctor from './doctor.vue'
 </script>
 
 <template>
-  <custom-feed />
+  <view>
+    <custom-doctor />
+    <custom-feed />
+  </view>
 </template>
 
 <style lang="scss"></style>

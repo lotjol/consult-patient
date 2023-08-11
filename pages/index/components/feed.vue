@@ -174,6 +174,7 @@
 <style lang="scss">
   .feed-list-item {
     padding: 40rpx 0;
+    margin: 0 30rpx;
     border-bottom: 1rpx solid #ededed;
 
     &:last-child {
@@ -214,8 +215,8 @@
   .doctor-button {
     display: flex;
     width: 140rpx;
-    height: 60rpx;
-    line-height: 60rpx;
+    height: 56rpx;
+    line-height: 56rpx;
     font-size: 24rpx;
     color: #2cb5a5 !important;
     border: 2rpx solid #2cb5a5 !important;

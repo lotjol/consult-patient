@@ -3,8 +3,8 @@
   background-image: url(https://consult-patient.oss-cn-hangzhou.aliyuncs.com/static/images/index-page-header-bg.png);
   background-size: contain;
   background-repeat: no-repeat;
-  padding-left: 30rpx;
-  padding-right: 30rpx;
+  // padding-left: 30rpx;
+  // padding-right: 30rpx;
   // padding-top: 50rpx;
   /* #ifdef H5 */
   padding-top: 10rpx;
@@ -14,12 +14,14 @@
 .page-navbar {
   height: 88rpx;
   line-height: 88rpx;
+  padding: 0 30rpx;
   font-size: 34rpx;
   color: #fff;
 }
 
 .search-bar {
   height: 80rpx;
+  padding: 0 30rpx;
   margin-top: 10rpx;
   /* #ifdef H5 */
   margin-top: 0rpx;
@@ -46,7 +48,7 @@
   display: flex;
   justify-content: space-around;
   line-height: 1;
-  padding: 50rpx 0 40rpx;
+  padding: 50rpx 30rpx 40rpx;
 
   &-item {
     display: flex;
@@ -76,7 +78,7 @@
   display: flex;
   justify-content: space-around;
   line-height: 1;
-  padding: 10rpx 0;
+  padding: 10rpx 30rpx;
 
   &-item {
     display: flex;
@@ -98,6 +100,7 @@
 
 .banner-placeholder {
   height: 200rpx;
+  padding: 0 30rpx;
   margin: 20rpx 0;
   position: relative;
   z-index: 101;
