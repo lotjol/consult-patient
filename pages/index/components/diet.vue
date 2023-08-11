@@ -1,7 +1,9 @@
+<script setup>
+  import customFeed from './feed.vue'
+</script>
+
 <template>
-  <view>feeds: 饮食ddddd</view>
+  <custom-feed />
 </template>
 
-<script></script>
-
-<style></style>
+<style lang="scss" scoped></style>

@@ -169,7 +169,7 @@
         <uni-load-more
           status="loading"
           color="#C3C3C5"
-          icon-size="16"
+          :icon-size="16"
           :content-text="{
             contentdown: '上拉显示更多',
             contentrefresh: '数据正在加载中',
