@@ -1,8 +1,7 @@
 <script setup>
   import { ref } from 'vue'
   import { onShow } from '@dcloudio/uni-app'
-
-  import { patientListApi } from '@/services/patinet'
+  import { patientListApi, removePatientApi } from '@/services/patinet'
 
   // 患者列表
   const patinetList = ref([])
@@ -34,6 +33,17 @@
     // 展示页面内容
     pageShow.value = true
   }
+
+  // 滑动操作点击
+  async function onSwipeActionClick(id, index) {
+    // 删除患者接口
+    const { code, message } = await removePatientApi(id)
+    // 检测接口是否调用成功
+    if (code !== 10000) return uni.utils.toast(message)
+
+    // 视图中移除刚刚删除的患者
+    patinetList.value.splice(index, 1)
+  }
 </script>
 
 <template>
@@ -43,9 +53,10 @@
 
       <uni-swipe-action>
         <uni-swipe-action-item
-          v-for="patient in patinetList"
+          v-for="(patient, index) in patinetList"
           :key="patient.id"
           :right-options="swipeOptions"
+          @click="onSwipeActionClick(patient.id, index)"
         >
           <view
             :class="{ active: patient.defaultFlag === 1 }"
@@ -62,7 +73,7 @@
             </view>
             <view class="archive-info">
               <text class="gender">{{ patient.genderValue }}</text>
-              <text class="age">{{ patient.age }}</text>
+              <text class="age">{{ patient.age }}岁</text>
             </view>
             <navigator
               class="edit-link"

@@ -1,15 +1,25 @@
 <script setup>
   import { ref } from 'vue'
+  import { onLoad } from '@dcloudio/uni-app'
+  import {
+    addPatientApi,
+    patientDetailApi,
+    updatePatientApi,
+  } from '@/services/patinet'
 
   // uni-form 组件
   const formRef = ref()
+
   // 表单数据
   const formData = ref({
-    name: '',
-    idCard: '',
+    name: '张三',
+    idCard: '130634198504060931',
     gender: 1,
-    defaultFlag: [],
+    defaultFlag: 0,
   })
+
+  // 患者ID
+  const patientID = ref('')
 
   // 表单验证规则
   const formRules = {
@@ -25,22 +35,92 @@
     idCard: {
       rules: [
         { required: true, errorMessage: '请输入身份证号' },
-        { pattern: '^\\d{18}$', errorMessage: '身份证号格式不正确' },
+        {
+          pattern:
+            '^[1-9]\\d{5}(?:18|19|20)\\d{2}(?:0[1-9]|10|11|12)(?:0[1-9]|[1-2]\\d|30|31)\\d{3}[\\dXx]$',
+          errorMessage: '身份证号格式不正确',
+        },
       ],
     },
     gender: {
-      rules: [{ required: true, errorMessage: '请勾选患者姓名' }],
+      rules: [
+        { required: true, errorMessage: '请勾选患者姓名' },
+        {
+          validateFunction(rule, value, data, callback) {
+            console.log(data.idCard.slice(16, 17) % 2 === value)
+            if (data.idCard.slice(16, 17) % 2 !== value) {
+              callback('选择的性别与身份号中性别不一致')
+            }
+
+            return true
+          },
+        },
+      ],
     },
   }
+
+  // 页面加载生命周期
+  onLoad((query) => {
+    // 获取地址参数中的患者ID
+    patientID.value = query.id
+    // 获取患者信息
+    getPatientDetail()
+  })
 
   // 提交表单数据
   async function onFormSubmit() {
     try {
-      const formData = await formRef.value.validate()
-      console.log(formData)
-    } catch (e) {
-      //TODO handle the exception
+      // 验证表单数据
+      await formRef.value.validate()
+      // 添加患者
+      patientID.value ? updatePatient() : addPatient()
+    } catch (err) {
+      console.error(err)
     }
+  }
+
+  // 切换 switch 组件
+  function onSwitchChange(ev) {
+    // 是否设置为默认就诊患人
+    formData.value.defaultFlag = ev.detail.value ? 1 : 0
+  }
+
+  // 添加患者信息
+  async function addPatient() {
+    // 添加患者接口
+    const { code, message } = await addPatientApi(formData.value)
+    // 检测接口是否调用成功
+    if (code !== 10000) return uni.utils.toast(message)
+
+    // 跳转到患者列表页面
+    uni.navigateBack()
+  }
+
+  // 获取患者详情信息
+  async function getPatientDetail() {
+    // 是否存在患者 ID
+    if (!patientID.value) return
+    // 有ID说明当前处于编辑状态，修改页面标题
+    uni.setNavigationBarTitle({ title: '编辑患者' })
+
+    // 患者详情接口
+    const {
+      code,
+      data: { genderValue, age, ...rest },
+    } = await patientDetailApi(patientID.value)
+
+    // 渲染患者信息
+    formData.value = rest
+  }
+
+  // 编辑（更新）患者信息
+  async function updatePatient() {
+    // 更新患者信息接口
+    const { code, message } = await updatePatientApi(formData.value)
+    // 检测接口是否调用成功
+    if (code !== 10000) return uni.utils.toast(message)
+    // 跳转到患者列表页面
+    uni.navigateBack()
   }
 </script>
 
@@ -84,9 +164,15 @@
             ]"
           />
         </uni-forms-item>
-        <uni-forms-item label="默认就诊人" name="name">
+        <uni-forms-item label="默认就诊人" name="">
           <view class="uni-switch">
-            <switch checked color="#20c6b2" style="transform: scale(0.7)" />
+            <switch
+              @change="onSwitchChange"
+              :checked="formData.defaultFlag === 1"
+              value="0"
+              color="#20c6b2"
+              style="transform: scale(0.7)"
+            />
           </view>
         </uni-forms-item>
         <button @click="onFormSubmit" class="uni-button">保存</button>
