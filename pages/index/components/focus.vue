@@ -1,8 +1,9 @@
 <script setup>
-  import cpFeed from './feed.vue'
+  import customFeed from './feed.vue'
 </script>
+
 <template>
-  <cp-feed />
+  <custom-feed />
 </template>
 
-<style></style>
+<style lang="scss" scoped></style>

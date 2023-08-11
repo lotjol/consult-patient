@@ -1,10 +1,10 @@
 <script setup>
   import { ref, computed } from 'vue'
 
-  import cpFocus from './components/focus.vue'
-  import cpRecommend from './components/recommend.vue'
-  import cpFatLoss from './components/fat-loss.vue'
-  import cpDiet from './components/diet.vue'
+  import customFocus from './components/focus.vue'
+  import customRecommend from './components/recommend.vue'
+  import customFatLoss from './components/fat-loss.vue'
+  import customDiet from './components/diet.vue'
 
   const { safeAreaInsets } = uni.getSystemInfoSync()
 
@@ -12,7 +12,6 @@
   const feedTabs = ref([
     { label: '关注', rendered: true },
     { label: '推荐', rendered: false },
-    { label: '护肤品', rendered: false },
     { label: '减脂', rendered: false },
     { label: '饮食', rendered: false },
   ])
@@ -141,10 +140,10 @@
         <custom-sticky :offset-top="safeAreaInsets.top + 'px'">
           <custom-tabs @click="onFeedTabChange" :list="feedTabs"></custom-tabs>
         </custom-sticky>
-        <cp-focus v-show="tabIndex === 0" v-if="feedTabs[0].rendered" />
-        <cp-recommend v-show="tabIndex === 1" v-if="feedTabs[1].rendered" />
-        <cp-fat-loss v-show="tabIndex === 2" v-if="feedTabs[2].rendered" />
-        <cp-diet v-show="tabIndex === 3" v-if="feedTabs[3].rendered" />
+        <custom-focus v-show="tabIndex === 0" v-if="feedTabs[0].rendered" />
+        <custom-recommend v-show="tabIndex === 1" v-if="feedTabs[1].rendered" />
+        <custom-fat-loss v-show="tabIndex === 2" v-if="feedTabs[2].rendered" />
+        <custom-diet v-show="tabIndex === 3" v-if="feedTabs[3].rendered" />
       </view>
     </view>
   </scroll-page>

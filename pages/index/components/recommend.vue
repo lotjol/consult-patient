@@ -1,7 +1,9 @@
+<script setup>
+  import customFeed from './feed.vue'
+</script>
+
 <template>
-  <view>feeds: 推荐</view>
+  <custom-feed />
 </template>
 
-<script></script>
-
-<style></style>
+<style lang="scss" scoped></style>
