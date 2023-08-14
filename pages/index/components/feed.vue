@@ -1,165 +1,58 @@
 <script setup>
-  import { computed } from 'vue'
+  import { ref, onMounted } from 'vue'
+  import { feedListApi } from '@/services/home'
+
+  const feedList = ref([])
+
+  // 生命周期（组件中不要使用 onLoad 生命周期）
+  onMounted(() => {
+    //获取首页信息流
+    getFeedList()
+  })
+
+  async function getFeedList() {
+    // 信息流接口
+    const { code, data, message } = await feedListApi()
+    // 检测测接口是否调用成功
+    if (code !== 10000) return uni.utils.toast(message)
+
+    // 过滤掉 html 标签
+    data.rows.forEach((row) => {
+      row.content = row.content.replace(/<[^>]+>/g, '')
+    })
+
+    // 渲染列表数据
+    feedList.value = data.rows
+  }
 </script>
 
 <template>
   <view class="feed-list">
-    <view class="feed-list-item">
+    <view v-for="feed in feedList" :key="feed.id" class="feed-list-item">
       <view class="feed-meta">
-        <image class="doctor-avatar" src="/static/uploads/doctor-avatar.jpg" />
+        <image class="doctor-avatar" :src="feed.creatorAvatar" />
         <view class="doctor-info">
-          <text class="name">王医生</text>
-          <text class="desc">积水潭 皮肤科 主任医师</text>
+          <text class="name">{{ feed.creatorName }}</text>
+          <text class="desc">
+            {{ feed.creatorHospatalName }} {{ feed.creatorDep }}
+            {{ feed.creatorTitles }}
+          </text>
         </view>
         <button class="doctor-button" plain>
           <uni-icons type="plusempty" color="#2CB5A5" size="12"></uni-icons>
           <text> 关注</text>
         </button>
       </view>
-      <view class="feed-topic"> 炎热夏季如何防晒？ </view>
-      <view class="feed-relation"># 儿童健康</view>
+      <view class="feed-topic">{{ feed.title }}</view>
+      <view class="feed-relation"># {{ feed.topic }}</view>
       <view class="feed-content">
-        <view class="text">
-          炎热的夏季，那大太阳无时不刻在考验着我们的肌肤，过强、过多的阳光中紫外线的
-        </view>
+        <view class="text" v-text="feed.content"> </view>
         <view class="picture">
           <image
+            v-for="pictrue in feed.coverUrl"
             mode="aspectFill"
             class="uni-image"
-            src="/static/uploads/feed-1.jpeg"
-          />
-          <image
-            mode="aspectFill"
-            class="uni-image"
-            src="/static/uploads/feed-2.jpeg"
-          />
-          <image
-            mode="aspectFill"
-            class="uni-image"
-            src="/static/uploads/feed-3.jpeg"
-          />
-        </view>
-      </view>
-      <view class="feed-extra">
-        <text>12 收藏</text>
-        <text>120 评论</text>
-      </view>
-    </view>
-    <view class="feed-list-item">
-      <view class="feed-meta">
-        <image class="doctor-avatar" src="/static/uploads/doctor-avatar.jpg" />
-        <view class="doctor-info">
-          <text class="name">王医生</text>
-          <text class="desc">积水潭 皮肤科 主任医师</text>
-        </view>
-        <button class="doctor-button" plain>
-          <uni-icons type="plusempty" color="#2CB5A5" size="12"></uni-icons>
-          <text> 关注</text>
-        </button>
-      </view>
-      <view class="feed-topic"> 炎热夏季如何防晒？ </view>
-      <view class="feed-relation"># 儿童健康</view>
-      <view class="feed-content">
-        <view class="text">
-          炎热的夏季，那大太阳无时不刻在考验着我们的肌肤，过强、过多的阳光中紫外线的
-        </view>
-        <view class="picture">
-          <image
-            mode="aspectFill"
-            class="uni-image"
-            src="/static/uploads/feed-1.jpeg"
-          />
-          <image
-            mode="aspectFill"
-            class="uni-image"
-            src="/static/uploads/feed-2.jpeg"
-          />
-          <image
-            mode="aspectFill"
-            class="uni-image"
-            src="/static/uploads/feed-3.jpeg"
-          />
-        </view>
-      </view>
-      <view class="feed-extra">
-        <text>12 收藏</text>
-        <text>120 评论</text>
-      </view>
-    </view>
-    <view class="feed-list-item">
-      <view class="feed-meta">
-        <image class="doctor-avatar" src="/static/uploads/doctor-avatar.jpg" />
-        <view class="doctor-info">
-          <text class="name">王医生</text>
-          <text class="desc">积水潭 皮肤科 主任医师</text>
-        </view>
-        <button class="doctor-button" plain>
-          <uni-icons type="plusempty" color="#2CB5A5" size="12"></uni-icons>
-          <text> 关注</text>
-        </button>
-      </view>
-      <view class="feed-topic"> 炎热夏季如何防晒？ </view>
-      <view class="feed-relation"># 儿童健康</view>
-      <view class="feed-content">
-        <view class="text">
-          炎热的夏季，那大太阳无时不刻在考验着我们的肌肤，过强、过多的阳光中紫外线的
-        </view>
-        <view class="picture">
-          <image
-            mode="aspectFill"
-            class="uni-image"
-            src="/static/uploads/feed-1.jpeg"
-          />
-          <image
-            mode="aspectFill"
-            class="uni-image"
-            src="/static/uploads/feed-2.jpeg"
-          />
-          <image
-            mode="aspectFill"
-            class="uni-image"
-            src="/static/uploads/feed-3.jpeg"
-          />
-        </view>
-      </view>
-      <view class="feed-extra">
-        <text>12 收藏</text>
-        <text>120 评论</text>
-      </view>
-    </view>
-    <view class="feed-list-item">
-      <view class="feed-meta">
-        <image class="doctor-avatar" src="/static/uploads/doctor-avatar.jpg" />
-        <view class="doctor-info">
-          <text class="name">王医生</text>
-          <text class="desc">积水潭 皮肤科 主任医师</text>
-        </view>
-        <button class="doctor-button" plain>
-          <uni-icons type="plusempty" color="#2CB5A5" size="12"></uni-icons>
-          <text> 关注</text>
-        </button>
-      </view>
-      <view class="feed-topic"> 炎热夏季如何防晒？ </view>
-      <view class="feed-relation"># 儿童健康</view>
-      <view class="feed-content">
-        <view class="text">
-          炎热的夏季，那大太阳无时不刻在考验着我们的肌肤，过强、过多的阳光中紫外线的
-        </view>
-        <view class="picture">
-          <image
-            mode="aspectFill"
-            class="uni-image"
-            src="/static/uploads/feed-1.jpeg"
-          />
-          <image
-            mode="aspectFill"
-            class="uni-image"
-            src="/static/uploads/feed-2.jpeg"
-          />
-          <image
-            mode="aspectFill"
-            class="uni-image"
-            src="/static/uploads/feed-3.jpeg"
+            :src="pictrue"
           />
         </view>
       </view>
@@ -174,6 +67,7 @@
 <style lang="scss">
   .feed-list-item {
     padding: 40rpx 0;
+    margin: 0 30rpx;
     border-bottom: 1rpx solid #ededed;
 
     &:last-child {
@@ -214,8 +108,8 @@
   .doctor-button {
     display: flex;
     width: 140rpx;
-    height: 60rpx;
-    line-height: 60rpx;
+    height: 56rpx;
+    line-height: 56rpx;
     font-size: 24rpx;
     color: #2cb5a5 !important;
     border: 2rpx solid #2cb5a5 !important;

@@ -63,6 +63,7 @@
   .custom-tabs {
     display: flex;
     position: relative;
+    padding: 0 30rpx;
   }
 
   .custom-tabs-bar {

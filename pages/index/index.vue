@@ -1,7 +1,7 @@
 <script setup>
   import { ref, computed } from 'vue'
 
-  import customFocus from './components/focus.vue'
+  import customFollow from './components/follow.vue'
   import customRecommend from './components/recommend.vue'
   import customFatLoss from './components/fat-loss.vue'
   import customDiet from './components/diet.vue'
@@ -9,7 +9,6 @@
   const { safeAreaInsets } = uni.getSystemInfoSync()
 
   const tabIndex = ref(0)
-
   const feedTabs = ref([
     { label: '关注', rendered: true },
     { label: '推荐', rendered: false },
@@ -142,7 +141,7 @@
           <custom-tabs @click="onFeedTabChange" :list="feedTabs"></custom-tabs>
         </custom-sticky>
 
-        <custom-focus v-show="tabIndex === 0" v-if="feedTabs[0].rendered" />
+        <custom-follow v-show="tabIndex === 0" v-if="feedTabs[0].rendered" />
         <custom-recommend v-show="tabIndex === 1" v-if="feedTabs[1].rendered" />
         <custom-fat-loss v-show="tabIndex === 2" v-if="feedTabs[2].rendered" />
         <custom-diet v-show="tabIndex === 3" v-if="feedTabs[3].rendered" />
