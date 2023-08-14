@@ -1,84 +1,63 @@
-<script setup></script>
+<script setup>
+  import { ref, computed } from 'vue'
+  import { onLoad } from '@dcloudio/uni-app'
+  import { departmentListApi } from '@/services/consult'
+
+  // 科室列表
+  const departmentList = ref([])
+  // 当前选中 tab 的索引值
+  const tabIndex = ref(0)
+
+  // 二级科室列表
+  const childDepartmentList = computed(() => {
+    return departmentList.value[tabIndex.value]?.child
+  })
+
+  // 生命周期（页面加载）
+  onLoad(() => {
+    // 获取科室列表
+    getDepartmentList()
+  })
+
+  // 科室列表
+  async function getDepartmentList() {
+    // 科室列表接口
+    const { code, data, message } = await departmentListApi()
+    // 检测接口是否调用成功
+    if (code !== 10000) return uni.utils.toast(message)
+    // 渲染列表数据
+    departmentList.value = data
+  }
+
+  // 切换选择二级科室
+  function onTopDeparmentClick(index) {
+    tabIndex.value = index
+  }
+</script>
 
 <template>
   <view class="department-page">
     <scroll-view scroll-y class="department-primary">
-      <view class="department-item active">内科</view>
-      <view class="department-item">外科</view>
-      <view class="department-item">妇产科学</view>
-      <view class="department-item">儿科学</view>
-      <view class="department-item">骨外科</view>
-      <view class="department-item">眼科学</view>
-      <view class="department-item">口腔科学</view>
-      <view class="department-item">耳鼻喉科</view>
-      <view class="department-item">肿瘤科</view>
-      <view class="department-item">皮肤科</view>
-      <view class="department-item">男科</view>
-      <view class="department-item">烧伤科</view>
-      <view class="department-item">传染病科</view>
-      <view class="department-item">康复医学科</view>
-      <view class="department-item">营养科</view>
-      <view class="department-item">传染病科</view>
-      <view class="department-item">康复医学科</view>
-      <view class="department-item">营养科</view>
+      <view
+        v-for="(topDepartment, index) in departmentList"
+        :key="topDepartment.id"
+        :class="{ active: tabIndex === index }"
+        @click="onTopDeparmentClick(index)"
+        class="department-item"
+      >
+        {{ topDepartment.name }}
+      </view>
       <view class="department-item"></view>
     </scroll-view>
     <scroll-view class="department-secondary">
       <navigator
+        v-for="childDepartment in childDepartmentList"
+        :key="childDepartment.id"
         hover-class="none"
-        url="/subpkg_consult/description/index"
+        :url="`/subpkg_consult/description/index?id=${childDepartment.id}`"
         class="department-item"
       >
-        普通内科
-      </navigator>
-      <navigator
-        hover-class="none"
-        url="/subpkg_consult/description/index"
-        class="department-item"
-      >
-        神经内科
-      </navigator>
-      <navigator
-        hover-class="none"
-        url="/subpkg_consult/description/index"
-        class="department-item"
-      >
-        消化内科
-      </navigator>
-      <navigator
-        hover-class="none"
-        url="/subpkg_consult/description/index"
-        class="department-item"
-      >
-        内分泌科
-      </navigator>
-      <navigator
-        hover-class="none"
-        url="/subpkg_consult/description/index"
-        class="department-item"
-      >
-        免疫科
-      </navigator>
-      <navigator
-        hover-class="none"
-        url="/subpkg_consult/description/index"
-        class="department-item"
-      >
-        血液科
-      </navigator>
-      <navigator
-        hover-class="none"
-        url="/subpkg_consult/description/index"
-        class="department-item"
-      >
-        呼吸内科
-      </navigator>
-      <navigator
-        hover-class="none"
-        url="/subpkg_consult/description/index"
-        class="department-item"
-      >
-        感染内科
+        {{ childDepartment.name }}
       </navigator>
     </scroll-view>
   </view>

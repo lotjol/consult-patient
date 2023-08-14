@@ -46,7 +46,7 @@
       <view class="feed-topic">{{ feed.title }}</view>
       <view class="feed-relation"># {{ feed.topic }}</view>
       <view class="feed-content">
-        <view class="text" v-text="feed.content"> </view>
+        <view class="text">{{ feed.content }}</view>
         <view class="picture">
           <image
             v-for="pictrue in feed.coverUrl"
@@ -102,6 +102,8 @@
     .desc {
       font-size: 24rpx;
       color: #c3c3c5;
+
+      @include text-overflow(1);
     }
   }
 
@@ -134,6 +136,10 @@
   .feed-content {
     font-size: 28rpx;
     color: #6f6f6f;
+
+    .text {
+      @include text-overflow(2);
+    }
 
     .picture {
       display: flex;
