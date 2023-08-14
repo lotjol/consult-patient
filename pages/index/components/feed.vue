@@ -9,7 +9,10 @@
         <image class="doctor-avatar" src="/static/uploads/doctor-avatar.jpg" />
         <view class="doctor-info">
           <text class="name">王医生</text>
-          <text class="desc">积水潭 皮肤科 主任医师</text>
+          <text class="desc"
+            >积水潭 皮肤科 主任医师积水潭 皮肤科 主任医师积水潭 皮肤科
+            主任医师积水潭 皮肤科 主任医师</text
+          >
         </view>
         <button class="doctor-button" plain>
           <uni-icons type="plusempty" color="#2CB5A5" size="12"></uni-icons>
@@ -209,6 +212,8 @@
     .desc {
       font-size: 24rpx;
       color: #c3c3c5;
+
+      @include text-overflow(1);
     }
   }
 
