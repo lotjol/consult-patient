@@ -22,12 +22,15 @@
       </view>
       <!-- 患者信息 -->
       <view class="patient-info">
-        <textarea
-          class="description"
-          value=""
-          placeholder-style="font-size: 30rpx; color: #979797"
-          placeholder="请详细描述您的病情,病情描述不能为空"
-        />
+        <view class="description">
+          <uni-easyinput
+            type="textarea"
+            :styles="{ backgroundColor: '#f6f6f6' }"
+            :input-border="false"
+            placeholder-style="font-size: 30rpx; color: #979797"
+            placeholder="请详细描述您的病情,病情描述不能为空"
+          />
+        </view>
 
         <view class="title">本次患病多久了？</view>
         <view class="tags">
