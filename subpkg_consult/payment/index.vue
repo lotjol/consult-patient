@@ -1,11 +1,62 @@
 <script setup>
   import { ref } from 'vue'
+  import { storeToRefs } from 'pinia'
+  import { onLoad } from '@dcloudio/uni-app'
+  import { patientDetailApi } from '@/services/patinet'
+  import { preOrderApi } from '@/services/order'
+  import { useConsultStore } from '@/stores/consult'
 
   import customCoupon from './components/coupon.vue'
   import customPayment from './components/payment.vue'
 
+  // 问诊信息
+  const consultStore = useConsultStore()
+  const { consult } = storeToRefs(consultStore)
+
+  // 优惠券组件
   const couponRef = ref()
+  // 支付组件
   const paymentRef = ref()
+
+  // 患者详情
+  const patientDetail = ref({})
+  // 预付订单信息
+  const preOrderInfo = ref({})
+
+  // 生命周期（页面加载）
+  onLoad(() => {
+    // 获取患者详情
+    getPatientDetail()
+    // 预付订单信息
+    createPreOrder()
+  })
+
+  // 获取患者信息
+  async function getPatientDetail() {
+    const { patientId } = consult.value
+    // 患者详情接口
+    const { code, data, message } = await patientDetailApi(patientId)
+    // 检测接口是否调用成功
+    if (code !== 10000) return uni.utils.toast(message)
+    // 渲染患者数据
+    patientDetail.value = data
+  }
+
+  // 生成预付订单
+  async function createPreOrder() {
+    // 获取接口所需要的参数
+    const { consultType, illnessType } = consult.value
+
+    // 预付订单信息
+    const { code, data, message } = await preOrderApi(consultType, {
+      illnessType,
+    })
+
+    // 检测接口是否调用成功
+    if (code !== 10000) return uni.utils.toast(message)
+    // 渲染订单数据
+    preOrderInfo.value = data
+  }
 </script>
 
 <template>
@@ -15,7 +66,7 @@
         title-font-size="32rpx"
         title-color="#121826"
         padding="30rpx"
-        title="图文问诊 49元"
+        :title="`图文问诊 ${preOrderInfo.payment}元`"
       >
         <uni-list :border="false">
           <uni-list-item
@@ -38,7 +89,9 @@
           </uni-list-item>
           <uni-list-item title="实付款">
             <template #footer>
-              <view class="uni-list-text-red">¥39.00</view>
+              <view class="uni-list-text-red">
+                ¥{{ preOrderInfo.actualPayment }}.00
+              </view>
             </template>
           </uni-list-item>
         </uni-list>
@@ -55,10 +108,13 @@
         <uni-list :border="false">
           <uni-list-item title="患者信息">
             <template #footer>
-              <view class="uni-list-text-gray"> 李富贵 | 男 | 30岁 </view>
+              <view class="uni-list-text-gray">
+                {{ patientDetail.name }} | {{ patientDetail.genderValue }} |
+                {{ patientDetail.age }}岁
+              </view>
             </template>
           </uni-list-item>
-          <uni-list-item border title="病情描述" note="头痛,头晕,恶心" />
+          <uni-list-item border title="病情描述" :note="consult.illnessDesc" />
         </uni-list>
       </uni-section>
 
@@ -70,7 +126,7 @@
     <!-- 下一步操作 -->
     <view class="next-step">
       <view class="total-amount">
-        合计: <text class="number">¥39.00</text>
+        合计: <text class="number">¥{{ preOrderInfo.actualPayment }}.00</text>
       </view>
       <button class="uni-button" @click="paymentRef.openPayment()">
         立即支付

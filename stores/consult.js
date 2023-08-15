@@ -11,6 +11,7 @@ const options = {
 function setup() {
   // 问诊数据默认值
   const defaultValue = {
+    consultType: '',
     // 患者病情描述
     illnessDesc: '',
     // 患病多久

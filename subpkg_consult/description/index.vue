@@ -49,6 +49,9 @@
 
   // 生命周期（页面加载）
   onLoad((query) => {
+    console.log(query)
+    // 问诊类型
+    consult.value.consultType = query.consultType
     // 医院类型（三甲或普通）
     consult.value.illnessType = query.illnessType
     // 医生科室ID
