@@ -13,7 +13,7 @@
           title="三甲图文问诊"
           note="三甲主治及以上级别医生"
           show-arrow
-          to="/subpkg_consult/department/index"
+          to="/subpkg_consult/department/index?illnessType=1"
           thumb="/static/images/consult-type-1.png"
           thumb-size="lg"
         />
@@ -23,7 +23,7 @@
           title="普通图文问诊"
           note="二甲主治及以上级别医生"
           show-arrow
-          to="/subpkg_consult/department/index"
+          to="/subpkg_consult/department/index?illnessType=0"
           thumb="/static/images/consult-type-2.png"
           thumb-size="lg"
         />

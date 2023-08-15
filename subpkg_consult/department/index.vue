@@ -3,6 +3,9 @@
   import { onLoad } from '@dcloudio/uni-app'
   import { departmentListApi } from '@/services/consult'
 
+  // 医院类别
+  const illnessType = ref('')
+
   // 科室列表
   const departmentList = ref([])
   // 当前选中 tab 的索引值
@@ -14,7 +17,9 @@
   })
 
   // 生命周期（页面加载）
-  onLoad(() => {
+  onLoad((query) => {
+    // 获取医院类别
+    illnessType.value = query.illnessType
     // 获取科室列表
     getDepartmentList()
   })
@@ -54,7 +59,7 @@
         v-for="childDepartment in childDepartmentList"
         :key="childDepartment.id"
         hover-class="none"
-        :url="`/subpkg_consult/description/index?id=${childDepartment.id}`"
+        :url="`/subpkg_consult/description/index?illnessType=${illnessType}&depId=${childDepartment.id}`"
         class="department-item"
       >
         {{ childDepartment.name }}
