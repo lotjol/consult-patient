@@ -31,5 +31,11 @@
     color: #fff;
     font-size: 32rpx;
     background-color: #20c6b2;
+
+    &[disabled],
+    &.disabled {
+      color: #fff !important;
+      background-color: #ace8e0 !important;
+    }
   }
 </style>
