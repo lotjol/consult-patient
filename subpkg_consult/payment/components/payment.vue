@@ -1,13 +1,33 @@
 <script setup>
-  import { ref } from 'vue'
+  import { ref, inject } from 'vue'
+  import { orderPayApi } from '@/services/order'
 
   // 在线支付弹层
   const paymentPopup = ref()
+  // 订单ID
+  const orderId = inject('orderId')
 
+  // 支付渠道列表
+  const paymentChannel = [
+    {
+      title: '微信支付',
+      thumb: '/static/images/wechatpay-icon.png',
+    },
+    {
+      title: '支付宝支付',
+      thumb: '/static/images/alipay-icon.png',
+    },
+  ]
+
+  // 默认支付渠道
+  const channelIndex = ref(-1)
+
+  // 展示支付渠道
   function openPayment() {
     paymentPopup.value.open()
   }
 
+  // 关闭支付渠道
   async function onPopupClose() {
     const { confirm } = await uni.showModal({
       title: '关闭支付',
@@ -21,10 +41,28 @@
     if (!confirm) paymentPopup.value.close()
   }
 
-  function jumpTo() {
-    uni.navigateTo({
-      url: '/subpkg_consult/im/index',
+  // 切换支付渠道
+  function onChannelClick(index) {
+    channelIndex.value = index
+  }
+
+  // 订单支付
+  async function onPaymentClick() {
+    // 检测是否选择了支付渠道
+    if (channelIndex.value < 0) return uni.utils.toast('没有选择支付渠道!')
+
+    // #ifdef H5
+    // 支付接口
+    const { code, data, message } = await orderPayApi({
+      paymentMethod: channelIndex.value,
+      orderId: orderId.value,
+      payCallback: 'http://localhost:5173/#/subpkg_consult/room/index',
     })
+    // 接口是否调用成功
+    if (code !== 10000) return uni.utils.toast(message)
+    // 支付宝支付页面
+    window.location.href = data.payUrl
+    // #endif
   }
 
   defineExpose({ openPayment })
@@ -45,23 +83,20 @@
       <view class="order-amount">¥ 39.00</view>
       <uni-list :border="false">
         <uni-list-item
-          title="微信支付"
-          thumb="/static/images/wechatpay-icon.png"
+          v-for="(channel, index) in paymentChannel"
+          :title="channel.title"
+          :thumb="channel.thumb"
         >
           <template #footer>
-            <radio color="#16C2A3" value="" />
-          </template>
-        </uni-list-item>
-        <uni-list-item
-          title="支付宝支付"
-          thumb="/static/images/alipay-icon.png"
-        >
-          <template #footer>
-            <radio color="#16C2A3" value="" />
+            <radio
+              @click="onChannelClick(index)"
+              :checked="channelIndex === index"
+              color="#16C2A3"
+            />
           </template>
         </uni-list-item>
       </uni-list>
-      <button @click="jumpTo" class="uni-button">立即支付</button>
+      <button @click="onPaymentClick" class="uni-button">立即支付</button>
     </view>
   </uni-popup>
 </template>

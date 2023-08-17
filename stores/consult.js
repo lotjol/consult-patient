@@ -11,7 +11,6 @@ const options = {
 function setup() {
   // 问诊数据默认值
   const defaultValue = {
-    consultType: '',
     // 患者病情描述
     illnessDesc: '',
     // 患病多久
@@ -20,18 +19,14 @@ function setup() {
     consultFlag: -1,
     // 病情图片描述
     pictures: [],
-    // 科室ID
-    depId: '',
-    // 患者ID
-    patientId: '',
   }
 
   // 问诊数据
-  const consult = ref({ ...defaultValue })
+  const consult = ref({ type: '', depId: '', patientId: '', ...defaultValue })
 
   // 重复问诊数据
   function reset() {
-    consult.value = defaultValue
+    consult.value = Object.assign(consult.value, defaultValue)
   }
 
   return { consult, reset }

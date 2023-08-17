@@ -58,7 +58,7 @@
         <navigator
           hover-class="none"
           class="quick-entry-item"
-          url="/subpkg_consult/quickly/index?consultType=2"
+          url="/subpkg_consult/quickly/index?type=2"
         >
           <image
             class="quick-entry-icon"

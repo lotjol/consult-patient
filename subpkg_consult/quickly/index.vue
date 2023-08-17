@@ -3,11 +3,11 @@
   import { onLoad } from '@dcloudio/uni-app'
 
   // 问诊类型
-  const consultType = ref(0)
+  const type = ref(0)
 
   // 生命周期
   onLoad((query) => {
-    consultType.value = query.consultType
+    type.value = query.type
   })
 </script>
 
@@ -24,7 +24,7 @@
           title="三甲图文问诊"
           note="三甲主治及以上级别医生"
           show-arrow
-          :to="`/subpkg_consult/department/index?consultType=${consultType}&illnessType=1`"
+          :to="`/subpkg_consult/department/index?type=${type}&illnessType=1`"
           thumb="/static/images/consult-type-1.png"
           thumb-size="lg"
         />
@@ -34,7 +34,7 @@
           title="普通图文问诊"
           note="二甲主治及以上级别医生"
           show-arrow
-          :to="`/subpkg_consult/department/index?consultType=${consultType}&illnessType=0`"
+          :to="`/subpkg_consult/department/index?type=${type}&illnessType=0`"
           thumb="/static/images/consult-type-2.png"
           thumb-size="lg"
         />

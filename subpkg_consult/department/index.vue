@@ -4,7 +4,7 @@
   import { departmentListApi } from '@/services/consult'
 
   // 问诊类型
-  const consultType = ref('')
+  const type = ref('')
   // 医院类别
   const illnessType = ref('')
 
@@ -21,7 +21,7 @@
   // 生命周期（页面加载）
   onLoad((query) => {
     // 获取问诊类型
-    consultType.value = query.consultType
+    type.value = query.type
     // 获取医院类别
     illnessType.value = query.illnessType
     // 获取科室列表
@@ -63,7 +63,7 @@
         v-for="childDepartment in childDepartmentList"
         :key="childDepartment.id"
         hover-class="none"
-        :url="`/subpkg_consult/description/index?consultType=${consultType}&illnessType=${illnessType}&depId=${childDepartment.id}`"
+        :url="`/subpkg_consult/description/index?type=${type}&illnessType=${illnessType}&depId=${childDepartment.id}`"
         class="department-item"
       >
         {{ childDepartment.name }}

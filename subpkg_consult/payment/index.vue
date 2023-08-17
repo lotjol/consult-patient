@@ -1,9 +1,9 @@
 <script setup>
-  import { ref } from 'vue'
+  import { ref, provide } from 'vue'
   import { storeToRefs } from 'pinia'
   import { onLoad } from '@dcloudio/uni-app'
   import { patientDetailApi } from '@/services/patinet'
-  import { preOrderApi } from '@/services/order'
+  import { createOrderApi, preOrderApi } from '@/services/order'
   import { useConsultStore } from '@/stores/consult'
 
   import customCoupon from './components/coupon.vue'
@@ -22,6 +22,9 @@
   const patientDetail = ref({})
   // 预付订单信息
   const preOrderInfo = ref({})
+  // 订单ID
+  const orderId = ref('')
+  provide('orderId', orderId)
 
   // 生命周期（页面加载）
   onLoad(() => {
@@ -30,6 +33,12 @@
     // 预付订单信息
     createPreOrder()
   })
+
+  // 支付
+  async function onPaymentButtonClick() {
+    // 生成待支付订单
+    await createOrder()
+  }
 
   // 获取患者信息
   async function getPatientDetail() {
@@ -45,10 +54,10 @@
   // 生成预付订单
   async function createPreOrder() {
     // 获取接口所需要的参数
-    const { consultType, illnessType } = consult.value
+    const { type, illnessType } = consult.value
 
     // 预付订单信息
-    const { code, data, message } = await preOrderApi(consultType, {
+    const { code, data, message } = await preOrderApi(type, {
       illnessType,
     })
 
@@ -56,6 +65,25 @@
     if (code !== 10000) return uni.utils.toast(message)
     // 渲染订单数据
     preOrderInfo.value = data
+  }
+
+  // 生成待支付订单
+  async function createOrder() {
+    try {
+      // 生成订单接口
+      const { code, data, message } = await createOrderApi(consult.value)
+      // 检测接口是否计用成功
+      if (code !== 10000) return uni.utils.toast(message)
+      // 传递订单ID
+      orderId.value = data.id
+      // 展示支付渠道
+      paymentRef.value.openPayment()
+
+      // 清空问诊数据
+      consultStore.reset()
+    } catch (error) {
+      uni.utils.toast(error)
+    }
   }
 </script>
 
@@ -128,15 +156,12 @@
       <view class="total-amount">
         合计: <text class="number">¥{{ preOrderInfo.actualPayment }}.00</text>
       </view>
-      <button class="uni-button" @click="paymentRef.openPayment()">
-        立即支付
-      </button>
+      <button class="uni-button" @click="onPaymentButtonClick">立即支付</button>
     </view>
   </scroll-page>
 
   <!-- 优惠券 -->
   <custom-coupon ref="couponRef" />
-
   <!-- 在线支付 -->
   <custom-payment ref="paymentRef" />
 </template>
