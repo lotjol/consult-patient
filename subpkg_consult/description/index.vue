@@ -165,7 +165,7 @@
           v-model="consult.pictures"
           @success="onFilePickerSuccess"
           @fail="onFilePickerFail"
-          :image-styles="{ width: '177rpx', height: '177rpx' }"
+          :image-styles="{ width: '160rpx', height: '160rpx' }"
           file-extname="png,jpg,gif,webp"
         />
       </view>

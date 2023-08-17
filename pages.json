@@ -99,7 +99,7 @@
             "navigationBarTitleText": "支付"
           }
         }, {
-          "path": "im/index",
+          "path": "room/index",
           "style": {
             "navigationBarTitleText": "药品订单"
           }
