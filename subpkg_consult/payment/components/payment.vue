@@ -23,7 +23,7 @@
 
   function jumpTo() {
     uni.navigateTo({
-      url: '/subpkg_consult/im/index',
+      url: '/subpkg_consult/room/index',
     })
   }
 

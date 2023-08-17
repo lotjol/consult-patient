@@ -51,7 +51,7 @@
         <uni-file-picker
           title="上传病情相关图片 (仅医生可见)"
           limit="8"
-          :image-styles="{ width: '177rpx', height: '177rpx' }"
+          :image-styles="{ width: '160rpx', height: '160rpx' }"
           file-extname="png,jpg,gif,webp"
         />
       </view>

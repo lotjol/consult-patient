@@ -74,7 +74,7 @@
 
     .tag {
       line-height: 1;
-      padding: 16rpx 26rpx 14rpx;
+      padding: 16rpx 20rpx 14rpx;
       margin: 20rpx 20rpx 20rpx 0;
       font-size: 26rpx;
       border-radius: 10rpx;
@@ -118,6 +118,13 @@
     width: 60rpx;
     height: 4rpx;
     background-color: #ccc;
+  }
+
+  :deep(.icon-del-box) {
+    right: -3px !important;
+    top: -3px !important;
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    transform: scale(0.6) rotate(-45deg) !important;
   }
 }
 
