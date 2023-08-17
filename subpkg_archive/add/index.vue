@@ -12,8 +12,8 @@
 
   // 表单数据
   const formData = ref({
-    name: '张三',
-    idCard: '130634198504060931',
+    name: '',
+    idCard: '',
     gender: 1,
     defaultFlag: 0,
   })
