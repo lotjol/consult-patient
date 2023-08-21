@@ -1,8 +1,8 @@
-.im-page {
+.room-page {
   padding-bottom: 200rpx;
 }
 
-.im-status {
+.room-status {
   font-size: 26rpx;
   position: sticky;
   top: 0;
@@ -41,9 +41,11 @@
 }
 
 .patient-info {
+  width: 100%;
   padding: 30rpx;
   margin: 30rpx 30rpx 0;
   border-radius: 20rpx;
+  box-sizing: border-box;
   background-color: #fff;
 
   .header {
@@ -109,13 +111,13 @@
     align-self: flex-start;
     margin-top: 40rpx;
 
-    .im-avatar {
+    .room-avatar {
       width: 80rpx;
       height: 80rpx;
       border-radius: 50%;
     }
 
-    .im-message {
+    .room-message {
       flex: 1;
       margin-left: 20rpx;
     }
@@ -152,7 +154,7 @@
       flex-direction: row-reverse;
       align-self: flex-end;
 
-      .im-message {
+      .room-message {
         margin-left: 0;
         margin-right: 20rpx;
       }

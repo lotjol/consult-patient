@@ -37,6 +37,7 @@
     // 查询订单详情
     await getOrderDetail()
 
+    // 建立 socket 连接
     const socket = io('https://consult-api.itheima.net', {
       auth: { token: userStore.token },
       query: { orderId: orderId.value },
@@ -45,15 +46,33 @@
     // 消息列表，每次会获取一个消息的集合
     // 集合中会包含多种消息的类型，如提示信息、时间、患者信息、评价、处方等
     socket.on('chatMsgList', ({ data }) => {
+      // 二次加工返回的消息列表数据
       const tempList = []
+      data.forEach((item, i) => {
+        // 记录每一段消息中最早的消息时间，获取聊天记录需要使用
+        // if (i === 0) time.value = item.createTime
+        tempList.push({
+          msgType: 31,
+          msg: {
+            content: item.createTime,
+          },
+          createTime: item.createTime,
+          id: item.createTime,
+        })
 
-      data.forEach((item) => {
         tempList.push(...item.items)
       })
 
       messageList.value.unshift(...tempList)
     })
   })
+
+  // 点击查看病情介绍图片
+  function onPreviewClick(urls) {
+    uni.previewImage({
+      urls: urls.map((item) => item.url),
+    })
+  }
 
   // 获取订单详情
   async function getOrderDetail() {
@@ -69,9 +88,9 @@
 
 <template>
   <scroll-page background-color="#f2f2f2">
-    <view class="im-page">
+    <view class="room-page">
       <!-- 咨询室状态 -->
-      <view class="im-status">
+      <view class="room-status">
         <view class="status" v-if="false">
           <text class="label">咨询中</text>
           <view class="time">
@@ -97,157 +116,215 @@
         </view>
       </view>
 
-      <!-- 患者信息 -->
-      <view class="patient-info">
-        <view class="header">
-          <view class="title"> 张三 男 29岁 </view>
-          <view class="note"> 一周内 | 就诊过 </view>
-        </view>
-        <view class="content">
-          <view class="list-item">
-            <text class="label">病情描述</text>
-            <text class="note">恶心，呕吐</text>
-          </view>
-          <view class="list-item">
-            <text class="label">图片</text>
-            <text class="note">点击查看</text>
-          </view>
-        </view>
-      </view>
       <!-- 消息列表 -->
       <view class="message-container">
-        <view class="message-tips">
-          <text class="label">温馨提示:</text>
-          在线咨询不能代替面诊，医护人员建议仅供参考
-        </view>
-
-        <view class="message-tips">医护人员正在赶来，请耐心等候</view>
-
-        <view class="message-tips">14:16:02</view>
-
-        <!-- 消息条目 -->
-        <view class="message-item">
-          <image class="im-avatar" src="/static/uploads/doctor-avatar-2.png" />
-          <view class="im-message">
-            <view class="time">14:13</view>
-            <view class="text">
-              您好，我是医师王医生，已收到您的问诊信息，我会尽量及时、准确、负责的回复您的问题，请您稍等。
+        <template v-for="message in messageList" :key="message.id">
+          <!-- 患者信息(21) -->
+          <view v-if="message.msgType === 21" class="patient-info">
+            <view class="header">
+              <view class="title">
+                {{ message.msg.consultRecord.patientInfo.name }}
+                {{ message.msg.consultRecord.patientInfo.genderValue }}
+                {{ message.msg.consultRecord.patientInfo.age }}岁
+              </view>
+              <view class="note">
+                {{
+                  illnessTimes[
+                    message.msg.consultRecord.patientInfo.illnessTime
+                  ]
+                }}
+                |
+                {{
+                  consultFlags[
+                    message.msg.consultRecord.patientInfo.illnessType
+                  ]
+                }}
+              </view>
+            </view>
+            <view class="content">
+              <view class="list-item">
+                <text class="label">病情描述</text>
+                <text class="note">
+                  {{ message.msg.consultRecord.patientInfo.illnessDesc }}
+                </text>
+              </view>
+              <view class="list-item">
+                <text class="label">图片</text>
+                <text
+                  v-if="message.msg.consultRecord.pictures?.length"
+                  @click="onPreviewClick(message.msg.consultRecord.pictures)"
+                  class="note"
+                >
+                  点击查看
+                </text>
+                <text v-else class="note">暂无图片</text>
+              </view>
             </view>
           </view>
-        </view>
 
+          <!-- 消息通知(31) -->
+          <view v-if="message.msgType === 31" class="message-tips">
+            <!-- 温馨提示(32) -->
+            {{ message.msg.content }}
+          </view>
+
+          <!-- 温馨提示(32) -->
+          <view v-if="message.msgType === 32" class="message-tips">
+            <!-- 温馨提示(32) -->
+            <text class="label">温馨提示:</text>
+            {{ message.msg.content }}
+          </view>
+
+          <!-- 消息条目-文字聊天(1) -->
+          <view v-if="message.msgType === 1" class="message-item">
+            <image class="room-avatar" :src="message.fromAvatar" />
+            <view class="room-message">
+              <view class="time">14:13</view>
+              <view class="text">
+                {{ message.msg.content }}
+              </view>
+            </view>
+          </view>
+
+          <!-- 电子处方(22) -->
+          <view v-if="message.msgType === 22" class="e-prescription">
+            <view class="prescription-content">
+              <view class="list-title">
+                <view class="label">电子处方</view>
+                <view class="extra">
+                  原始处方
+                  <uni-icons size="16" color="#848484" type="right" />
+                </view>
+              </view>
+              <view class="list-item">
+                {{ message.msg.prescription.name }}
+                {{ message.msg.prescription.genderValue }}
+                {{ message.msg.prescription.age }}岁
+                {{ message.msg.prescription.diagnosis }}
+              </view>
+              <view class="list-item">
+                开方时间：{{ message.msg.prescription.createTime }}
+              </view>
+
+              <view class="dividing-line"></view>
+
+              <template
+                v-for="medicine in message.msg.prescription.medicines"
+                :key="medicine.id"
+              >
+                <view class="list-title">
+                  <view class="label">
+                    <text class="name">{{ medicine.name }}</text>
+                    <!-- <text class="unit">85ml</text> -->
+                    <text class="quantity">x{{ medicine.quantity }}</text>
+                  </view>
+                </view>
+                <view class="list-item">
+                  {{ medicine.usageDosag }}
+                </view>
+              </template>
+            </view>
+            <navigator
+              class="uni-link"
+              hover-class="none"
+              url="/subpkg_medicine/detail/index"
+            >
+              购买药品
+            </navigator>
+          </view>
+
+          <!-- 医生评价(23) -->
+          <view v-if="message.msgType === 23" class="doctor-rating">
+            <view class="title">医生服务评价</view>
+            <view class="subtitle">本次在线问诊服务您还满意吗？</view>
+            <view class="rating">
+              <uni-rate :size="28" margin="12" :value="0" />
+            </view>
+            <view class="text">
+              <textarea
+                class="uni-textarea"
+                placeholder-style="font-size: 26rpx; color: #979797"
+                placeholder="请描述您对医生的评价或是在医生看诊过程中遇到的问题"
+              />
+              <text class="word-count">0/150</text>
+            </view>
+            <view class="anonymous">
+              <radio class="uni-radio" value="1" />
+              <text>匿名评价</text>
+            </view>
+            <button disabled class="uni-button">提交</button>
+          </view>
+        </template>
+
+        <!-- <view class="message-tips">医护人员正在赶来，请耐心等候</view>
+        <view class="message-tips">14:16:02</view>
         <view class="message-tips">
           为了医生的判断准确，请按照您的真实情况回答问题
         </view>
-
         <view class="message-item">
-          <image class="im-avatar" src="/static/uploads/doctor-avatar-2.png" />
-          <view class="im-message">
+          <image
+            class="room-avatar"
+            src="/static/uploads/doctor-avatar-2.png"
+          />
+          <view class="room-message">
             <view class="time">14:13</view>
             <view class="text">请问头痛发生多久了？</view>
           </view>
         </view>
-
         <view class="message-item reverse">
-          <image class="im-avatar" src="/static/uploads/doctor-avatar-2.png" />
-          <view class="im-message">
+          <image
+            class="room-avatar"
+            src="/static/uploads/doctor-avatar-2.png"
+          />
+          <view class="room-message">
             <view class="time">14:13</view>
             <view class="text">不到4.5小时</view>
           </view>
         </view>
-
         <view class="message-item">
-          <image class="im-avatar" src="/static/uploads/doctor-avatar-2.png" />
-          <view class="im-message">
+          <image
+            class="room-avatar"
+            src="/static/uploads/doctor-avatar-2.png"
+          />
+          <view class="room-message">
             <view class="time">14:13</view>
             <view class="text">疼痛的具体部位是哪里呢？</view>
           </view>
         </view>
-
         <view class="message-item reverse">
-          <image class="im-avatar" src="/static/uploads/doctor-avatar-2.png" />
-          <view class="im-message">
+          <image
+            class="room-avatar"
+            src="/static/uploads/doctor-avatar-2.png"
+          />
+          <view class="room-message">
             <view class="time">14:13</view>
             <view class="text">头部两侧 前侧</view>
           </view>
         </view>
-
         <view class="message-tips">14:21:02</view>
-
         <view class="message-item">
-          <image class="im-avatar" src="/static/uploads/doctor-avatar-2.png" />
-          <view class="im-message">
+          <image
+            class="room-avatar"
+            src="/static/uploads/doctor-avatar-2.png"
+          />
+          <view class="room-message">
             <view class="time">14:21</view>
             <view class="text">建议先服用药物来控制调理，看看效果怎么样?</view>
           </view>
         </view>
-
         <view class="message-tips">正在为您开具处方，请耐心等待。</view>
-
-        <!-- 电子处方 -->
-        <view class="e-prescription">
-          <view class="prescription-content">
-            <view class="list-title">
-              <view class="label">电子处方</view>
-              <view class="extra">
-                原始处方
-                <uni-icons size="16" color="#848484" type="right"></uni-icons>
-              </view>
-            </view>
-            <view class="list-item">李富贵 男 31岁 血管性头痛</view>
-            <view class="list-item">开方时间：2022-01-15 14:21:42</view>
-
-            <view class="dividing-line"></view>
-
-            <view class="list-title">
-              <view class="label">
-                <text class="name">优赛明 维生素E乳</text>
-                <text class="unit">85ml</text>
-                <text class="quantity">x1</text>
-              </view>
-            </view>
-            <view class="list-item">口服，每次1袋，每天3次，用药3天</view>
-          </view>
-          <navigator
-            class="uni-link"
-            hover-class="none"
-            url="/subpkg_medicine/detail/index"
-          >
-            购买药品
-          </navigator>
-        </view>
-
         <view class="message-item">
-          <image class="im-avatar" src="/static/uploads/doctor-avatar-2.png" />
-          <view class="im-message">
+          <image
+            class="room-avatar"
+            src="/static/uploads/doctor-avatar-2.png"
+          />
+          <view class="room-message">
             <view class="time">14:21</view>
             <view class="text">
               已为您开具处方，请遵医嘱使用。1、用药前请您再次确认用过该药且无过敏和不良反应，如未用过请取消本订单；2、请严格按原处方和《药品说明书》使用(严格对照用法用量、不良反应、禁忌、注意事项和药物相互作用)，确保用药安全；3、用药前后一周禁酒，清淡饮食；4、用药前或者用药期间病情发生变化，请立即停药并线下就医。请问还有哪些可以帮助到您的呢？
             </view>
           </view>
-        </view>
-
-        <!-- 医生评价 -->
-        <view class="doctor-rating">
-          <view class="title">医生服务评价</view>
-          <view class="subtitle">本次在线问诊服务您还满意吗？</view>
-          <view class="rating">
-            <uni-rate :size="28" margin="12" :value="0" />
-          </view>
-          <view class="text">
-            <textarea
-              class="uni-textarea"
-              placeholder-style="font-size: 26rpx; color: #979797"
-              placeholder="请描述您对医生的评价或是在医生看诊过程中遇到的问题"
-            />
-            <text class="word-count">0/150</text>
-          </view>
-          <view class="anonymous">
-            <radio class="uni-radio" value="1" />
-            <text>匿名评价</text>
-          </view>
-          <button disabled class="uni-button">提交</button>
-        </view>
+        </view> -->
       </view>
 
       <!-- 发送消息 -->
