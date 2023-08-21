@@ -207,12 +207,11 @@
       <!-- 发送消息 -->
       <view class="message-bar">
         <template v-if="true">
-          <input
-            placeholder-style="color: #C3C3C5"
+          <uni-easyinput
+            :clearable="false"
+            :input-border="false"
+            placeholder-style="font-size: 32rpx; color: #c3c3c5;"
             placeholder="问医生"
-            class="uni-input"
-            type="text"
-            value=""
           />
           <view class="image-button">
             <uni-icons size="40" color="#979797" type="image"></uni-icons>
