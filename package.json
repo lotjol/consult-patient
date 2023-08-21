@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@hyoga/uni-socket.io": "^3.0.4",
     "luch-request": "^3.1.1",
     "pinia": "^2.1.6",
     "pinia-plugin-persistedstate": "^3.2.0",

@@ -1,9 +1,11 @@
 <script setup>
-  import { ref } from 'vue'
+  import { ref, nextTick } from 'vue'
   import { onLoad } from '@dcloudio/uni-app'
   import { orderDetailApi } from '@/services/order'
   import { useUserStore } from '@/stores/user'
+
   import { io } from 'socket.io-client'
+  // import io from '@hyoga/uni-socket.io'
 
   // 用户数据
   const userStore = useUserStore()
@@ -14,6 +16,8 @@
   const orderDetail = ref({})
   // 消息列表
   const messageList = ref([])
+  // 是否为首屏数据
+  const initialMessage = ref(true)
 
   // 患病时长
   const illnessTimes = {
@@ -33,7 +37,6 @@
   onLoad(async (query) => {
     // 读取地址中的订单ID
     orderId.value = query.orderId
-
     // 查询订单详情
     await getOrderDetail()
 
@@ -46,9 +49,9 @@
     // 消息列表，每次会获取一个消息的集合
     // 集合中会包含多种消息的类型，如提示信息、时间、患者信息、评价、处方等
     socket.on('chatMsgList', ({ data }) => {
-      // 二次加工返回的消息列表数据
+      // 加工返回的消息列表数据
       const tempList = []
-      data.forEach((item, i) => {
+      data.forEach(async (item, i) => {
         // 记录每一段消息中最早的消息时间，获取聊天记录需要使用
         // if (i === 0) time.value = item.createTime
         tempList.push({
@@ -59,20 +62,53 @@
           createTime: item.createTime,
           id: item.createTime,
         })
-
+        // 追加新消息
         tempList.push(...item.items)
       })
 
+      // 渲染消息数据
       messageList.value.unshift(...tempList)
+
+      if (initialMessage.value) {
+        // 修改消息为已读状态
+        socket.emit('updateMsgStatus', tempList[tempList.length - 1].id)
+        // 首屏数据渲染完成
+        initialMessage.value = false
+
+        // 第一次需要滚动到最新的消息
+        nextTick(() => {})
+      }
+    })
+
+    // 监听订单状态变化
+    socket.on('statusChange', () => getOrderDetail())
+
+    // 接收聊天消息
+    socket.on('receiveChatMsg', async (message) => {
+      // 修改消息为已读
+      socket.emit('updateMsgStatus', message.id)
+      // 渲染新消息
+      messageList.value.push(message)
+
+      await nextTick()
+      // pageScrollTop.value = 999999999
     })
   })
 
   // 点击查看病情介绍图片
-  function onPreviewClick(urls) {
+  async function onPreviewClick(urls) {
     uni.previewImage({
       urls: urls.map((item) => item.url),
     })
   }
+
+  // 发送图片信息
+  async function onImageButtonClick() {
+    const result = await uni.chooseImage()
+  }
+
+  // 发送文字信息
+  function onInputConfirm() {}
 
   // 获取订单详情
   async function getOrderDetail() {
@@ -91,7 +127,14 @@
     <view class="room-page">
       <!-- 咨询室状态 -->
       <view class="room-status">
-        <view class="status" v-if="false">
+        <!-- 待支付(status: 1) -->
+        <view v-if="orderDetail.status === 1" class="status">...</view>
+        <!-- 待接诊(status: 2) -->
+        <view v-if="orderDetail.status === 2" class="status waiting">
+          已通知医生尽快接诊，24小时内医生未回复将自动退款
+        </view>
+        <!-- 咨询中(status: 3) -->
+        <view class="status" v-if="orderDetail.status === 3">
           <text class="label">咨询中</text>
           <view class="time">
             剩余时间:
@@ -99,21 +142,19 @@
               color="#3c3e42"
               :font-size="14"
               :show-day="false"
-              :hour="24"
-              :minute="0"
-              :second="0"
+              :second="orderDetail.countdown"
             />
           </view>
         </view>
-        <view v-else-if="true" class="status waiting">
-          已通知医生尽快接诊，24小时内医生未回复将自动退款
-        </view>
-        <view v-else class="status">
+        <!-- 已完成(status: 4) -->
+        <view v-if="orderDetail.status === 4" class="status">
           <view class="wrap">
             <uni-icons size="20" color="#121826" type="checkbox-filled" />
             已结束
           </view>
         </view>
+        <!-- 已取消(status: 5) -->
+        <view v-if="orderDetail.status === 5" class="status">...</view>
       </view>
 
       <!-- 消息列表 -->
@@ -206,14 +247,13 @@
                 开方时间：{{ message.msg.prescription.createTime }}
               </view>
 
-              <view class="dividing-line"></view>
-
               <template
                 v-for="medicine in message.msg.prescription.medicines"
                 :key="medicine.id"
               >
+                <view class="dividing-line"></view>
                 <view class="list-title">
-                  <view class="label">
+                  <view class="label medicine">
                     <text class="name">{{ medicine.name }}</text>
                     <!-- <text class="unit">85ml</text> -->
                     <text class="quantity">x{{ medicine.quantity }}</text>
@@ -255,89 +295,18 @@
             <button disabled class="uni-button">提交</button>
           </view>
         </template>
-
-        <!-- <view class="message-tips">医护人员正在赶来，请耐心等候</view>
-        <view class="message-tips">14:16:02</view>
-        <view class="message-tips">
-          为了医生的判断准确，请按照您的真实情况回答问题
-        </view>
-        <view class="message-item">
-          <image
-            class="room-avatar"
-            src="/static/uploads/doctor-avatar-2.png"
-          />
-          <view class="room-message">
-            <view class="time">14:13</view>
-            <view class="text">请问头痛发生多久了？</view>
-          </view>
-        </view>
-        <view class="message-item reverse">
-          <image
-            class="room-avatar"
-            src="/static/uploads/doctor-avatar-2.png"
-          />
-          <view class="room-message">
-            <view class="time">14:13</view>
-            <view class="text">不到4.5小时</view>
-          </view>
-        </view>
-        <view class="message-item">
-          <image
-            class="room-avatar"
-            src="/static/uploads/doctor-avatar-2.png"
-          />
-          <view class="room-message">
-            <view class="time">14:13</view>
-            <view class="text">疼痛的具体部位是哪里呢？</view>
-          </view>
-        </view>
-        <view class="message-item reverse">
-          <image
-            class="room-avatar"
-            src="/static/uploads/doctor-avatar-2.png"
-          />
-          <view class="room-message">
-            <view class="time">14:13</view>
-            <view class="text">头部两侧 前侧</view>
-          </view>
-        </view>
-        <view class="message-tips">14:21:02</view>
-        <view class="message-item">
-          <image
-            class="room-avatar"
-            src="/static/uploads/doctor-avatar-2.png"
-          />
-          <view class="room-message">
-            <view class="time">14:21</view>
-            <view class="text">建议先服用药物来控制调理，看看效果怎么样?</view>
-          </view>
-        </view>
-        <view class="message-tips">正在为您开具处方，请耐心等待。</view>
-        <view class="message-item">
-          <image
-            class="room-avatar"
-            src="/static/uploads/doctor-avatar-2.png"
-          />
-          <view class="room-message">
-            <view class="time">14:21</view>
-            <view class="text">
-              已为您开具处方，请遵医嘱使用。1、用药前请您再次确认用过该药且无过敏和不良反应，如未用过请取消本订单；2、请严格按原处方和《药品说明书》使用(严格对照用法用量、不良反应、禁忌、注意事项和药物相互作用)，确保用药安全；3、用药前后一周禁酒，清淡饮食；4、用药前或者用药期间病情发生变化，请立即停药并线下就医。请问还有哪些可以帮助到您的呢？
-            </view>
-          </view>
-        </view> -->
       </view>
 
       <!-- 发送消息 -->
       <view class="message-bar">
         <template v-if="true">
           <input
+            :disabled="orderDetail.status !== 3"
             placeholder-style="color: #C3C3C5"
             placeholder="问医生"
             class="uni-input"
-            type="text"
-            value=""
           />
-          <view class="image-button">
+          <view @click="onImageButtonClick" class="image-button">
             <uni-icons size="40" color="#979797" type="image"></uni-icons>
           </view>
         </template>
