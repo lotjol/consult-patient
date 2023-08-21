@@ -2,9 +2,9 @@
 
 <template>
   <scroll-page background-color="#f2f2f2">
-    <view class="im-page">
+    <view class="room-page">
       <!-- 咨询室状态 -->
-      <view class="im-status">
+      <view class="room-status">
         <view class="status" v-if="false">
           <text class="label">咨询中</text>
           <view class="time">
@@ -29,25 +29,27 @@
           </view>
         </view>
       </view>
-      <!-- 患者信息 -->
-      <view class="patient-info">
-        <view class="header">
-          <view class="title">李富贵 男 31岁</view>
-          <view class="note">一周内 | 未去医院就诊</view>
-        </view>
-        <view class="content">
-          <view class="list-item">
-            <text class="label">病情描述</text>
-            <text class="note">头痛、头晕、恶心</text>
-          </view>
-          <view class="list-item">
-            <text class="label">图片</text>
-            <text class="note">点击查看</text>
-          </view>
-        </view>
-      </view>
+
       <!-- 消息列表 -->
       <view class="message-container">
+        <!-- 患者信息 -->
+        <view class="patient-info">
+          <view class="header">
+            <view class="title">李富贵 男 31岁</view>
+            <view class="note">一周内 | 未去医院就诊</view>
+          </view>
+          <view class="content">
+            <view class="list-item">
+              <text class="label">病情描述</text>
+              <text class="note">头痛、头晕、恶心</text>
+            </view>
+            <view class="list-item">
+              <text class="label">图片</text>
+              <text class="note">点击查看</text>
+            </view>
+          </view>
+        </view>
+
         <view class="message-tips">
           <text class="label">温馨提示:</text>
           在线咨询不能代替面诊，医护人员建议仅供参考
@@ -58,8 +60,11 @@
 
         <!-- 消息条目 -->
         <view class="message-item">
-          <image class="im-avatar" src="/static/uploads/doctor-avatar-2.png" />
-          <view class="im-message">
+          <image
+            class="room-avatar"
+            src="/static/uploads/doctor-avatar-2.png"
+          />
+          <view class="room-message">
             <view class="time">14:13</view>
             <view class="text">
               您好，我是医师王医生，已收到您的问诊信息，我会尽量及时、准确、负责的回复您的问题，请您稍等。
@@ -72,32 +77,44 @@
         </view>
 
         <view class="message-item">
-          <image class="im-avatar" src="/static/uploads/doctor-avatar-2.png" />
-          <view class="im-message">
+          <image
+            class="room-avatar"
+            src="/static/uploads/doctor-avatar-2.png"
+          />
+          <view class="room-message">
             <view class="time">14:13</view>
             <view class="text">请问头痛发生多久了？</view>
           </view>
         </view>
 
         <view class="message-item reverse">
-          <image class="im-avatar" src="/static/uploads/doctor-avatar-2.png" />
-          <view class="im-message">
+          <image
+            class="room-avatar"
+            src="/static/uploads/doctor-avatar-2.png"
+          />
+          <view class="room-message">
             <view class="time">14:13</view>
             <view class="text">不到4.5小时</view>
           </view>
         </view>
 
         <view class="message-item">
-          <image class="im-avatar" src="/static/uploads/doctor-avatar-2.png" />
-          <view class="im-message">
+          <image
+            class="room-avatar"
+            src="/static/uploads/doctor-avatar-2.png"
+          />
+          <view class="room-message">
             <view class="time">14:13</view>
             <view class="text">疼痛的具体部位是哪里呢？</view>
           </view>
         </view>
 
         <view class="message-item reverse">
-          <image class="im-avatar" src="/static/uploads/doctor-avatar-2.png" />
-          <view class="im-message">
+          <image
+            class="room-avatar"
+            src="/static/uploads/doctor-avatar-2.png"
+          />
+          <view class="room-message">
             <view class="time">14:13</view>
             <view class="text">头部两侧 前侧</view>
           </view>
@@ -106,8 +123,11 @@
         <view class="message-tips">14:21:02</view>
 
         <view class="message-item">
-          <image class="im-avatar" src="/static/uploads/doctor-avatar-2.png" />
-          <view class="im-message">
+          <image
+            class="room-avatar"
+            src="/static/uploads/doctor-avatar-2.png"
+          />
+          <view class="room-message">
             <view class="time">14:21</view>
             <view class="text">建议先服用药物来控制调理，看看效果怎么样?</view>
           </view>
@@ -149,8 +169,11 @@
         </view>
 
         <view class="message-item">
-          <image class="im-avatar" src="/static/uploads/doctor-avatar-2.png" />
-          <view class="im-message">
+          <image
+            class="room-avatar"
+            src="/static/uploads/doctor-avatar-2.png"
+          />
+          <view class="room-message">
             <view class="time">14:21</view>
             <view class="text">
               已为您开具处方，请遵医嘱使用。1、用药前请您再次确认用过该药且无过敏和不良反应，如未用过请取消本订单；2、请严格按原处方和《药品说明书》使用(严格对照用法用量、不良反应、禁忌、注意事项和药物相互作用)，确保用药安全；3、用药前后一周禁酒，清淡饮食；4、用药前或者用药期间病情发生变化，请立即停药并线下就医。请问还有哪些可以帮助到您的呢？
