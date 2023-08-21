@@ -32,3 +32,10 @@ export const orderPayApi = (data) => {
 export const orderDetailApi = (orderId) => {
   return http.get('/patient/consult/order/detail', { params: { orderId } })
 }
+
+/**
+ * 评价医生
+ */
+export const scoreToDoctorApi = (data) => {
+  return http.post('/patient/order/evaluate', data)
+}
