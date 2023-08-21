@@ -207,6 +207,11 @@
       flex: 1;
       font-size: 32rpx;
       color: #121826;
+
+      &.medicine {
+        font-size: 30rpx;
+        color: #666;
+      }
     }
 
     .unit {
