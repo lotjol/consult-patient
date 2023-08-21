@@ -120,6 +120,21 @@
           </view>
         </view>
 
+        <view class="message-item reverse">
+          <image
+            class="room-avatar"
+            src="/static/uploads/doctor-avatar-2.png"
+          />
+          <view class="room-message">
+            <view class="time">14:13</view>
+            <image
+              class="image"
+              src="/static/uploads/feed-1.jpeg"
+              mode="widthFix"
+            />
+          </view>
+        </view>
+
         <view class="message-tips">14:21:02</view>
 
         <view class="message-item">
@@ -208,6 +223,7 @@
       <view class="message-bar">
         <template v-if="true">
           <uni-easyinput
+            disabled
             :clearable="false"
             :input-border="false"
             placeholder-style="font-size: 32rpx; color: #c3c3c5;"

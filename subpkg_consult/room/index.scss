@@ -127,6 +127,11 @@
       color: #979797;
     }
 
+    .image {
+      max-width: 420rpx;
+      margin-top: 10rpx;
+    }
+
     .text {
       max-width: 420rpx;
       line-height: 1.75;
@@ -325,6 +330,10 @@
   display: flex;
   padding: 30rpx 30rpx 40rpx;
   background-color: #fff;
+
+  :deep(.is-disabled) {
+    background-color: transparent !important;
+  }
 
   :deep(.uni-easyinput__content-input) {
     height: 88rpx;
