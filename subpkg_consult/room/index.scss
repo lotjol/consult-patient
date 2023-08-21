@@ -183,7 +183,7 @@
 
   .e-prescription {
     width: 100%;
-    margin-top: 40rpx;
+    margin-top: 60rpx;
     border-radius: 20rpx;
     background-color: #eaf8f6;
 
@@ -254,7 +254,7 @@
     padding: 30rpx 30rpx 40rpx;
     border-radius: 20rpx;
     background-color: #fff;
-    margin-top: 30rpx;
+    margin-top: 60rpx;
 
     .title {
       text-align: center;
@@ -275,8 +275,15 @@
     }
 
     .text {
+      padding: 20rpx 30rpx;
       margin-top: 20rpx;
+      background-color: #f6f6f6;
+      border-radius: 20rpx;
       position: relative;
+    }
+
+    :deep(.uni-easyinput__content-textarea) {
+      font-size: 28rpx;
     }
 
     .word-count {
@@ -286,14 +293,6 @@
       line-height: 1;
       font-size: 24rpx;
       color: #6f6f6f;
-    }
-
-    .uni-textarea {
-      width: 100%;
-      padding: 30rpx;
-      box-sizing: border-box;
-      border-radius: 20rpx;
-      background-color: #f6f6f6;
     }
 
     .anonymous {
