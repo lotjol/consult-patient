@@ -16,7 +16,7 @@
   const formRef = ref()
   // 表单数据
   const formData = ref({
-    mobile: '13230000001',
+    mobile: '13212345678',
     password: 'abc12345',
   })
   // 表单验证规则

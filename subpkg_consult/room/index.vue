@@ -1,4 +1,71 @@
-<script setup></script>
+<script setup>
+  import { ref } from 'vue'
+  import { onLoad } from '@dcloudio/uni-app'
+  import { orderDetailApi } from '@/services/order'
+  import { useUserStore } from '@/stores/user'
+  import { io } from 'socket.io-client'
+
+  // 用户数据
+  const userStore = useUserStore()
+
+  // 订单ID
+  const orderId = ref('')
+  // 订单详情
+  const orderDetail = ref({})
+  // 消息列表
+  const messageList = ref([])
+
+  // 患病时长
+  const illnessTimes = {
+    1: '一周内',
+    2: '一个月内',
+    3: '半年内',
+    4: '半年以上',
+  }
+
+  // 是否就诊过
+  const consultFlags = {
+    1: '就诊过',
+    0: '没有就诊过',
+  }
+
+  // 生命周期（页面加载）
+  onLoad(async (query) => {
+    // 读取地址中的订单ID
+    orderId.value = query.orderId
+
+    // 查询订单详情
+    await getOrderDetail()
+
+    const socket = io('https://consult-api.itheima.net', {
+      auth: { token: userStore.token },
+      query: { orderId: orderId.value },
+    })
+
+    // 消息列表，每次会获取一个消息的集合
+    // 集合中会包含多种消息的类型，如提示信息、时间、患者信息、评价、处方等
+    socket.on('chatMsgList', ({ data }) => {
+      const tempList = []
+
+      data.forEach((item) => {
+        tempList.push(...item.items)
+      })
+
+      messageList.value.unshift(...tempList)
+    })
+  })
+
+  // 获取订单详情
+  async function getOrderDetail() {
+    // 订单详情接口
+    const { code, data, message } = await orderDetailApi(orderId.value)
+
+    // 检测接口是否调用成功
+    if (code !== 10000) return uni.utils.toast(message)
+    // 渲染订单详情数据
+    orderDetail.value = data
+  }
+</script>
 
 <template>
   <scroll-page background-color="#f2f2f2">
@@ -19,7 +86,7 @@
             />
           </view>
         </view>
-        <view v-else-if="false" class="status waiting">
+        <view v-else-if="true" class="status waiting">
           已通知医生尽快接诊，24小时内医生未回复将自动退款
         </view>
         <view v-else class="status">
@@ -29,16 +96,17 @@
           </view>
         </view>
       </view>
+
       <!-- 患者信息 -->
       <view class="patient-info">
         <view class="header">
-          <view class="title">李富贵 男 31岁</view>
-          <view class="note">一周内 | 未去医院就诊</view>
+          <view class="title"> 张三 男 29岁 </view>
+          <view class="note"> 一周内 | 就诊过 </view>
         </view>
         <view class="content">
           <view class="list-item">
             <text class="label">病情描述</text>
-            <text class="note">头痛、头晕、恶心</text>
+            <text class="note">恶心，呕吐</text>
           </view>
           <view class="list-item">
             <text class="label">图片</text>
@@ -52,6 +120,7 @@
           <text class="label">温馨提示:</text>
           在线咨询不能代替面诊，医护人员建议仅供参考
         </view>
+
         <view class="message-tips">医护人员正在赶来，请耐心等候</view>
 
         <view class="message-tips">14:16:02</view>

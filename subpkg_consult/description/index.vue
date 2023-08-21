@@ -79,7 +79,7 @@
   // 下一步操作
   function onNextStepClick() {
     // 处理图片数据格式
-    const pictures = consult.value.pictures.map((picture) => {
+    consult.value.pictures = consult.value.pictures?.map((picture) => {
       return { url: picture.url, path: picture.path, id: picture.uuid }
     })
 
@@ -87,7 +87,6 @@
     consultStore.$patch({
       consult: {
         ...consult.value,
-        pictures,
       },
     })
 

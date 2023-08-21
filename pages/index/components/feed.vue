@@ -49,7 +49,8 @@
         <view class="text">{{ feed.content }}</view>
         <view class="picture">
           <image
-            v-for="pictrue in feed.coverUrl"
+            v-for="(pictrue, index) in feed.coverUrl"
+            :key="pictrue + index"
             mode="aspectFill"
             class="uni-image"
             :src="pictrue"

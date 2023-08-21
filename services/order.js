@@ -25,3 +25,10 @@ export const createOrderApi = (data) => {
 export const orderPayApi = (data) => {
   return http.post('/patient/consult/pay', data)
 }
+
+/**
+ * 查询订单详情
+ */
+export const orderDetailApi = (orderId) => {
+  return http.get('/patient/consult/order/detail', { params: { orderId } })
+}
