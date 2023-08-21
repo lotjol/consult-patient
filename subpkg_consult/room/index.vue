@@ -105,15 +105,24 @@
 
   // 发送图片信息
   async function onImageButtonClick() {
+    // 上传图片到 uniCloud
     uniCloud.chooseAndUploadFile({
       type: 'image',
       count: 1,
       extension: ['.jpg', '.png', 'gif'],
-      onUploadProgress: (result) => {
-        console.log(result)
-      },
-      success: (result) => {
-        // console.log(result)
+      success: ({ tempFiles }) => {
+        // 上传成功的图片
+        const picture = {
+          id: tempFiles[0].lastModified,
+          url: tempFiles[0].url,
+        }
+        // 发送消息
+        socket.emit('sendChatMsg', {
+          from: userStore.user?.id,
+          to: orderDetail.value?.docInfo?.id,
+          msgType: 4,
+          msg: { picture },
+        })
       },
     })
   }
@@ -251,6 +260,22 @@
               <view class="text">
                 {{ message.msg.content }}
               </view>
+            </view>
+          </view>
+
+          <view
+            v-if="message.msgType === 4"
+            :class="{ reverse: message.from === '200' }"
+            class="message-item"
+          >
+            <image class="room-avatar" :src="message.fromAvatar" />
+            <view class="room-message">
+              <view class="time">{{ message.createTime }}</view>
+              <image
+                class="image"
+                :src="message.msg.picture.url"
+                mode="widthFix"
+              />
             </view>
           </view>
 
