@@ -326,10 +326,15 @@
   padding: 30rpx 30rpx 40rpx;
   background-color: #fff;
 
-  .uni-input {
-    flex: 1;
+  :deep(.uni-easyinput__content-input) {
     height: 88rpx;
-    padding: 0 44rpx;
+    padding: 0 44rpx !important;
+    border-radius: 88rpx;
+    font-size: 32rpx;
+    background-color: #f6f6f6;
+  }
+
+  .uni-input {
     border-radius: 88rpx;
     font-size: 32rpx;
     color: #3c3e42;
