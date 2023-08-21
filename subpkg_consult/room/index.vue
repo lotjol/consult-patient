@@ -104,7 +104,19 @@
   }
 
   // 发送图片信息
-  async function onImageButtonClick() {}
+  async function onImageButtonClick() {
+    uniCloud.chooseAndUploadFile({
+      type: 'image',
+      count: 1,
+      extension: ['.jpg', '.png', 'gif'],
+      onUploadProgress: (result) => {
+        console.log(result)
+      },
+      success: (result) => {
+        // console.log(result)
+      },
+    })
+  }
 
   // 发送文字信息
   function onInputConfirm() {
