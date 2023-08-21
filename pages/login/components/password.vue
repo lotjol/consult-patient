@@ -60,7 +60,7 @@
       if (code !== 10000) return uni.utils.toast(message)
 
       // 记录用户登录状态，即 token
-      userStore.token = 'Bearer ' + data.token
+      userStore.user = data
 
       // 重定向地址
       uni.utils.linkTo(redirectURL.value, openType.value)

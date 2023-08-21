@@ -16,8 +16,12 @@
   const orderDetail = ref({})
   // 消息列表
   const messageList = ref([])
+  // socket 引用
+  let socket = null
   // 是否为首屏数据
   const initialMessage = ref(true)
+  // 文本消息
+  const textMessage = ref('')
 
   // 患病时长
   const illnessTimes = {
@@ -41,8 +45,8 @@
     await getOrderDetail()
 
     // 建立 socket 连接
-    const socket = io('https://consult-api.itheima.net', {
-      auth: { token: userStore.token },
+    socket = io('https://consult-api.itheima.net', {
+      auth: { token: 'Bearer ' + userStore.user.token },
       query: { orderId: orderId.value },
     })
 
@@ -84,14 +88,11 @@
     socket.on('statusChange', () => getOrderDetail())
 
     // 接收聊天消息
-    socket.on('receiveChatMsg', async (message) => {
+    socket.on('receiveChatMsg', (message) => {
       // 修改消息为已读
       socket.emit('updateMsgStatus', message.id)
       // 渲染新消息
       messageList.value.push(message)
-
-      await nextTick()
-      // pageScrollTop.value = 999999999
     })
   })
 
@@ -103,12 +104,22 @@
   }
 
   // 发送图片信息
-  async function onImageButtonClick() {
-    const result = await uni.chooseImage()
-  }
+  async function onImageButtonClick() {}
 
   // 发送文字信息
-  function onInputConfirm() {}
+  function onInputConfirm() {
+    // 发送消息
+    socket.emit('sendChatMsg', {
+      from: userStore.user?.id,
+      to: orderDetail.value?.docInfo?.id,
+      msgType: 1,
+      msg: {
+        content: textMessage.value,
+      },
+    })
+    // 清空表单
+    textMessage.value = ''
+  }
 
   // 获取订单详情
   async function getOrderDetail() {
@@ -217,10 +228,14 @@
           </view>
 
           <!-- 消息条目-文字聊天(1) -->
-          <view v-if="message.msgType === 1" class="message-item">
+          <view
+            v-if="message.msgType === 1"
+            :class="{ reverse: message.from === '200' }"
+            class="message-item"
+          >
             <image class="room-avatar" :src="message.fromAvatar" />
             <view class="room-message">
-              <view class="time">14:13</view>
+              <view class="time">{{ message.createTime }}</view>
               <view class="text">
                 {{ message.msg.content }}
               </view>
@@ -304,6 +319,8 @@
             :disabled="orderDetail.status !== 3"
             :clearable="false"
             :input-border="false"
+            v-model="textMessage"
+            @confirm="onInputConfirm"
             placeholder-style="font-size: 32rpx; color: #c3c3c5;"
             placeholder="问医生"
           />

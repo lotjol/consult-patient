@@ -3,15 +3,16 @@ import { ref } from 'vue'
 
 const options = {
   persist: {
-    paths: ['token'],
+    paths: ['user'],
   },
 }
 
 function setup() {
   // 登录状态
-  const token = ref('')
+  // const token = ref('')
+  const user = ref({})
 
-  return { token }
+  return { user }
 }
 
 export const useUserStore = defineStore('user', setup, options)

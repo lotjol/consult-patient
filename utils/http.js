@@ -17,7 +17,7 @@ const http = new Request({
   getTask: async (task, options) => {
     // 获取用户状态数据
     const userStore = useUserStore()
-    if (!whiteList.includes(options.url) && !userStore.token) {
+    if (!whiteList.includes(options.url) && !userStore.user.token) {
       task.abort()
       await uni.utils.delay(0)
       reLogin()
@@ -47,7 +47,7 @@ http.interceptors.request.use(
     // 定义头信息，并保证接口调用传递的头信息
     // 能够覆盖在拦截器定义的头信息
     config.header = {
-      Authorization: userStore.token,
+      Authorization: 'Bearer ' + userStore.user.token,
       ...config.header,
     }
 
