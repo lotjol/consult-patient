@@ -22,7 +22,11 @@
             <text class="number">订单编号: 202201127465</text>
             <text class="status">待支付</text>
           </view>
-          <view class="order-body">
+          <navigator
+            url="/subpkg_medicine/order_detail/index"
+            hover-class="none"
+            class="order-body"
+          >
             <view class="medicine">
               <image
                 class="medicine-cover"
@@ -49,7 +53,7 @@
               </view>
               <view class="quantity">x1</view>
             </view>
-          </view>
+          </navigator>
           <view class="order-footer">
             <view class="total">共2件商品 合计：¥49.00 （运费¥0.00）</view>
             <view class="buttons">
@@ -63,7 +67,11 @@
             <text class="number">订单编号: 202201127465</text>
             <text class="status">待支付</text>
           </view>
-          <view class="order-body">
+          <navigator
+            url="/subpkg_medicine/order_detail/index"
+            hover-class="none"
+            class="order-body"
+          >
             <view class="medicine">
               <image
                 class="medicine-cover"
@@ -90,7 +98,7 @@
               </view>
               <view class="quantity">x1</view>
             </view>
-          </view>
+          </navigator>
           <view class="order-footer">
             <view class="total">共2件商品 合计：¥49.00 （运费¥0.00）</view>
             <view class="buttons">
@@ -104,7 +112,11 @@
             <text class="number">订单编号: 202201127465</text>
             <text class="status">待支付</text>
           </view>
-          <view class="order-body">
+          <navigator
+            url="/subpkg_medicine/order_detail/index"
+            hover-class="none"
+            class="order-body"
+          >
             <view class="medicine">
               <image
                 class="medicine-cover"
@@ -131,7 +143,7 @@
               </view>
               <view class="quantity">x1</view>
             </view>
-          </view>
+          </navigator>
           <view class="order-footer">
             <view class="total">共2件商品 合计：¥49.00 （运费¥0.00）</view>
             <view class="buttons">
