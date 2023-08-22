@@ -235,7 +235,6 @@
               </view>
             </view>
           </view>
-
           <!-- 消息通知(31) -->
           <view v-if="message.msgType === 31" class="message-tips">
             <!-- 温馨提示(32) -->
@@ -320,7 +319,7 @@
             <navigator
               class="uni-link"
               hover-class="none"
-              url="/subpkg_medicine/detail/index"
+              :url="`/subpkg_medicine/order/index?id=${message.msg.prescription.id}`"
             >
               购买药品
             </navigator>

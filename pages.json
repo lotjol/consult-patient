@@ -134,7 +134,7 @@
     {
       "root": "subpkg_medicine",
       "pages": [{
-        "path": "detail/index",
+        "path": "order/index",
         "style": {
           "navigationBarTitleText": "等待付款"
         }
