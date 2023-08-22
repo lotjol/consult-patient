@@ -141,7 +141,7 @@
             title="我的问诊"
             show-arrow
             show-extra-icon
-            to="/subpkg_consult/list/index"
+            to="/subpkg_consult/order/index"
             :extra-icon="{
               customPrefix: 'icon-symbol',
               type: 'icon-symbol-tool-01',
@@ -152,6 +152,7 @@
             title="我的处方"
             show-arrow
             show-extra-icon
+            to="/subpkg_medicine/order/index"
             :extra-icon="{
               customPrefix: 'icon-symbol',
               type: 'icon-symbol-tool-02',

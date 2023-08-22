@@ -104,7 +104,7 @@
             "navigationBarTitleText": "药品订单"
           }
         }, {
-          "path": "list/index",
+          "path": "order/index",
           "style": {
             "navigationBarTitleText": "问诊记录"
           }
@@ -134,12 +134,12 @@
     {
       "root": "subpkg_medicine",
       "pages": [{
-        "path": "order/index",
+        "path": "payment/index",
         "style": {
           "navigationBarTitleText": "等待付款"
         }
       }, {
-        "path": "list/index",
+        "path": "order/index",
         "style": {
           "navigationBarTitleText": "订单列表"
         }
