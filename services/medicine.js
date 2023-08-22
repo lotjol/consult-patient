@@ -20,3 +20,12 @@ export const createOrderApi = (id, addressId) => {
 export const orderDetailApi = (id) => {
   return http.get(`/patient/medicine/order/detail/${id}`)
 }
+
+/**
+ * 药品订单列表
+ */
+export const orderListApi = (status = '10', current = 1, pageSize = 10) => {
+  return http.get('/patient/medicine/order/mylist', {
+    params: { status, current, pageSize },
+  })
+}

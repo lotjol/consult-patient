@@ -1,19 +1,51 @@
 <script setup>
   import { ref } from 'vue'
+  import { onLoad } from '@dcloudio/uni-app'
+  import { orderListApi } from '@/services/medicine'
 
+  // 标签页数据
   const feedTabs = ref([
-    { label: '全部', rendered: true },
-    { label: '待支付', rendered: false },
-    { label: '待发货', rendered: false },
-    { label: '待收货', rendered: false },
-    { label: '已完成', rendered: false },
+    { label: '待支付', status: '10', rendered: false },
+    { label: '待发货', status: '11', rendered: false },
+    { label: '待收货', status: '12', rendered: false },
+    { label: '已完成', status: '13', rendered: false },
+    { label: '已取消', status: '14', rendered: true },
   ])
+
+  // 订单状态
+  const orderStatus = ref('10')
+  // 订单列表数据
+  const orderList = ref([])
+
+  // 生命周期（页面加载）
+  onLoad(() => {
+    // 获取订单列表
+    getOrderList()
+  })
+
+  // 标签页切换
+  function onTabClick(ev) {
+    // 切换订单状态
+    orderStatus.value = ev.status
+    // 获取订单列表
+    getOrderList()
+  }
+
+  // 获取药品订单列表
+  async function getOrderList() {
+    // 订单列表接口
+    const { code, data, message } = await orderListApi(orderStatus.value)
+    // 检测接口是否调用成功
+    if (code !== 10000) return uni.utils.toast(message)
+    // 渲染列表数据
+    orderList.value = data
+  }
 </script>
 
 <template>
   <view class="medicine-page">
     <view class="order-status-tabs">
-      <custom-tabs :list="feedTabs"></custom-tabs>
+      <custom-tabs @click="onTabClick" :list="feedTabs"></custom-tabs>
     </view>
     <scroll-view
       refresher-enabled
