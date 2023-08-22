@@ -21,10 +21,11 @@
 .uni-scroll-view {
   flex: 1;
   overflow: hidden;
+  padding-top: 15rpx;
 }
 
 .order-list {
-  padding: 30rpx;
+  padding: 15rpx 30rpx 30rpx;
 }
 
 .order-list-item {
@@ -129,7 +130,7 @@
     .uni-button {
       height: 60rpx;
       line-height: 60rpx;
-      margin: 0 0 0 30rpx;
+      margin: 20rpx 0 0 30rpx;
       font-size: 26rpx;
       color: #16c2a3;
       border: 1rpx solid #16c2a3;
@@ -138,7 +139,7 @@
       &.minor {
         color: #3c3e42;
         border-color: #ededed;
-        background-color: #fafafa;
+        background-color: #f6f6f6;
       }
     }
   }

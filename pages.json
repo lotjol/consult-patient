@@ -141,7 +141,7 @@
       }, {
         "path": "order_list/index",
         "style": {
-          "navigationBarTitleText": "订单列表"
+          "navigationBarTitleText": "药品订单"
         }
       }, {
         "path": "order_detail/index",

@@ -15,7 +15,12 @@
     <view class="order-status-tabs">
       <custom-tabs :list="feedTabs"></custom-tabs>
     </view>
-    <scroll-view class="uni-scroll-view" scroll-y>
+    <scroll-view
+      refresher-enabled
+      refresher-background="#f6f6f6"
+      class="uni-scroll-view"
+      scroll-y
+    >
       <view class="order-list">
         <view class="order-list-item">
           <view class="order-header">
@@ -156,7 +161,7 @@
         <uni-load-more
           status="loading"
           color="#C3C3C5"
-          icon-size="16"
+          :icon-size="16"
           :content-text="{
             contentdown: '上拉显示更多',
             contentrefresh: '数据正在加载中',
