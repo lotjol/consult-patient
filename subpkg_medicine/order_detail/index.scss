@@ -1,5 +1,5 @@
 .medicine-page {
-  padding-bottom: 200rpx;
+  padding-bottom: 155rpx;
 }
 
 .page-header {
@@ -7,6 +7,22 @@
   // 需要一个高为300的背景图
   background-color: #eaf8f6;
   overflow: hidden;
+
+  .order-status {
+    display: flex;
+    justify-content: space-between;
+    line-height: 1;
+    padding: 30rpx 0 0 6rpx;
+    font-size: 32rpx;
+
+    .label {
+      color: #121826;
+    }
+
+    .status {
+      color: #16c2a3;
+    }
+  }
 
   .order-shippment {
     line-height: 1;
@@ -32,6 +48,25 @@
     .receiver {
       font-size: 26rpx;
       color: #121826;
+    }
+
+    .marker {
+      font-size: 28rpx;
+      color: #16c2a3;
+    }
+
+    .datetime {
+      // margin-left: 10rpx;
+      margin-top: 20rpx;
+      font-size: 24rpx;
+      color: #c3c3c5;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      right: 16rpx;
+      transform: translateY(-50%);
     }
   }
 }
@@ -177,6 +212,13 @@
   }
 }
 
+.notice-bar {
+  text-align: center;
+  margin-top: 30rpx;
+  position: sticky;
+  bottom: 145rpx;
+}
+
 .toolbar {
   position: fixed;
   left: 0;
@@ -194,9 +236,24 @@
     display: flex;
   }
 
+  .delete-botton {
+    display: flex;
+    flex-direction: column;
+    color: #848484;
+    font-size: 24rpx;
+    margin: 0 60rpx 0 30rpx;
+  }
+
   .uni-button {
     flex: 1;
     padding: 0 30rpx;
+
+    &.minor {
+      color: #16c2a3;
+      margin-right: 20rpx;
+      border: 1rpx solid #ededed;
+      background-color: #fafafa;
+    }
   }
 
   .total-amount {

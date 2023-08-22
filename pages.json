@@ -139,9 +139,14 @@
           "navigationBarTitleText": "等待付款"
         }
       }, {
-        "path": "order/index",
+        "path": "order_list/index",
         "style": {
           "navigationBarTitleText": "订单列表"
+        }
+      }, {
+        "path": "order_detail/index",
+        "style": {
+          "navigationBarTitleText": "订单详情"
         }
       }]
     }

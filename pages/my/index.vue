@@ -149,10 +149,10 @@
           />
           <uni-list-item
             :border="false"
-            title="我的处方"
+            title="药品订单"
             show-arrow
             show-extra-icon
-            to="/subpkg_medicine/order/index"
+            to="/subpkg_medicine/order_list/index"
             :extra-icon="{
               customPrefix: 'icon-symbol',
               type: 'icon-symbol-tool-02',

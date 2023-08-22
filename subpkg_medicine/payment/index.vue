@@ -45,32 +45,17 @@
   <scroll-page background-color="#f6f6f6">
     <view class="medicine-page">
       <view class="page-header">
-        <!-- <view class="order-status">
-          <text class="label">药品订单 45元</text>
-          <text class="status">待支付</text>
-        </view> -->
         <view class="order-shippment">
-          <template v-if="true">
-            <view class="region">
-              <uni-icons size="16" color="#FF7702" type="location-filled" />
-              {{ addressInfo.province }}
-              {{ addressInfo.city }}
-              {{ addressInfo.county }}
-            </view>
-            <view class="detail">{{ addressInfo.addressDetail }}</view>
-            <view class="receiver">
-              {{ addressInfo.receiver }} {{ addressInfo.mobile }}
-            </view>
-          </template>
-          <template v-else>
-            <navigator hover-class="none" url=" ">
-              <view class="marker">【东莞市】您的包裹已签收</view>
-              <view class="datetime">2019-07-14 17:42:12</view>
-              <view class="arrow">
-                <uni-icons size="18" color="#C3C3C5" type="forward" />
-              </view>
-            </navigator>
-          </template>
+          <view class="region">
+            <uni-icons size="16" color="#FF7702" type="location-filled" />
+            {{ addressInfo.province }}
+            {{ addressInfo.city }}
+            {{ addressInfo.county }}
+          </view>
+          <view class="detail">{{ addressInfo.addressDetail }}</view>
+          <view class="receiver">
+            {{ addressInfo.receiver }} {{ addressInfo.mobile }}
+          </view>
         </view>
       </view>
 
@@ -125,37 +110,18 @@
             title="实付款"
             :right-text="'¥' + preOrderInfo.actualPayment"
           />
-          <uni-list-item title="订单编号" :right-text="preOrderInfo.id" />
-          <!-- <uni-list-item title="创建时间" right-text="2022-01-23 09:23:46" />
-          <uni-list-item title="支付方式" right-text="微信支付" /> -->
         </uni-list>
       </view>
 
-      <!-- <view class="notice-bar">
-        <uni-notice-bar text="请在 00:14:59 内完成支付，超时订单将取消" />
-      </view> -->
-
       <!-- 底部 -->
       <view class="toolbar">
-        <template v-if="true">
-          <view class="total-amount">
-            需付款:
-            <text class="number">¥{{ preOrderInfo.actualPayment }}</text>
-          </view>
-          <view class="buttons">
-            <!-- <button class="uni-button minor">取消问诊</button> -->
-            <button class="uni-button">立即支付</button>
-          </view>
-        </template>
-        <template v-else>
-          <view class="buttons">
-            <view class="delete-botton">
-              <uni-icons size="24" color="#848484" type="trash" />
-              <text>删除订单</text>
-            </view>
-            <button class="uni-button">再次购买</button>
-          </view>
-        </template>
+        <view class="total-amount">
+          需付款:
+          <text class="number">¥{{ preOrderInfo.actualPayment }}</text>
+        </view>
+        <view class="buttons">
+          <button class="uni-button">立即支付</button>
+        </view>
       </view>
     </view>
   </scroll-page>
