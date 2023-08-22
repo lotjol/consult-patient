@@ -177,7 +177,7 @@
           <navigator
             class="uni-link"
             hover-class="none"
-            url="/subpkg_medicine/order/index"
+            url="/subpkg_medicine/payment/index"
           >
             购买药品
           </navigator>
