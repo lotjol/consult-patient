@@ -319,7 +319,7 @@
             <navigator
               class="uni-link"
               hover-class="none"
-              :url="`/subpkg_medicine/order/index?id=${message.msg.prescription.id}`"
+              :url="`/subpkg_medicine/payment/index?id=${message.msg.prescription.id}`"
             >
               购买药品
             </navigator>
