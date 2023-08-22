@@ -1,8 +1,16 @@
 <script setup>
-  import { ref } from 'vue'
+  import { ref, provide, computed } from 'vue'
   import { onLoad } from '@dcloudio/uni-app'
-  import { preOrderApi } from '@/services/medicine'
+  import { createOrderApi, preOrderApi } from '@/services/medicine'
   import { addressListApi } from '@/services/address'
+
+  import customCoupon from './components/coupon.vue'
+  import customPayment from './components/payment.vue'
+
+  // 优惠券组件
+  const couponRef = ref()
+  // 支付组件
+  const paymentRef = ref()
 
   // 处方ID
   const prescriptionId = ref('')
@@ -10,6 +18,17 @@
   const preOrderInfo = ref({})
   // 收货地址列
   const addressInfo = ref({})
+  // 待支付订单ID
+  const orderId = ref('')
+
+  // 支付金额
+  const actualPayment = computed(() => {
+    return preOrderInfo.value.actualPayment
+  })
+
+  // 向组件注入数据
+  provide('orderId', orderId)
+  provide('actualPayment', actualPayment)
 
   // 生命周期（页面加载）
   onLoad((query) => {
@@ -18,6 +37,12 @@
     // 预付订单信息
     getMedicinePreOrder((prescriptionId.value = query.id))
   })
+
+  // 立即支付
+  async function onPaymentButtonClick() {
+    // 生成待支付订单
+    await createOrder()
+  }
 
   // 获取用户收货地址
   async function getAddressList() {
@@ -38,6 +63,27 @@
     if (code !== 10000) return uni.utils.toast(message)
     // 渲染预付订单信息
     preOrderInfo.value = data
+  }
+
+  // 生成订单
+  async function createOrder() {
+    try {
+      // 生成订单接口
+      const { code, data, message } = await createOrderApi(
+        prescriptionId.value,
+        addressInfo.value.id
+      )
+      // 检测接口是否调用成功
+      if (code !== 10000) return uni.utils.toast(message)
+
+      // 传递订单ID
+      orderId.value = data.id
+
+      // 打开支付弹层
+      paymentRef.value.openPayment()
+    } catch (error) {
+      console.log(error)
+    }
   }
 </script>
 
@@ -104,6 +150,8 @@
           <uni-list-item
             title="优惠券"
             show-arrow
+            clickable
+            @click="couponRef.openCoupon()"
             :right-text="'-¥' + preOrderInfo.couponDeduction"
           />
           <uni-list-item
@@ -120,11 +168,18 @@
           <text class="number">¥{{ preOrderInfo.actualPayment }}</text>
         </view>
         <view class="buttons">
-          <button class="uni-button">立即支付</button>
+          <button @click="onPaymentButtonClick" class="uni-button">
+            立即支付
+          </button>
         </view>
       </view>
     </view>
   </scroll-page>
+
+  <!-- 优惠券 -->
+  <custom-coupon ref="couponRef" />
+  <!-- 在线支付 -->
+  <custom-payment ref="paymentRef" />
 </template>
 
 <style lang="scss">
