@@ -1,272 +1,145 @@
 .medicine-page {
-  padding-bottom: 155rpx;
+  height: 100vh;
+  /* #ifdef H5 */
+  height: calc(100vh - 44px);
+  /* #endif */
+  background-color: #f6f6f6;
+
+  display: flex;
+  flex-direction: column;
 }
 
-.page-header {
-  padding: 0 30rpx 30rpx;
-  // 需要一个高为300的背景图
-  background-color: #eaf8f6;
-  overflow: hidden;
+.order-status-tabs {
+  padding: 20rpx 30rpx 0;
+  background-color: #fff;
 
-  .order-status {
+  :deep(.custom-tabs) {
+    justify-content: space-evenly;
+  }
+}
+
+.uni-scroll-view {
+  flex: 1;
+  overflow: hidden;
+}
+
+.order-list {
+  padding: 30rpx;
+}
+
+.order-list-item {
+  // height: 715rpx;
+  padding: 0 30rpx;
+  margin-bottom: 30rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+
+  .order-header {
     display: flex;
     justify-content: space-between;
-    line-height: 1;
-    padding: 30rpx 0 0 6rpx;
-    font-size: 32rpx;
+    align-items: center;
+    height: 100rpx;
+    padding: 0 30rpx;
+    margin: 0 -30rpx;
+    font-size: 26rpx;
+    border-bottom: 1rpx solid #f5f5f5;
 
-    .label {
-      color: #121826;
+    .number {
+      color: #848484;
     }
 
     .status {
-      color: #16c2a3;
+      color: #f2994a;
     }
   }
 
-  .order-shippment {
-    line-height: 1;
-    padding: 30rpx;
-    background-color: #fff;
-    border-radius: 20rpx;
-    margin-top: 30rpx;
+  .medicine {
+    padding: 30rpx 0;
+    border-bottom: 1rpx solid #f5f5f5;
     position: relative;
 
-    .region {
+    .medicine-cover {
+      width: 180rpx;
+      height: 160rpx;
+      float: left;
+    }
+
+    .medicine-info {
       display: flex;
-      align-items: center;
-      font-size: 26rpx;
-      color: #6f6f6f;
-    }
+      flex-direction: column;
+      justify-content: space-between;
+      height: 160rpx;
+      padding-left: 20rpx;
 
-    .detail {
-      margin: 24rpx 0;
-      font-size: 34rpx;
-      color: #121826;
-    }
+      .name {
+        font-size: 30rpx;
+        font-weight: 500;
+        color: #121826;
+      }
 
-    .receiver {
-      font-size: 26rpx;
-      color: #121826;
-    }
+      .unit {
+        color: #979797;
+        font-size: 28rpx;
+        display: flex;
+        align-items: center;
 
-    .marker {
-      font-size: 28rpx;
-      color: #16c2a3;
-    }
+        &.symbol::before {
+          content: '处方药';
+          line-height: 1;
+          padding: 8rpx 10rpx;
+          margin-right: 10rpx;
+          border-radius: 4rpx;
+          font-size: 24rpx;
+          color: #fff;
+          background-color: #16c2a3;
+        }
+      }
 
-    .datetime {
-      // margin-left: 10rpx;
-      margin-top: 20rpx;
-      font-size: 24rpx;
-      color: #c3c3c5;
-    }
-
-    .arrow {
-      position: absolute;
-      top: 50%;
-      right: 16rpx;
-      transform: translateY(-50%);
-    }
-  }
-}
-
-.order-shop {
-  padding: 20rpx 30rpx;
-  margin: 10rpx 0;
-  line-height: 1;
-  font-size: 32rpx;
-  color: #121826;
-  font-weight: 500;
-
-  .alt {
-    font-size: 24rpx;
-    color: #979797;
-    margin-left: 10rpx;
-  }
-}
-
-.medicine-list {
-  padding: 0 30rpx;
-  background-color: #fff;
-}
-
-.medicine-list-item {
-  padding: 30rpx 0;
-  border-bottom: 1rpx solid #ededed;
-  position: relative;
-
-  &:last-child {
-    border-bottom: none;
-  }
-
-  .medicine-cover {
-    width: 180rpx;
-    height: 160rpx;
-    float: left;
-  }
-
-  .medicine-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 160rpx;
-    padding-left: 20rpx;
-
-    .name {
-      font-size: 30rpx;
-      font-weight: 500;
-      color: #121826;
-    }
-
-    .unit {
-      color: #979797;
-      font-size: 28rpx;
-      display: flex;
-      align-items: center;
-
-      &.symbol::before {
-        content: '处方药';
-        line-height: 1;
-        padding: 8rpx 10rpx;
-        margin-right: 10rpx;
-        border-radius: 4rpx;
-        font-size: 24rpx;
-        color: #fff;
-        background-color: #16c2a3;
+      .price {
+        color: #eb5757;
+        font-size: 32rpx;
       }
     }
 
-    .price {
-      color: #eb5757;
-      font-size: 32rpx;
+    .quantity {
+      top: 30rpx;
+      right: 0;
+      position: absolute;
+
+      font-size: 30rpx;
+      color: #121826;
     }
   }
 
-  .quantity {
-    top: 30rpx;
-    right: 0;
-    position: absolute;
+  .order-footer {
+    padding: 30rpx 0;
 
-    font-size: 30rpx;
-    color: #121826;
-  }
+    .total {
+      text-align: right;
+      font-size: 24rpx;
+      color: #3c3e42;
+    }
 
-  .guide {
-    clear: both;
-    padding: 20rpx;
-    margin-top: 30rpx;
-    font-size: 28rpx;
-    color: #848484;
-    border-radius: 10rpx;
-    background-color: #f6f6f6;
-  }
-}
+    .buttons {
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 20rpx;
+    }
 
-.order-info {
-  padding: 0 30rpx;
-  margin-top: 30rpx;
-  background-color: #fff;
-
-  .right-text {
-    display: flex;
-    align-items: center;
-  }
-
-  .copy {
-    line-height: 1;
-    padding: 6rpx 20rpx 4rpx;
-    margin-right: 20rpx;
-    font-size: 24rpx;
-    color: #16c2a3;
-    background-color: #fafafa;
-    border-radius: 40rpx;
-    border: 1rpx solid #16c2a3;
-  }
-
-  .number {
-    font-size: 32rpx;
-    color: #848484;
-  }
-
-  :deep(.uni-list-item__container) {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-
-  :deep(.uni-list-item__content-title) {
-    font-size: 32rpx !important;
-    color: #3c3e42 !important;
-  }
-
-  :deep(.uni-list-item__extra-text) {
-    font-size: 32rpx !important;
-    color: #848484 !important;
-  }
-
-  :deep(.uni-icon-wrapper) {
-    padding: 0 !important;
-    margin-right: -10rpx !important;
-    font-size: 36rpx !important;
-    margin-top: 2rpx;
-  }
-}
-
-.notice-bar {
-  text-align: center;
-  margin-top: 30rpx;
-  position: sticky;
-  bottom: 145rpx;
-}
-
-.toolbar {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  display: flex;
-  align-items: center;
-  height: 88rpx;
-  padding: 30rpx 40rpx;
-  background-color: #fff;
-
-  .buttons {
-    flex: 1;
-    display: flex;
-  }
-
-  .delete-botton {
-    display: flex;
-    flex-direction: column;
-    color: #848484;
-    font-size: 24rpx;
-    margin: 0 60rpx 0 30rpx;
-  }
-
-  .uni-button {
-    flex: 1;
-    padding: 0 30rpx;
-
-    &.minor {
+    .uni-button {
+      height: 60rpx;
+      line-height: 60rpx;
+      margin: 0 0 0 30rpx;
+      font-size: 26rpx;
       color: #16c2a3;
-      margin-right: 20rpx;
-      border: 1rpx solid #ededed;
-      background-color: #fafafa;
+      border: 1rpx solid #16c2a3;
+      background-color: #fff;
+
+      &.minor {
+        color: #3c3e42;
+        border-color: #ededed;
+        background-color: #fafafa;
+      }
     }
-  }
-
-  .total-amount {
-    display: flex;
-    align-items: center;
-    width: 270rpx;
-    font-size: 28rpx;
-    color: #3c3e42;
-  }
-
-  .number {
-    font-size: 40rpx;
-    color: #eb5757;
-    margin-left: 10rpx;
   }
 }
