@@ -56,7 +56,7 @@
     const { code, data, message } = await orderPayApi({
       paymentMethod: channelIndex.value,
       orderId: orderId.value,
-      payCallback: 'http://localhost:5173/#/subpkg_medicine/success/index',
+      payCallback: 'http://localhost:5173/#/subpkg_medicine/pay_result/index',
     })
     // 接口是否调用成功
     if (code !== 10000) return uni.utils.toast(message)

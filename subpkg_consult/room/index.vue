@@ -1,7 +1,7 @@
 <script setup>
-  import { ref, nextTick } from 'vue'
+  import { ref, nextTick, computed } from 'vue'
   import { onLoad } from '@dcloudio/uni-app'
-  import { orderDetailApi } from '@/services/order'
+  import { orderDetailApi, scoreToDoctorApi } from '@/services/order'
   import { useUserStore } from '@/stores/user'
 
   import { io } from 'socket.io-client'
@@ -22,6 +22,14 @@
   const initialMessage = ref(true)
   // 文本消息
   const textMessage = ref('')
+  // 评价分数
+  const score = ref()
+  // 评价内容
+  const content = ref('')
+  // 是否为匿名评价
+  const anonymousFlag = ref(false)
+  // 是否评价过医生
+  const hasEvaluate = ref(false)
 
   // 患病时长
   const illnessTimes = {
@@ -36,6 +44,11 @@
     1: '就诊过',
     0: '没有就诊过',
   }
+
+  // 验证评价数据
+  const buttonEnable = computed(() => {
+    return score.value && content.value
+  })
 
   // 生命周期（页面加载）
   onLoad(async (query) => {
@@ -76,7 +89,7 @@
 
       if (initialMessage.value) {
         // 修改消息为已读状态
-        socket.emit('updateMsgStatus', tempList[tempList.length - 1].id)
+        socket.emit('updateMsgStatus', tempList[tempList.length - 1]?.id)
         // 首屏数据渲染完成
         initialMessage.value = false
 
@@ -143,6 +156,12 @@
     textMessage.value = ''
   }
 
+  // 提交点评数据
+  function onEvaluateButtonClick() {
+    // 点评医生
+    scoreToDoctor()
+  }
+
   // 获取订单详情
   async function getOrderDetail() {
     // 订单详情接口
@@ -152,6 +171,23 @@
     if (code !== 10000) return uni.utils.toast(message)
     // 渲染订单详情数据
     orderDetail.value = data
+  }
+
+  // 评价医生
+  async function scoreToDoctor() {
+    // 点评医生接口
+    const { code, data, message } = await scoreToDoctorApi({
+      docId: orderDetail.value.docInfo.id,
+      orderId: orderDetail.value.id,
+      score: score.value,
+      content: content.value,
+      anonymousFlag: anonymousFlag.value ? 1 : 0,
+    })
+    // 检测接口是否调用成功
+    if (code !== 10000) return uni.utils.toast(message)
+    uni.utils.toast('感谢您的评价！')
+    // 不允许再次提交评价
+    hasEvaluate.value = true
   }
 </script>
 
@@ -193,6 +229,36 @@
       <!-- 消息列表 -->
       <view class="message-container">
         <template v-for="message in messageList" :key="message.id">
+          <!-- 消息条目-文字消息(1) -->
+          <view
+            v-if="message.msgType === 1"
+            :class="{ reverse: message.from === '200' }"
+            class="message-item"
+          >
+            <image class="room-avatar" :src="message.fromAvatar" />
+            <view class="room-message">
+              <view class="time">{{ message.createTime }}</view>
+              <view class="text">
+                {{ message.msg.content }}
+              </view>
+            </view>
+          </view>
+          <!-- 消息条目-图片消息(4) -->
+          <view
+            v-if="message.msgType === 4"
+            :class="{ reverse: message.from === '200' }"
+            class="message-item"
+          >
+            <image class="room-avatar" :src="message.fromAvatar" />
+            <view class="room-message">
+              <view class="time">{{ message.createTime }}</view>
+              <image
+                class="image"
+                :src="message.msg.picture.url"
+                mode="widthFix"
+              />
+            </view>
+          </view>
           <!-- 患者信息(21) -->
           <view v-if="message.msgType === 21" class="patient-info">
             <view class="header">
@@ -235,50 +301,6 @@
               </view>
             </view>
           </view>
-          <!-- 消息通知(31) -->
-          <view v-if="message.msgType === 31" class="message-tips">
-            <!-- 温馨提示(32) -->
-            {{ message.msg.content }}
-          </view>
-
-          <!-- 温馨提示(32) -->
-          <view v-if="message.msgType === 32" class="message-tips">
-            <!-- 温馨提示(32) -->
-            <text class="label">温馨提示:</text>
-            {{ message.msg.content }}
-          </view>
-
-          <!-- 消息条目-文字聊天(1) -->
-          <view
-            v-if="message.msgType === 1"
-            :class="{ reverse: message.from === '200' }"
-            class="message-item"
-          >
-            <image class="room-avatar" :src="message.fromAvatar" />
-            <view class="room-message">
-              <view class="time">{{ message.createTime }}</view>
-              <view class="text">
-                {{ message.msg.content }}
-              </view>
-            </view>
-          </view>
-
-          <view
-            v-if="message.msgType === 4"
-            :class="{ reverse: message.from === '200' }"
-            class="message-item"
-          >
-            <image class="room-avatar" :src="message.fromAvatar" />
-            <view class="room-message">
-              <view class="time">{{ message.createTime }}</view>
-              <image
-                class="image"
-                :src="message.msg.picture.url"
-                mode="widthFix"
-              />
-            </view>
-          </view>
-
           <!-- 电子处方(22) -->
           <view v-if="message.msgType === 22" class="e-prescription">
             <view class="prescription-content">
@@ -324,31 +346,79 @@
               购买药品
             </navigator>
           </view>
-
-          <!-- 医生评价(23) -->
+          <!-- 医生评价(未评价23) -->
           <view v-if="message.msgType === 23" class="doctor-rating">
             <view class="title">医生服务评价</view>
             <view class="subtitle">本次在线问诊服务您还满意吗？</view>
             <view class="rating">
-              <uni-rate :size="28" margin="12" :value="0" />
+              <uni-rate :size="28" margin="12" v-model="score" />
             </view>
             <view class="text">
               <uni-easyinput
                 type="textarea"
                 maxlength="150"
+                v-model="content"
                 :input-border="false"
                 :styles="{ backgroundColor: '#f6f6f6' }"
                 placeholder-style="font-size: 28rpx; color: #979797"
-                value="ddddddd"
                 placeholder="请描述您对医生的评价或是在医生看诊过程中遇到的问题"
               />
-              <text class="word-count">0/150</text>
+              <text v-if="!hasEvaluate" class="word-count">0/150</text>
             </view>
-            <view class="anonymous">
-              <radio class="uni-radio" value="1" />
-              <text>匿名评价</text>
+            <template v-if="!hasEvaluate">
+              <view class="anonymous">
+                <radio
+                  @click="anonymousFlag = !anonymousFlag"
+                  class="uni-radio"
+                  color="#16c2a3"
+                  :checked="anonymousFlag"
+                />
+                <text>匿名评价</text>
+              </view>
+              <button
+                :disabled="!buttonEnable"
+                @click="onEvaluateButtonClick"
+                class="uni-button"
+              >
+                提交
+              </button>
+            </template>
+          </view>
+          <!-- 医生评价(已评价24) -->
+          <view v-if="message.msgType === 24" class="doctor-rating">
+            <view class="title">医生服务评价</view>
+            <view class="subtitle">本次在线问诊服务您还满意吗？</view>
+            <view class="rating">
+              <uni-rate
+                :size="28"
+                :margin="12"
+                :value="message.msg.evaluateDoc.score"
+              />
             </view>
-            <button disabled class="uni-button">提交</button>
+            <view class="text">
+              <uni-easyinput
+                type="textarea"
+                :input-border="false"
+                :value="message.msg.evaluateDoc.content"
+                :styles="{ backgroundColor: '#f6f6f6' }"
+                placeholder-style="font-size: 28rpx; color: #979797"
+                placeholder="请描述您对医生的评价或是在医生看诊过程中遇到的问题"
+              />
+            </view>
+          </view>
+
+          <!-- 消息通知(31) -->
+          <view v-if="message.msgType === 31" class="message-tips">
+            {{ message.msg.content }}
+          </view>
+          <!-- 温馨提示(32) -->
+          <view v-if="message.msgType === 32" class="message-tips">
+            <text class="label">温馨提示:</text>
+            {{ message.msg.content }}
+          </view>
+          <!-- 关闭诊室(33) -->
+          <view v-if="message.msgType === 33" class="message-tips">
+            {{ message.msg.content }}
           </view>
         </template>
       </view>

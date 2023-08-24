@@ -63,8 +63,8 @@
           </template>
           <template v-else>
             <navigator hover-class="none" url=" ">
-              <view class="marker">{{ orderDetail.expressInfo.content }}</view>
-              <view class="datetime">{{ orderDetail.expressInfo.time }}</view>
+              <view class="marker">{{ orderDetail.expressInfo?.content }}</view>
+              <view class="datetime">{{ orderDetail.expressInfo?.time }}</view>
               <view class="arrow">
                 <uni-icons size="18" color="#C3C3C5" type="forward" />
               </view>
