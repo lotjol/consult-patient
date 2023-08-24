@@ -9,8 +9,21 @@
     </view>
 
     <view class="buttons">
-      <button class="uni-button">查看订单</button>
-      <button class="uni-button plain">返回诊室</button>
+      <navigator
+        hover-class="none"
+        url="/subpkg_medicine/order_detail/index"
+        class="uni-button"
+      >
+        查看订单
+      </navigator>
+      <navigator
+        hover-class="none"
+        url="/subpkg_consult/room/index"
+        open-type="redirect"
+        class="uni-button plain"
+      >
+        返回诊室
+      </navigator>
     </view>
   </view>
 </template>

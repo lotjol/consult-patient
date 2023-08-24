@@ -210,7 +210,6 @@
               :input-border="false"
               :styles="{ backgroundColor: '#f6f6f6' }"
               placeholder-style="font-size: 28rpx; color: #979797"
-              value="ddddddd"
               placeholder="请描述您对医生的评价或是在医生看诊过程中遇到的问题"
             />
             <text class="word-count">0/150</text>
