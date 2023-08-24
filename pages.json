@@ -159,6 +159,12 @@
         "style": {
           "navigationBarTitleText": "支付成功"
         }
+      }, {
+        "path": "timeline/index",
+        "style": {
+          "navigationBarTitleText": "查看物流",
+          "navigationStyle": "custom"
+        }
       }]
     }
   ],

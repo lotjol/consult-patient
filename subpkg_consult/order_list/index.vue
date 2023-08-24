@@ -95,6 +95,15 @@
             </uni-list>
           </navigator>
           <view class="consult-footer">
+            <view class="uni-button more">
+              <text class="label">更多</text>
+              <uni-transition :show="true">
+                <view class="list">
+                  <view class="list-item">查看处方</view>
+                  <view class="list-item">删除订单</view>
+                </view>
+              </uni-transition>
+            </view>
             <button class="uni-button minor">取消订单</button>
             <button class="uni-button">继续支付</button>
           </view>

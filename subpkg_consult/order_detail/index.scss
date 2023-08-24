@@ -36,7 +36,7 @@
 }
 
 .page-header {
-  padding: 0 30rpx;
+  padding: 20rpx 30rpx 0;
   // 需要一个高为300的背景图
   background-color: #eaf8f6;
 
@@ -76,7 +76,7 @@
 
   .consult-doctor {
     position: relative;
-    bottom: -30rpx;
+    bottom: -40rpx;
 
     .title {
       font-size: 28rpx;
@@ -87,7 +87,7 @@
       display: flex;
       align-items: center;
       height: 160rpx;
-      padding: 0 20rpx;
+      padding: 20rpx 30rpx;
       margin-top: 20rpx;
       border-radius: 20rpx;
       background-color: #fff;
@@ -151,7 +151,7 @@
 }
 
 .consult-patient {
-  padding: 30rpx 30rpx 0;
+  padding: 50rpx 30rpx 0;
   background-color: #fff;
 }
 

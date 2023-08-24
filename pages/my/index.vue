@@ -183,6 +183,7 @@
             :border="false"
             title="我的评价"
             show-arrow
+            to="/subpkg_medicine/timeline/index"
             show-extra-icon
             :extra-icon="{
               customPrefix: 'icon-symbol',

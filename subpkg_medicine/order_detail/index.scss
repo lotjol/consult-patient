@@ -3,7 +3,7 @@
 }
 
 .page-header {
-  padding: 0 30rpx 30rpx;
+  padding: 20rpx 30rpx 30rpx;
   // 需要一个高为300的背景图
   background-color: #eaf8f6;
   overflow: hidden;
@@ -29,7 +29,7 @@
     padding: 30rpx;
     background-color: #fff;
     border-radius: 20rpx;
-    margin-top: 30rpx;
+    margin-top: 40rpx;
     position: relative;
 
     .region {
@@ -124,6 +124,8 @@
       font-size: 28rpx;
       display: flex;
       align-items: center;
+
+      @include text-overflow(1);
 
       &.symbol::before {
         content: '处方药';

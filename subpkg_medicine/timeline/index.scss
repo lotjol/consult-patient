@@ -1,0 +1,50 @@
+.uni-map {
+  width: 750rpx;
+  height: 470px;
+}
+
+.navigator-bar {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  right: 10px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border-radius: 4px;
+  background-color: #fff;
+
+  /* #ifdef MP-WEIXIN */
+  height: 50px;
+  top: 0;
+  left: 0px;
+  right: 0px;
+  border-radius: 0;
+  /* #endif */
+}
+
+.meta {
+  position: absolute;
+  top: 380px;
+  left: 10px;
+  right: 10px;
+
+  line-height: 1;
+  padding: 15px 20px;
+  border-radius: 4px;
+  background-color: #fff;
+
+  .status {
+    font-size: 15px;
+    color: #121826;
+    font-weight: 500;
+  }
+
+  .extra {
+    font-size: 14px;
+    color: #6f6f6f;
+    margin-top: 10px;
+  }
+}
