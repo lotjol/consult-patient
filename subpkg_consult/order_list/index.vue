@@ -12,7 +12,12 @@
     <view class="consult-status-tabs">
       <custom-tabs :list="feedTabs"></custom-tabs>
     </view>
-    <scroll-view class="uni-scroll-view" scroll-y>
+    <scroll-view
+      refresher-enabled
+      refresher-background="#f6f6f6"
+      class="uni-scroll-view"
+      scroll-y
+    >
       <view class="consult-list">
         <view class="consult-list-item">
           <view class="consult-header">
@@ -26,27 +31,29 @@
             <text class="status color-1">咨询中</text>
           </view>
 
-          <view class="consult-body">
-            <navigator hover-class="none" url="/subpkg_consult/detail/index">
-              <uni-list :border="false">
-                <uni-list-item
-                  :border="false"
-                  title="病情描述"
-                  right-text="腹痛腹泻  胃部有些痉挛"
-                />
-                <uni-list-item
-                  :border="false"
-                  title="价格"
-                  right-text="¥ 39.00"
-                />
-                <uni-list-item
-                  :border="false"
-                  title="创建时间"
-                  right-text="2019-07-08  09:55:54"
-                />
-              </uni-list>
-            </navigator>
-          </view>
+          <navigator
+            class="consult-body"
+            hover-class="none"
+            url="/subpkg_consult/order_detail/index"
+          >
+            <uni-list :border="false">
+              <uni-list-item
+                :border="false"
+                title="病情描述"
+                right-text="腹痛腹泻  胃部有些痉挛"
+              />
+              <uni-list-item
+                :border="false"
+                title="价格"
+                right-text="¥ 39.00"
+              />
+              <uni-list-item
+                :border="false"
+                title="创建时间"
+                right-text="2019-07-08  09:55:54"
+              />
+            </uni-list>
+          </navigator>
 
           <view class="consult-footer">
             <button class="uni-button minor">取消订单</button>
@@ -64,27 +71,29 @@
             </view>
             <text class="status color-3">待支付</text>
           </view>
-          <view class="consult-body">
-            <navigator hover-class="none" url="/subpkg_consult/detail/index">
-              <uni-list :border="false">
-                <uni-list-item
-                  :border="false"
-                  title="病情描述"
-                  right-text="腹痛腹泻  胃部有些痉挛"
-                />
-                <uni-list-item
-                  :border="false"
-                  title="价格"
-                  right-text="¥ 39.00"
-                />
-                <uni-list-item
-                  :border="false"
-                  title="创建时间"
-                  right-text="2019-07-08  09:55:54"
-                />
-              </uni-list>
-            </navigator>
-          </view>
+          <navigator
+            class="consult-body"
+            hover-class="none"
+            url="/subpkg_consult/order_detail/index"
+          >
+            <uni-list :border="false">
+              <uni-list-item
+                :border="false"
+                title="病情描述"
+                right-text="腹痛腹泻  胃部有些痉挛"
+              />
+              <uni-list-item
+                :border="false"
+                title="价格"
+                right-text="¥ 39.00"
+              />
+              <uni-list-item
+                :border="false"
+                title="创建时间"
+                right-text="2019-07-08  09:55:54"
+              />
+            </uni-list>
+          </navigator>
           <view class="consult-footer">
             <button class="uni-button minor">取消订单</button>
             <button class="uni-button">继续支付</button>
@@ -101,27 +110,29 @@
             </view>
             <text class="status">待接诊</text>
           </view>
-          <view class="consult-body">
-            <navigator hover-class="none" url="/subpkg_consult/detail/index">
-              <uni-list :border="false">
-                <uni-list-item
-                  :border="false"
-                  title="病情描述"
-                  right-text="腹痛腹泻  胃部有些痉挛"
-                />
-                <uni-list-item
-                  :border="false"
-                  title="价格"
-                  right-text="¥ 39.00"
-                />
-                <uni-list-item
-                  :border="false"
-                  title="创建时间"
-                  right-text="2019-07-08  09:55:54"
-                />
-              </uni-list>
-            </navigator>
-          </view>
+          <navigator
+            class="consult-body"
+            hover-class="none"
+            url="/subpkg_consult/order_detail/index"
+          >
+            <uni-list :border="false">
+              <uni-list-item
+                :border="false"
+                title="病情描述"
+                right-text="腹痛腹泻  胃部有些痉挛"
+              />
+              <uni-list-item
+                :border="false"
+                title="价格"
+                right-text="¥ 39.00"
+              />
+              <uni-list-item
+                :border="false"
+                title="创建时间"
+                right-text="2019-07-08  09:55:54"
+              />
+            </uni-list>
+          </navigator>
           <view class="consult-footer">
             <button class="uni-button minor">取消订单</button>
             <button class="uni-button">继续支付</button>
@@ -138,27 +149,29 @@
             </view>
             <text class="status color-2">已取消</text>
           </view>
-          <view class="consult-body">
-            <navigator hover-class="none" url="/subpkg_consult/detail/index">
-              <uni-list :border="false">
-                <uni-list-item
-                  :border="false"
-                  title="病情描述"
-                  right-text="腹痛腹泻  胃部有些痉挛"
-                />
-                <uni-list-item
-                  :border="false"
-                  title="价格"
-                  right-text="¥ 39.00"
-                />
-                <uni-list-item
-                  :border="false"
-                  title="创建时间"
-                  right-text="2019-07-08  09:55:54"
-                />
-              </uni-list>
-            </navigator>
-          </view>
+          <navigator
+            class="consult-body"
+            hover-class="none"
+            url="/subpkg_consult/order_detail/index"
+          >
+            <uni-list :border="false">
+              <uni-list-item
+                :border="false"
+                title="病情描述"
+                right-text="腹痛腹泻  胃部有些痉挛"
+              />
+              <uni-list-item
+                :border="false"
+                title="价格"
+                right-text="¥ 39.00"
+              />
+              <uni-list-item
+                :border="false"
+                title="创建时间"
+                right-text="2019-07-08  09:55:54"
+              />
+            </uni-list>
+          </navigator>
           <view class="consult-footer">
             <button class="uni-button minor">取消订单</button>
             <button class="uni-button">继续支付</button>

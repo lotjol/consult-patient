@@ -30,6 +30,12 @@
       "style": {
         "navigationBarTitleText": "登录"
       }
+    },
+    {
+      "path": "pages/test/index",
+      "style": {
+        "navigationBarTitleText": "测试"
+      }
     }
   ],
   "globalStyle": {
@@ -96,7 +102,7 @@
         }, {
           "path": "payment/index",
           "style": {
-            "navigationBarTitleText": "支付"
+            "navigationBarTitleText": "等待付款"
           }
         }, {
           "path": "room/index",
@@ -104,13 +110,13 @@
             "navigationBarTitleText": "药品订单"
           }
         }, {
-          "path": "order/index",
+          "path": "order_list/index",
           "style": {
             "navigationBarTitleText": "问诊记录"
           }
         },
         {
-          "path": "detail/index",
+          "path": "order_detail/index",
           "style": {
             "navigationBarTitleText": "问诊详情"
           }
@@ -147,6 +153,11 @@
         "path": "order_detail/index",
         "style": {
           "navigationBarTitleText": "订单详情"
+        }
+      }, {
+        "path": "success/index",
+        "style": {
+          "navigationBarTitleText": "支付成功"
         }
       }]
     }
