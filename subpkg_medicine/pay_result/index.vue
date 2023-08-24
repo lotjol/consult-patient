@@ -1,6 +1,6 @@
 <script setup></script>
 <template>
-  <view class="success-page">
+  <view class="pay-result-page">
     <view class="result">
       <uni-icons size="70" color="#20c6b2" type="checkbox-filled" />
       <view class="amount">¥ 35.00</view>
