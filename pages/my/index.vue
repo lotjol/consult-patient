@@ -141,7 +141,7 @@
             title="我的问诊"
             show-arrow
             show-extra-icon
-            to="/subpkg_consult/order/index"
+            to="/subpkg_consult/order_list/index"
             :extra-icon="{
               customPrefix: 'icon-symbol',
               type: 'icon-symbol-tool-01',

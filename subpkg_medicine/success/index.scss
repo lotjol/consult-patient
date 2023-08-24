@@ -1,0 +1,44 @@
+.success-page {
+  padding: 100rpx 60rpx;
+}
+
+.result {
+  line-height: 1;
+  text-align: center;
+
+  .amount {
+    font-size: 44rpx;
+    font-weight: 600;
+    color: #333;
+    margin-top: 30rpx;
+  }
+
+  .label {
+    font-size: 28rpx;
+    color: #3c3e42;
+    margin-top: 20rpx;
+  }
+
+  .tips {
+    line-height: 1.5;
+    padding: 0 70rpx;
+    font-size: 28rpx;
+    color: #979797;
+    margin-top: 40rpx;
+  }
+}
+
+.buttons {
+  display: flex;
+  margin-top: 60rpx;
+}
+
+.uni-button {
+  width: 280rpx;
+
+  &.plain {
+    background-color: #fff;
+    color: #20c6b2;
+    border: 1px solid #20c6b2;
+  }
+}
