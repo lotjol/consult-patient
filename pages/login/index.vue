@@ -40,6 +40,23 @@
     <custom-password v-if="tabIndex === 0"></custom-password>
     <custom-mobile v-else></custom-mobile>
   </view>
+  <!-- 社交账号登录 -->
+  <view class="social-login">
+    <view class="legend">
+      <text class="text">其它方式登录</text>
+    </view>
+    <view class="social-account">
+      <view class="icon">
+        <uni-icons color="#00b0fb" size="30" type="qq" />
+      </view>
+      <view class="icon">
+        <uni-icons color="#fb6622" size="30" type="weibo" />
+      </view>
+      <view class="icon">
+        <uni-icons color="#07C160" size="30" type="weixin" />
+      </view>
+    </view>
+  </view>
 </template>
 
 <style lang="scss">
