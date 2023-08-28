@@ -118,7 +118,9 @@
     </view>
 
     <button @click="onFormSubmit" class="uni-button">登 录</button>
-    <navigator class="uni-navigator" url=" ">忘记密码？</navigator>
+    <navigator hover-class="none" class="uni-navigator" url=" ">
+      忘记密码？
+    </navigator>
   </uni-forms>
 </template>
 
