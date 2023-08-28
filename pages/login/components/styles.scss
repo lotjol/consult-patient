@@ -22,6 +22,12 @@
     transform: scale(0.6);
   }
 
+  /* #ifdef APP */
+  :deep(.uni-radio-wrapper) {
+    transform: scale(0.9);
+  }
+  /* #endif */
+
   /* #ifdef MP */
   radio {
     transform: scale(0.6);
