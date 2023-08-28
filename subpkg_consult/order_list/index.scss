@@ -117,6 +117,48 @@
       border: 1rpx solid #16c2a3;
       background-color: #fff;
 
+      &.more {
+        flex: 1;
+        text-align: left;
+        margin-left: 0;
+        border-color: transparent;
+        color: #979797;
+        position: relative;
+      }
+
+      .list {
+        position: absolute;
+        left: 0;
+        bottom: 75rpx;
+        z-index: 99;
+        width: 160rpx;
+        text-align: center;
+        padding: 10rpx 30rpx;
+        border-radius: 10rpx;
+        font-size: 28rpx;
+        box-shadow: 0 0 30rpx rgba(50, 50, 51, 0.3);
+        background-color: #fff;
+
+        &::after {
+          position: absolute;
+          bottom: -28rpx;
+          left: 30rpx;
+          content: '';
+          border-width: 14rpx;
+          border-style: solid;
+          border-color: #fff transparent transparent transparent;
+        }
+      }
+
+      .list-item {
+        padding: 10rpx 0;
+        border-bottom: 1rpx solid #eee;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+
       &.minor {
         color: #3c3e42;
         border-color: #ededed;
