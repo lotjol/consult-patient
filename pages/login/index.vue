@@ -26,6 +26,9 @@
   function changeLoginType() {
     tabIndex.value = Math.abs(tabIndex.value - 1)
   }
+
+  // QQ 登录
+  function onQQLogin() {}
 </script>
 
 <template>
@@ -46,7 +49,7 @@
       <text class="text">其它方式登录</text>
     </view>
     <view class="social-account">
-      <view class="icon">
+      <view class="icon" @click="onQQLogin">
         <uni-icons color="#00b0fb" size="30" type="qq" />
       </view>
       <view class="icon">

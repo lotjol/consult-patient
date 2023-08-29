@@ -1,5 +1,5 @@
 {
-  "name": "优医问诊",
+  "name": "优医咨询",
   "appid": "__UNI__702A041",
   "description": "",
   "versionName": "1.0.0",
@@ -43,7 +43,9 @@
       /* ios打包配置 */
       "ios": {},
       /* SDK配置 */
-      "sdkConfigs": {}
+      "sdkConfigs": {
+        "payment": {}
+      }
     }
   },
   /* 快应用特有相关 */

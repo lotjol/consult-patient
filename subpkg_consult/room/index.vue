@@ -4,8 +4,8 @@
   import { orderDetailApi, scoreToDoctorApi } from '@/services/order'
   import { useUserStore } from '@/stores/user'
 
-  import { io } from 'socket.io-client'
-  // import io from '@hyoga/uni-socket.io'
+  // import { io } from 'socket.io-client'
+  import io from '@hyoga/uni-socket.io'
 
   // 用户数据
   const userStore = useUserStore()
@@ -61,6 +61,8 @@
     socket = io('https://consult-api.itheima.net', {
       auth: { token: 'Bearer ' + userStore.user.token },
       query: { orderId: orderId.value },
+      transports: ['websocket', 'polling'],
+      timeout: 5000,
     })
 
     // 消息列表，每次会获取一个消息的集合

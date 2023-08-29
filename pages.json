@@ -166,6 +166,16 @@
           "navigationStyle": "custom"
         }
       }]
+    },
+    {
+      "root": "uni_modules/uni-pay/pages",
+      "pages": [{
+        "path": "success/success",
+        "style": {
+          "navigationBarTitleText": "支付成功",
+          "backgroundColor": "#F8F8F8"
+        }
+      }]
     }
   ],
   "uniIdRouter": {}

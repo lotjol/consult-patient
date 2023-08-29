@@ -17,6 +17,8 @@
   const couponRef = ref()
   // 支付组件
   const paymentRef = ref()
+  // uniPay2 组件
+  const uniPayRef = ref()
 
   // 患者详情
   const patientDetail = ref({})
@@ -76,8 +78,22 @@
       if (code !== 10000) return uni.utils.toast(message)
       // 传递订单ID
       orderId.value = data.id
+
       // 展示支付渠道
+      // #ifdef APP || H5
       paymentRef.value.openPayment()
+      // #endif
+
+      // #ifdef MP-WEIXIN
+      uniPayRef.value.open({
+        total_fee: 1, // 支付金额，单位分 100 = 1元
+        order_no: '20230828120010', // 业务系统订单号（即你自己业务系统的订单表的订单号）
+        out_trade_no: '41452345265243', // 插件支付单号
+        description: '测试订单', // 支付描述
+        type: 'test', // 支付回调类型
+        custom: {}, // 自定义数据
+      })
+      // #endif
 
       // 清空问诊数据
       consultStore.reset()
@@ -164,6 +180,9 @@
   <custom-coupon ref="couponRef" />
   <!-- 在线支付 -->
   <custom-payment ref="paymentRef" />
+
+  <!-- uni-pay 2 -->
+  <uni-pay ref="uniPayRef"></uni-pay>
 </template>
 
 <style lang="scss">
