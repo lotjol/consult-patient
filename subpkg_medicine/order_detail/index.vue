@@ -11,7 +11,7 @@
         <view class="order-shippment">
           <template v-if="true">
             <view class="region">
-              <uni-icons size="16" color="#FF7702" type="location-filled" />
+              <text class="iconfont icon-location"></text>
               广东省广州市
             </view>
             <view class="detail">大华区明离路科技园880号</view>

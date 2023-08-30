@@ -8,12 +8,20 @@
   const menuButton = uni.getMenuButtonBoundingClientRect()
   top = menuButton.top - (50 - menuButton.height) / 2 + 'px'
   // #endif
+
+  function onBackClick() {
+    uni.navigateBack({ delta: 1 })
+  }
 </script>
 
 <template>
   <view class="timeline-page">
     <map latitude="40.0586531" longitude="116.3385867" class="uni-map" />
     <cover-view :style="{ paddingTop: top }" class="navigator-bar">
+      <cover-view @click="onBackClick" class="icon-back">
+        <cover-image src="/static/images/icon-back.png" />
+      </cover-view>
+
       <cover-view class="title">派送中</cover-view>
     </cover-view>
     <cover-view class="timeline-meta">
@@ -32,7 +40,14 @@
           </view>
         </view>
         <view class="line">
-          <view class="badge text">收</view>
+          <view class="badge icon">
+            <uni-icons
+              custom-prefix="iconfont"
+              color="#2cb5a5"
+              size="15"
+              type="icon-checked"
+            />
+          </view>
           <view class="label">已签收</view>
           <view class="content">
             您的订单已由本人签收。如有疑问请联系配送员【赵赵，18332566962】确认。感谢您在优医购用，欢迎再次光临。
@@ -41,7 +56,11 @@
         </view>
         <view class="line">
           <view class="badge icon">
-            <uni-icons color="#C3C3C5" type="wallet" />
+            <uni-icons
+              color="#2cb5a5"
+              custom-prefix="iconfont"
+              type="icon-truck"
+            />
           </view>
           <view class="label">派送中</view>
           <view class="content">

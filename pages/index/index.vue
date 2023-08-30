@@ -36,6 +36,7 @@
     >
       <!-- 页面导航 -->
       <view :style="navbarStyle" class="page-navbar">优医</view>
+
       <!-- 搜索栏 -->
       <view class="search-bar">
         <input
@@ -44,6 +45,9 @@
           class="input"
           type="text"
         />
+        <view class="icon-search">
+          <uni-icons size="22" color="#C3C3C5" type="search" />
+        </view>
       </view>
       <!-- 快速入口 -->
       <view class="quick-entry">

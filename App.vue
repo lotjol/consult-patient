@@ -14,6 +14,7 @@
 
 <style lang="scss">
   @import 'fonts.scss';
+  @import '@/static/fonts/iconfont.scss';
 
   image {
     vertical-align: middle;

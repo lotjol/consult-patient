@@ -9,7 +9,7 @@
 
 .navigator-bar {
   position: absolute;
-  top: 25px;
+  top: 10px;
   left: 10px;
   right: 10px;
   height: 44px;
@@ -20,6 +20,10 @@
   border-radius: 4px;
   background-color: #fff;
 
+  /* #ifdef APP */
+  top: 25px;
+  /* #endif */
+
   /* #ifdef MP-WEIXIN */
   height: 50px;
   top: 0;
@@ -27,6 +31,14 @@
   right: 0px;
   border-radius: 0;
   /* #endif */
+
+  .icon-back {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    left: 0;
+    padding: 14px;
+  }
 }
 
 .timeline-meta {

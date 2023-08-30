@@ -15,7 +15,7 @@
             请描述你的疾病或症状、是否用药、就诊经历，需要我听过什么样的帮助
           </view>
           <view class="tips">
-            <uni-icons type="shop" color="#6f6f6f"></uni-icons>
+            <text class="iconfont icon-shield"></text>
             内容仅医生可见
           </view>
         </view>

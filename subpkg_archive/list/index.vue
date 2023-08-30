@@ -28,8 +28,17 @@
               <text class="gender">男</text>
               <text class="age">32岁</text>
             </view>
-            <navigator class="edit-link" url="/subpkg_archive/add/index">
-              <uni-icons type="link" size="28" color="#16C2A3"></uni-icons>
+            <navigator
+              hover-class="none"
+              class="edit-link"
+              url="/subpkg_archive/add/index"
+            >
+              <uni-icons
+                type="icon-edit"
+                size="20"
+                color="#16C2A3"
+                custom-prefix="iconfont"
+              />
             </navigator>
           </view>
         </uni-swipe-action-item>
@@ -44,6 +53,18 @@
               <text class="gender">男</text>
               <text class="age">32岁</text>
             </view>
+            <navigator
+              hover-class="none"
+              class="edit-link"
+              url="/subpkg_archive/add/index"
+            >
+              <uni-icons
+                type="icon-edit"
+                size="20"
+                color="#16C2A3"
+                custom-prefix="iconfont"
+              />
+            </navigator>
           </view>
         </uni-swipe-action-item>
       </uni-swipe-action>
@@ -55,7 +76,7 @@
           hover-class="none"
           url="/subpkg_archive/add/index"
         >
-          <uni-icons color="#16C2A3" size="24" type="plusempty"></uni-icons>
+          <uni-icons color="#16C2A3" size="24" type="plusempty" />
           <text class="label">添加患者</text>
         </navigator>
       </view>

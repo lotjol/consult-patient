@@ -42,6 +42,13 @@
   .input-placeholder {
     color: #979797;
   }
+
+  .icon-search {
+    position: absolute;
+    top: 50%;
+    transform: translate(24rpx, -50%);
+    margin-top: 2rpx;
+  }
 }
 
 .quick-entry {

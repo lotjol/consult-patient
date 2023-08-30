@@ -11,7 +11,7 @@
         ></image>
         <view class="user-info">
           <text class="nickname">用户907456</text>
-          <text class="icon-edit">修改</text>
+          <text class="iconfont icon-edit"></text>
         </view>
       </view>
       <!-- 用户数据 -->

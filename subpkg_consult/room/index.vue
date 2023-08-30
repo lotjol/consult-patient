@@ -24,7 +24,7 @@
         </view>
         <view v-else class="status">
           <view class="wrap">
-            <uni-icons size="20" color="#121826" type="checkbox-filled" />
+            <text class="iconfont icon-done"></text>
             已结束
           </view>
         </view>
