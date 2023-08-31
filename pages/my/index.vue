@@ -89,12 +89,12 @@
       <!-- 药品订单 -->
       <custom-section show-arrow title="药品订单">
         <template #right>
-          <navigator hover-class="none" url="/subpkg_medicine/list/index">
+          <navigator hover-class="none" url="/subpkg_medicine/order_list/index">
             全部订单
           </navigator>
         </template>
         <view class="drug-order">
-          <navigator hover-class="none" url="/subpkg_medicine/list/index">
+          <navigator hover-class="none" url="/subpkg_medicine/order_list/index">
             <uni-badge :text="0" :offset="[3, 3]" absolute="rightTop">
               <image
                 src="/static/images/order-status-1.png"
@@ -103,7 +103,7 @@
             </uni-badge>
             <text class="status-label">待付款</text>
           </navigator>
-          <navigator hover-class="none" url="/subpkg_medicine/list/index">
+          <navigator hover-class="none" url="/subpkg_medicine/order_list/index">
             <uni-badge text="2" :offset="[3, 3]" absolute="rightTop">
               <image
                 src="/static/images/order-status-2.png"
@@ -112,7 +112,7 @@
             </uni-badge>
             <text class="status-label">待付款</text>
           </navigator>
-          <navigator hover-class="none" url="/subpkg_medicine/list/index">
+          <navigator hover-class="none" url="/subpkg_medicine/order_list/index">
             <uni-badge :text="0" :offset="[3, 3]" absolute="rightTop">
               <image
                 src="/static/images/order-status-3.png"
@@ -121,7 +121,7 @@
             </uni-badge>
             <text class="status-label">待付款</text>
           </navigator>
-          <navigator hover-class="none" url="/subpkg_medicine/list/index">
+          <navigator hover-class="none" url="/subpkg_medicine/order_list/index">
             <uni-badge :text="0" :offset="[3, 3]" absolute="rightTop">
               <image
                 src="/static/images/order-status-4.png"
@@ -149,10 +149,9 @@
           />
           <uni-list-item
             :border="false"
-            title="药品订单"
+            title="我的处方"
             show-arrow
             show-extra-icon
-            to="/subpkg_medicine/order_list/index"
             :extra-icon="{
               customPrefix: 'icon-symbol',
               type: 'icon-symbol-tool-02',
