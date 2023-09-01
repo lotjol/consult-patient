@@ -2,7 +2,7 @@
   import { ref, computed } from 'vue'
   import { onShow } from '@dcloudio/uni-app'
   import { patientListApi, removePatientApi } from '@/services/patinet'
-  import { useConsultStore } from '../../stores/consult'
+  import { useConsultStore } from '@/stores/consult'
 
   // 问诊信息（跨页面共享）
   const consultStore = useConsultStore()
@@ -99,9 +99,7 @@
             <view class="archive-info">
               <text class="name">{{ patient.name }}</text>
               <text class="id-card">
-                {{
-                  patient.idCard.replace(/(?<=\d{6})\d{8}(?=\d{4})/, '********')
-                }}
+                {{ patient.idCard.replace(/^(.{6}).+(.{4})$/, '$1********$2') }}
               </text>
               <text v-if="patient.defaultFlag === 1" class="default">默认</text>
             </view>
