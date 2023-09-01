@@ -65,9 +65,7 @@
             <view class="archive-info">
               <text class="name">{{ patient.name }}</text>
               <text class="id-card">
-                {{
-                  patient.idCard.replace(/(?<=\d{6})\d{8}(?=\d{4})/, '********')
-                }}
+                {{ patient.idCard.replace(/^(.{6}).+(.{4})$/, '$1********$2') }}
               </text>
               <text v-if="patient.defaultFlag === 1" class="default">默认</text>
             </view>
