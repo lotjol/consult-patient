@@ -1,5 +1,5 @@
 .consult-page {
-  padding-bottom: 155rpx;
+  padding-bottom: calc(env(safe-area-inset-bottom) + 155rpx);
 
   .list-title {
     margin: 30rpx 0 10rpx;
@@ -170,7 +170,7 @@
   text-align: center;
   margin-top: 30rpx;
   position: sticky;
-  bottom: 145rpx;
+  bottom: calc(env(safe-area-inset-bottom) + 145rpx);
 }
 
 .toolbar {
@@ -182,7 +182,7 @@
   display: flex;
   align-items: center;
   height: 88rpx;
-  padding: 30rpx 40rpx;
+  padding: 30rpx 40rpx calc(env(safe-area-inset-bottom) + 30rpx);
   background-color: #fff;
 
   .buttons {
@@ -194,6 +194,7 @@
     display: flex;
     flex-direction: column;
     color: #848484;
+    text-align: center;
     font-size: 24rpx;
     margin: 0 60rpx 0 30rpx;
   }

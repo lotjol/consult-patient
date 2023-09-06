@@ -1,4 +1,4 @@
-.brief-page {
+.description-page {
   padding: 30rpx 30px 200rpx;
 }
 
@@ -128,10 +128,10 @@
 }
 
 .next-step {
-  position: fixed;
+  position: sticky;
   right: 0;
   left: 0;
-  bottom: 0;
+  bottom: env(safe-area-inset-bottom);
   z-index: 100;
   padding: 30rpx 40rpx;
   background-color: #fff;

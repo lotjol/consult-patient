@@ -1,6 +1,6 @@
 .uni-forms-item {
-  height: 90rpx;
-  margin-bottom: 20rpx !important;
+  height: 80rpx;
+  margin-bottom: 30rpx !important;
   border-bottom: 1rpx solid #ededed;
   box-sizing: border-box;
   position: relative;
@@ -33,33 +33,24 @@
   }
 }
 
+:deep(.uniui-eye-filled),
+:deep(.uniui-eye-slash-filled) {
+  color: #6f6f6f !important;
+}
+
 :deep(.uni-forms-item__content) {
   display: flex;
   align-items: center;
 }
 
-:deep(input) {
-  width: 100%;
-  font-size: 28rpx;
-  color: #121826;
-}
-
 :deep(.uni-forms-item__error) {
   width: 100%;
   padding-top: 10rpx;
+  padding-left: 10rpx;
   border-top: 2rpx solid #eb5757;
   color: #eb5757;
   font-size: 24rpx;
   transition: none;
-}
-
-.uni-icon {
-  width: 88rpx;
-  height: 100%;
-  margin-left: 20rpx;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .text-button {

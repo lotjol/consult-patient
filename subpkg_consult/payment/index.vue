@@ -1,11 +1,14 @@
 <script setup>
   import { ref } from 'vue'
 
-  import customCoupon from './components/coupon.vue'
-  import customPayment from './components/payment.vue'
-
   const couponRef = ref()
   const paymentRef = ref()
+
+  function onPaymentConfirm() {
+    uni.navigateTo({
+      url: '/subpkg_consult/room/index',
+    })
+  }
 </script>
 
 <template>
@@ -28,7 +31,7 @@
             title="优惠券"
             show-arrow
             clickable
-            @click="couponRef.openCoupon()"
+            @click="couponRef.open()"
             right-text="-¥10.00"
           />
           <uni-list-item title="积分抵扣">
@@ -72,9 +75,7 @@
       <view class="total-amount">
         合计: <text class="number">¥39.00</text>
       </view>
-      <button class="uni-button" @click="paymentRef.openPayment()">
-        立即支付
-      </button>
+      <button class="uni-button" @click="paymentRef.open()">立即支付</button>
     </view>
   </scroll-page>
 
@@ -82,7 +83,7 @@
   <custom-coupon ref="couponRef" />
 
   <!-- 在线支付 -->
-  <custom-payment ref="paymentRef" />
+  <custom-payment amount="39.00" @confirm="onPaymentConfirm" ref="paymentRef" />
 </template>
 
 <style lang="scss">

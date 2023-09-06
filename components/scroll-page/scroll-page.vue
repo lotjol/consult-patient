@@ -120,12 +120,7 @@
 </template>
 
 <style lang="scss">
-  :deep(.uni-scroll-view-content) {
-    display: flex;
-    flex-direction: column;
-  }
-
   .scroll-page-content {
-    flex: 1;
+    margin-bottom: env(safe-area-inset-bottom);
   }
 </style>

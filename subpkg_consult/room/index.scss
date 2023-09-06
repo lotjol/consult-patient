@@ -1,5 +1,5 @@
 .room-page {
-  padding-bottom: 200rpx;
+  padding-bottom: calc(env(safe-area-inset-bottom) + 200rpx);
 }
 
 .room-status {
@@ -333,7 +333,7 @@
   bottom: 0;
 
   display: flex;
-  padding: 30rpx 30rpx 40rpx;
+  padding: 30rpx 30rpx calc(env(safe-area-inset-bottom) + 40rpx);
   background-color: #fff;
 
   :deep(.is-disabled) {

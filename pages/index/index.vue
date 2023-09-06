@@ -1,10 +1,8 @@
 <script setup>
   import { ref, computed } from 'vue'
 
-  import customFollow from './components/follow.vue'
-  import customRecommend from './components/recommend.vue'
-  import customFatLoss from './components/fat-loss.vue'
-  import customDiet from './components/diet.vue'
+  import customFeed from './components/feed.vue'
+  import customDoctor from './components/doctor.vue'
 
   const { safeAreaInsets } = uni.getSystemInfoSync()
 
@@ -56,7 +54,7 @@
             class="quick-entry-icon"
             src="/static/images/quick-entry-1.png"
           />
-          <text class="text">问医生</text>
+          <text class="label">问医生</text>
           <text class="small">按科室查问医生</text>
         </navigator>
         <navigator
@@ -68,7 +66,7 @@
             class="quick-entry-icon"
             src="/static/images/quick-entry-2.png"
           />
-          <text class="text">极速问诊</text>
+          <text class="label">极速问诊</text>
           <text class="small">20s医生极速回复</text>
         </navigator>
         <navigator hover-class="none" class="quick-entry-item">
@@ -76,39 +74,47 @@
             class="quick-entry-icon"
             src="/static/images/quick-entry-3.png"
           />
-          <text class="text">开药门诊</text>
+          <text class="label">开药门诊</text>
           <text class="small">线上买药更方便</text>
         </navigator>
       </view>
       <!-- 快速查看 -->
       <view class="quick-view">
-        <navigator hover-class="none" class="quick-view-item">
+        <navigator
+          hover-class="none"
+          class="quick-view-item"
+          url="/subpkg_medicine/order_list/index"
+        >
           <image
             class="quick-view-icon"
             src="/static/images/quick-view-1.png"
           />
-          <text class="text">药品订单</text>
+          <text class="label">药品订单</text>
         </navigator>
-        <navigator hover-class="none" class="quick-view-item">
+        <navigator
+          hover-class="none"
+          class="quick-view-item"
+          url="/subpkg_archive/list/index"
+        >
           <image
             class="quick-view-icon"
             src="/static/images/quick-view-2.png"
           />
-          <text class="text">健康档案</text>
+          <text class="label">健康档案</text>
         </navigator>
         <navigator hover-class="none" class="quick-view-item">
           <image
             class="quick-view-icon"
             src="/static/images/quick-view-3.png"
           />
-          <text class="text">我的处方</text>
+          <text class="label">我的处方</text>
         </navigator>
         <navigator hover-class="none" class="quick-view-item">
           <image
             class="quick-view-icon"
             src="/static/images/quick-view-4.png"
           />
-          <text class="text">疾病查询</text>
+          <text class="label">疾病查询</text>
         </navigator>
       </view>
       <!-- 广告位 -->
@@ -144,10 +150,8 @@
         <custom-sticky :offset-top="safeAreaInsets.top + 'px'">
           <custom-tabs @click="onFeedTabChange" :list="feedTabs"></custom-tabs>
         </custom-sticky>
-        <custom-follow v-show="tabIndex === 0" v-if="feedTabs[0].rendered" />
-        <custom-recommend v-show="tabIndex === 1" v-if="feedTabs[1].rendered" />
-        <custom-fat-loss v-show="tabIndex === 2" v-if="feedTabs[2].rendered" />
-        <custom-diet v-show="tabIndex === 3" v-if="feedTabs[3].rendered" />
+        <custom-doctor />
+        <custom-feed />
       </view>
     </view>
   </scroll-page>

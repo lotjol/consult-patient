@@ -3,18 +3,18 @@
 <template>
   <uni-forms class="login-form" ref="form">
     <uni-forms-item name="name">
-      <input
-        type="text"
+      <uni-easyinput
+        :input-border="false"
+        :clearable="false"
         placeholder="请输入手机号"
-        class="uni-input-input"
         placeholder-style="color: #C3C3C5"
       />
     </uni-forms-item>
     <uni-forms-item name="name">
-      <input
-        type="text"
+      <uni-easyinput
+        :input-border="false"
+        :clearable="false"
         placeholder="请输入验证码"
-        class="uni-input-input"
         placeholder-style="color: #C3C3C5"
       />
       <text class="text-button">获取验证码</text>

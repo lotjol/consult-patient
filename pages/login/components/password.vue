@@ -3,24 +3,20 @@
 <template>
   <uni-forms class="login-form" ref="form">
     <uni-forms-item name="mobile">
-      <input
-        type="text"
+      <uni-easyinput
+        :input-border="false"
+        :clearable="false"
         placeholder="请输入手机号"
-        class="uni-input-input"
         placeholder-style="color: #C3C3C5"
       />
     </uni-forms-item>
     <uni-forms-item name="password">
-      <input
-        type="text"
+      <uni-easyinput
+        type="password"
         placeholder="请输入密码"
-        class="uni-input-input"
+        :input-border="false"
         placeholder-style="color: #C3C3C5"
       />
-      <view class="uni-icon">
-        <uni-icons v-if="true" size="18" color="#6F6F6F" type="eye-slash" />
-        <uni-icons v-else size="18" color="#6F6F6F" type="eye" />
-      </view>
     </uni-forms-item>
     <view class="agreement">
       <radio :checked="false" color="#16C2A3" />

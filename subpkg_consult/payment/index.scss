@@ -88,7 +88,7 @@
   display: flex;
   align-items: center;
   height: 88rpx;
-  padding: 30rpx 40rpx;
+  padding: 30rpx 40rpx calc(env(safe-area-inset-bottom) + 30rpx);
   background-color: #fff;
 
   .uni-button {

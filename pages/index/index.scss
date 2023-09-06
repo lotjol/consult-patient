@@ -63,7 +63,7 @@
     flex-direction: column;
   }
 
-  .text {
+  .label {
     margin: 20rpx 0 10rpx;
     font-size: 28rpx;
     color: #121826;
@@ -72,7 +72,6 @@
   .small {
     font-size: 22rpx;
     color: #848484;
-    -webkit-text-size-adjust: none;
   }
 
   &-icon {
@@ -93,7 +92,7 @@
     flex-direction: column;
   }
 
-  .text {
+  .label {
     margin: 20rpx 0 10rpx;
     font-size: 28rpx;
     color: #121826;

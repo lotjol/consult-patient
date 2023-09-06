@@ -35,6 +35,7 @@
   }
 
   function close() {
+    console.log(111)
     paymentPopup.value.close()
   }
 

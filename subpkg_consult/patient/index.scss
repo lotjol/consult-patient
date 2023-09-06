@@ -1,5 +1,5 @@
 .patient-page {
-  padding: 30rpx 30rpx 200rpx;
+  padding: 30rpx 30rpx calc(env(safe-area-inset-bottom) + 200rpx);
 }
 
 .page-header {
@@ -100,7 +100,7 @@
   right: 0;
   left: 0;
   bottom: 0;
-  padding: 30rpx 40rpx;
+  padding: 30rpx 40rpx calc(env(safe-area-inset-bottom) + 30rpx);
   background-color: #fff;
 }
 

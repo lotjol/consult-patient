@@ -2,7 +2,7 @@
 
 <template>
   <scroll-page>
-    <view class="brief-page">
+    <view class="description-page">
       <!-- 在线医生 -->
       <view class="doctor-online">
         <image

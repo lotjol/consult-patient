@@ -1,5 +1,5 @@
 .medicine-page {
-  padding-bottom: 200rpx;
+  padding-bottom: calc(env(safe-area-inset-bottom) + 200rpx);
 }
 
 .page-header {
@@ -188,7 +188,7 @@
   display: flex;
   align-items: center;
   height: 88rpx;
-  padding: 30rpx 40rpx;
+  padding: 30rpx 40rpx calc(env(safe-area-inset-bottom) + 30rpx);
   background-color: #fff;
 
   .buttons {
