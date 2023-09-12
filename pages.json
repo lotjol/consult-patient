@@ -131,7 +131,7 @@
           "navigationBarTitleText": "家庭档案"
         }
       }, {
-        "path": "add/index",
+        "path": "form/index",
         "style": {
           "navigationBarTitleText": "添加患者"
         }

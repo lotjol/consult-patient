@@ -36,7 +36,7 @@
             <navigator
               hover-class="none"
               class="edit-link"
-              url="/subpkg_archive/add/index"
+              url="/subpkg_archive/form/index"
             >
               <uni-icons
                 type="icon-edit"
@@ -61,7 +61,7 @@
             <navigator
               hover-class="none"
               class="edit-link"
-              url="/subpkg_archive/add/index"
+              url="/subpkg_archive/form/index"
             >
               <uni-icons
                 type="icon-edit"
@@ -79,7 +79,7 @@
         <navigator
           class="add-link"
           hover-class="none"
-          url="/subpkg_archive/add/index"
+          url="/subpkg_archive/form/index"
         >
           <uni-icons color="#16C2A3" size="24" type="plusempty" />
           <text class="label">添加患者</text>
