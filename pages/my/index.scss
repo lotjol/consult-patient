@@ -160,3 +160,14 @@
 :deep(.uni-icons) {
   display: block !important;
 }
+
+.logout-button {
+  height: 88rpx;
+  text-align: center;
+  line-height: 88rpx;
+  margin: 40rpx 0 30rpx;
+  border-radius: 20rpx;
+  font-size: 32rpx;
+  color: #3c3e42;
+  background-color: #fff;
+}

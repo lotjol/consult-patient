@@ -54,9 +54,10 @@
 }
 
 .text-button {
-  width: 300rpx;
+  display: flex;
+  justify-content: flex-end;
+  width: 240rpx;
   padding-left: 10rpx;
-  text-align: center;
   font-size: 28rpx;
   color: #16c2a3;
   border-left: 2rpx solid #eee;

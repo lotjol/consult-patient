@@ -121,6 +121,6 @@
 
 <style lang="scss">
   .scroll-page-content {
-    margin-bottom: env(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
   }
 </style>

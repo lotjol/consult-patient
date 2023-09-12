@@ -212,6 +212,9 @@
           />
         </uni-list>
       </custom-section>
+
+      <!-- 退出登录 -->
+      <view class="logout-button">退出登录</view>
     </view>
   </scroll-page>
 </template>
