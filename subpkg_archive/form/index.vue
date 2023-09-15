@@ -1,7 +1,4 @@
-<script setup>
-  import { ref } from 'vue'
-  const isDefault = ref([0])
-</script>
+<script setup></script>
 
 <template>
   <scroll-page>
@@ -29,8 +26,8 @@
           <uni-data-checkbox
             selectedColor="#16C2A3"
             :localdata="[
-              { text: '男', value: 0 },
-              { text: '女', value: 1 },
+              { text: '男', value: 1 },
+              { text: '女', value: 0 },
             ]"
           />
         </uni-forms-item>

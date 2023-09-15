@@ -22,58 +22,6 @@
           <view class="level">主任医师</view>
           <view class="follow">+ 关注</view>
         </view>
-        <view class="doctor-list-item">
-          <image
-            class="doctor-avatar"
-            src="/static/uploads/doctor-avatar.jpg"
-          />
-          <view class="name">王医生</view>
-          <view class="unit"
-            >积水潭 皮肤科积水潭 皮肤科积水潭 皮肤科积水潭 皮肤科积水潭
-            皮肤科</view
-          >
-          <view class="level">主任医师</view>
-          <view class="follow">+ 关注</view>
-        </view>
-        <view class="doctor-list-item">
-          <image
-            class="doctor-avatar"
-            src="/static/uploads/doctor-avatar.jpg"
-          />
-          <view class="name">王医生</view>
-          <view class="unit"
-            >积水潭 皮肤科积水潭 皮肤科积水潭 皮肤科积水潭 皮肤科积水潭
-            皮肤科</view
-          >
-          <view class="level">主任医师</view>
-          <view class="follow">+ 关注</view>
-        </view>
-        <view class="doctor-list-item">
-          <image
-            class="doctor-avatar"
-            src="/static/uploads/doctor-avatar.jpg"
-          />
-          <view class="name">王医生</view>
-          <view class="unit"
-            >积水潭 皮肤科积水潭 皮肤科积水潭 皮肤科积水潭 皮肤科积水潭
-            皮肤科</view
-          >
-          <view class="level">主任医师</view>
-          <view class="follow">+ 关注</view>
-        </view>
-        <view class="doctor-list-item">
-          <image
-            class="doctor-avatar"
-            src="/static/uploads/doctor-avatar.jpg"
-          />
-          <view class="name">王医生</view>
-          <view class="unit"
-            >积水潭 皮肤科积水潭 皮肤科积水潭 皮肤科积水潭 皮肤科积水潭
-            皮肤科</view
-          >
-          <view class="level">主任医师</view>
-          <view class="follow">+ 关注</view>
-        </view>
       </view>
     </scroll-view>
   </view>

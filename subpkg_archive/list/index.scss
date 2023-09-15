@@ -10,6 +10,10 @@
   color: #6f6f6f;
 }
 
+:deep(.uni-swipe) {
+  margin-bottom: 30rpx;
+}
+
 .archive-card {
   display: flex;
   flex-direction: column;
@@ -19,7 +23,6 @@
 
   height: 180rpx;
   padding: 30rpx;
-  margin-bottom: 30rpx;
   border-radius: 10rpx;
   box-sizing: border-box;
   border: 1rpx solid transparent;
@@ -90,8 +93,4 @@
     font-size: 28rpx;
     color: #16c2a3;
   }
-}
-
-:deep(.uni-swipe_button-group) {
-  bottom: 30rpx;
 }

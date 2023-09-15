@@ -1,12 +1,11 @@
 <script setup>
-  import { ref, computed } from 'vue'
-
-  import customFeed from './components/feed.vue'
-  import customDoctor from './components/doctor.vue'
-
+  import { ref } from 'vue'
+  // 获取安全区域数据
   const { safeAreaInsets } = uni.getSystemInfoSync()
 
+  // 标签页索引值
   const tabIndex = ref(0)
+  // 标签页数据
   const feedTabs = ref([
     { label: '关注', rendered: true },
     { label: '推荐', rendered: false },
@@ -14,15 +13,9 @@
     { label: '饮食', rendered: false },
   ])
 
-  const navbarStyle = computed(() => {
-    return {
-      paddingTop: safeAreaInsets.top + 'px',
-    }
-  })
-
+  // 切换标签页
   function onFeedTabChange({ index }) {
     tabIndex.value = index
-    feedTabs.value[index].rendered = true
   }
 </script>
 
@@ -33,7 +26,12 @@
       :style="{ backgroundPositionY: -48 + safeAreaInsets.top + 'px' }"
     >
       <!-- 页面导航 -->
-      <view :style="navbarStyle" class="page-navbar">优医</view>
+      <view
+        :style="{ paddingTop: safeAreaInsets.top + 'px' }"
+        class="page-navbar"
+      >
+        优医
+      </view>
 
       <!-- 搜索栏 -->
       <view class="search-bar">
@@ -60,7 +58,7 @@
         <navigator
           hover-class="none"
           class="quick-entry-item"
-          url="../../subpkg_consult/quickly/index"
+          url="/subpkg_consult/quickly/index"
         >
           <image
             class="quick-entry-icon"
@@ -142,16 +140,13 @@
           </swiper-item>
         </swiper>
       </view>
-      <!-- 数据流 -->
       <view
         class="doctor-feeds"
         :style="{ marginTop: -safeAreaInsets.top + 'px' }"
       >
         <custom-sticky :offset-top="safeAreaInsets.top + 'px'">
-          <custom-tabs @click="onFeedTabChange" :list="feedTabs"></custom-tabs>
+          <custom-tabs @click="onFeedTabChange" :list="feedTabs" />
         </custom-sticky>
-        <custom-doctor />
-        <custom-feed />
       </view>
     </view>
   </scroll-page>
