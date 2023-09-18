@@ -4,17 +4,11 @@
   // 在线支付弹层
   const paymentPopup = ref()
 
-  // 组件属性
-  const paymentProps = defineProps({
-    // 支付金额
-    amount: {
-      type: [Number, String],
-      default: 0,
-    },
-  })
-
   // 组件事件方法
   const paymentEmits = defineEmits(['confirm', 'change', 'close'])
+
+  // 支付渠道的索引
+  const channelIndex = ref(0)
 
   // 支付渠道列表
   const paymentChannel = [
@@ -27,15 +21,25 @@
       thumb: '/static/images/alipay-icon.png',
     },
   ]
-  // 支付渠道的索引
-  const channelIndex = ref(0)
 
+  // 组件属性
+  const paymentProps = defineProps({
+    // 待支付订单ID
+    orderId: String,
+    // 支付金额
+    amount: {
+      type: [Number, String],
+      default: 0,
+    },
+  })
+
+  // 显示弹层
   function open() {
     paymentPopup.value.open()
   }
 
+  // 关闭弹层
   function close() {
-    console.log(111)
     paymentPopup.value.close()
   }
 
@@ -66,13 +70,17 @@
           :key="channel.title"
           :title="channel.title"
           :thumb="channel.thumb"
+          clickable
+          @click="channelIndex = index"
         >
           <template #footer>
-            <radio
-              @click="channelIndex = index"
-              :checked="channelIndex === index"
+            <uni-icons
+              v-if="channelIndex === index"
+              size="26"
               color="#16C2A3"
+              type="checkbox-filled"
             />
+            <uni-icons v-else size="26" color="#d1d1d1" type="circle" />
           </template>
         </uni-list-item>
       </uni-list>
@@ -128,21 +136,16 @@
       padding: 40rpx 0 !important;
     }
 
+    :deep(.uni-list-item--hover) {
+      background-color: #fff !important;
+    }
+
     :deep(.uni-list-item__icon) {
       margin-right: 0;
     }
 
     .uni-button {
       margin-top: 40rpx;
-    }
-
-    :deep(.uni-radio-input),
-    radio {
-      transform: scale(0.9);
-      margin-top: 1rpx;
-      /* #ifndef MP */
-      margin-right: 4rpx;
-      /* #endif */
     }
   }
 </style>
