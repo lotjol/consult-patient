@@ -7,15 +7,9 @@
         <image class="doctor-avatar" src="/static/uploads/doctor-avatar.jpg" />
         <view class="doctor-info">
           <text class="name">王医生</text>
-          <text class="desc"
-            >积水潭 皮肤科 主任医师积水潭 皮肤科 主任医师积水潭 皮肤科
-            主任医师积水潭 皮肤科 主任医师</text
-          >
+          <text class="desc">积水潭 皮肤科 主任医师</text>
         </view>
-        <button class="doctor-button" plain>
-          <uni-icons type="plusempty" color="#2CB5A5" size="12"></uni-icons>
-          <text> 关注</text>
-        </button>
+        <button class="doctor-button" plain>+ 关注</button>
       </view>
       <view class="feed-topic"> 炎热夏季如何防晒？ </view>
       <view class="feed-relation"># 儿童健康</view>
@@ -93,7 +87,6 @@
   }
 
   .doctor-button {
-    display: flex;
     width: 140rpx;
     height: 56rpx;
     line-height: 56rpx;

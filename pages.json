@@ -107,7 +107,7 @@
         }, {
           "path": "room/index",
           "style": {
-            "navigationBarTitleText": "药品订单"
+            "navigationBarTitleText": "问诊室"
           }
         }, {
           "path": "order_list/index",

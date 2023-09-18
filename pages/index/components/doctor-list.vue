@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+  const props = defineProps({
+    list: Array,
+  })
+</script>
 
 <template>
   <view class="doctor-list">
@@ -15,12 +19,9 @@
             src="/static/uploads/doctor-avatar.jpg"
           />
           <view class="name">王医生</view>
-          <view class="unit"
-            >积水潭 皮肤科积水潭 皮肤科积水潭 皮肤科积水潭 皮肤科积水潭
-            皮肤科</view
-          >
+          <view class="unit">积水潭 皮肤科</view>
           <view class="level">主任医师</view>
-          <view class="follow">+ 关注</view>
+          <button class="follow">+ 关注</button>
         </view>
       </view>
     </scroll-view>
