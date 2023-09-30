@@ -1,7 +1,7 @@
 <template>
   <!-- 咨询室状态 -->
   <view class="room-status">
-    <view class="status" v-if="false">
+    <view class="status countdown" v-if="false">
       <text class="label">咨询中</text>
       <view class="time">
         剩余时间:
@@ -19,10 +19,8 @@
       已通知医生尽快接诊，24小时内医生未回复将自动退款
     </view>
     <view v-else class="status">
-      <view class="wrap">
-        <text class="iconfont icon-done"></text>
-        已结束
-      </view>
+      <text class="iconfont icon-done"></text>
+      已结束
     </view>
   </view>
 </template>
@@ -38,24 +36,21 @@
 
     .status {
       display: flex;
-      justify-content: space-between;
       padding: 30rpx;
       background-color: #fff;
     }
 
     .waiting {
-      justify-content: center;
       color: #16c2a3;
       background-color: #eaf8f6;
     }
 
-    .label {
-      color: #16c2a3;
+    .countdown {
+      justify-content: space-between;
     }
 
-    .wrap {
-      display: flex;
-      align-items: center;
+    .label {
+      color: #16c2a3;
     }
 
     .icon-done {
