@@ -19,13 +19,18 @@
   .message-tips {
     display: flex;
     justify-content: center;
+    margin-top: 60rpx;
+
+    &:first-child {
+      margin-top: 30rpx;
+    }
   }
 
   .wrapper {
     line-height: 1;
     text-align: center;
     padding: 20rpx 30rpx;
-    margin-top: 60rpx;
+    // margin-top: 60rpx;
     font-size: 24rpx;
     border-radius: 70rpx;
     color: #848484;

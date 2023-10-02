@@ -39,4 +39,11 @@
       background-color: #ace8e0 !important;
     }
   }
+
+  .empty-tips {
+    margin-top: 40rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #c3c3c5;
+  }
 </style>
