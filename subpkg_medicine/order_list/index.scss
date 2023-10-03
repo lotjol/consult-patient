@@ -3,8 +3,9 @@
   /* #ifdef H5 */
   height: calc(100vh - 44px);
   /* #endif */
+  box-sizing: border-box;
   background-color: #f6f6f6;
-  padding-bottom: calc(env(safe-area-inset-bottom) - 30rpx);
+  padding-bottom: calc(env(safe-area-inset-bottom) + 20rpx);
 
   display: flex;
   flex-direction: column;
