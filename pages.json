@@ -36,6 +36,12 @@
       "style": {
         "navigationBarTitleText": "测试"
       }
+    }, {
+      "path": "pages/login/qq",
+      "style": {
+        "navigationBarTitleText": "QQ登录",
+        "enablePullDownRefresh": false
+      }
     }
   ],
   "globalStyle": {
